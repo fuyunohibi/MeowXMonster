@@ -36,7 +36,6 @@
 
 # How to compile the game on macOS
 ##### 1. Install the dependencies:
-   + [MinGW](https://sourceforge.net/projects/mingw-w64/)
    + [raylib](https://github.com/raysan5/raylib)
 
 ##### 2. Navigate to Project:
@@ -91,5 +90,5 @@ First, compile and install `raylib`:
 `./compiled-raylib-game`
 
 
-## How to play
+# How to play
 
