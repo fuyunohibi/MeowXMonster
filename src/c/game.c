@@ -1,22 +1,58 @@
 #include "../../include/raylib.h"
 #include "../../include/raymath.h"
+#include <stdio.h>
 
-#define SCREEN_WIDTH 800
-#define SCREEN_HEIGHT 600
+#define SCREEN_WIDTH 2880
+#define SCREEN_HEIGHT 1700
+#define NUM_FRAMES 3
 
-int start_game(void) {
+void animation(Texture2D frames[NUM_FRAMES], int currentFrame, float frameTimer, float frameSpeed)
+{
+  DrawTexture(frames[currentFrame], ((SCREEN_WIDTH - frames[currentFrame].width) / 2) - 1000, (SCREEN_HEIGHT - frames[currentFrame].height) / 2, WHITE);
+}
+
+int start_game(void)
+{
 
   InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "My raylib game");
   SetTargetFPS(60);
 
+  // Load animation frames
+  Texture2D frames[3];
+  frames[0] = LoadTexture("Laika1.png");
+  frames[1] = LoadTexture("Laika2.png");
+  frames[2] = LoadTexture("Laika3.png");
+
+  int currentFrame = 0;
+  float frameTimer = 0;
+  float frameSpeed = 0.2f; // Adjust this to control animation speed
+
+  SetTargetFPS(60);
+
   while (!WindowShouldClose())
   {
+    // Update
+    frameTimer += GetFrameTime();
+    if (frameTimer >= frameSpeed)
+    {
+      frameTimer = 0;
+      currentFrame = (currentFrame + 1) % 3; // Cycle through frames
+    }
+
+    // Draw
     BeginDrawing();
     ClearBackground(RAYWHITE);
 
-    DrawText("Welcome to MeowXMonster!", 10, 10, 20, LIGHTGRAY);
+    // Draw the current frame
+    animation(frames, currentFrame, frameTimer, frameSpeed);
 
     EndDrawing();
+  }
+
+  // Unload textures
+  for (int i = 0; i < 3; i++)
+  {
+    UnloadTexture(frames[i]);
   }
 
   CloseWindow();
