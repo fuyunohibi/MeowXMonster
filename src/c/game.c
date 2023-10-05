@@ -19,9 +19,9 @@ int start_game(void)
 
   // Load animation frames
   Texture2D frames[3];
-  frames[0] = LoadTexture("Laika1.png");
-  frames[1] = LoadTexture("Laika2.png");
-  frames[2] = LoadTexture("Laika3.png");
+  frames[0] = LoadTexture("assets/images/avatar/Laika1.png");
+  frames[1] = LoadTexture("assets/images/avatar/Laika2.png");
+  frames[2] = LoadTexture("assets/images/avatar/Laika3.png");
 
   int currentFrame = 0;
   float frameTimer = 0;
