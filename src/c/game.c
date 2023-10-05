@@ -2,13 +2,13 @@
 #include "../../include/raymath.h"
 #include <stdio.h>
 
-#define SCREEN_WIDTH 2880
-#define SCREEN_HEIGHT 1700
+#define SCREEN_WIDTH 1920
+#define SCREEN_HEIGHT 1080
 #define NUM_FRAMES 3
 
 void animation(Texture2D frames[NUM_FRAMES], int currentFrame, float frameTimer, float frameSpeed)
 {
-  DrawTexture(frames[currentFrame], ((SCREEN_WIDTH - frames[currentFrame].width) / 2) - 1000, (SCREEN_HEIGHT - frames[currentFrame].height) / 2, WHITE);
+  DrawTexture(frames[currentFrame], (SCREEN_WIDTH - frames[currentFrame].width) / 2, (SCREEN_HEIGHT - frames[currentFrame].height) / 2, WHITE);
 }
 
 int start_game(void)
