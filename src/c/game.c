@@ -16,12 +16,12 @@ void animation(Texture2D frames[NUM_FRAMES], int currentFrame, float frameTimer,
   }
   else if (strcmp(name, "MegaChonker") == 0)
   {
-    DrawTexture(frames[currentFrame], center.x - 500, center.y, WHITE);
-    DrawTexture(frames[currentFrame], center.x + 500, center.y, WHITE);
+    DrawTexture(frames[currentFrame], center.x - (285 * 2), center.y, WHITE);
+    DrawTexture(frames[currentFrame], center.x + (285 * 2), center.y, WHITE);
   }
 }
 
-void load_assets(Texture2D frames[NUM_FRAMES], const char *name)
+void load_animation(Texture2D frames[NUM_FRAMES], const char *name)
 {
   char filename[256];
 
@@ -35,16 +35,19 @@ void load_assets(Texture2D frames[NUM_FRAMES], const char *name)
 int start_game(void)
 {
 
-  InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "My raylib game");
+  InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "MeowXMonster");
   SetTargetFPS(60);
 
   // Load animation frames
   Texture2D LaikaFrames[3];
-  char Laika[] = "Laika";
-  load_assets(LaikaFrames, Laika);
   Texture2D MegaChonkerFrames[3];
+  char Laika[] = "Laika";
   char MegaChonker[] = "MegaChonker";
-  load_assets(MegaChonkerFrames, MegaChonker);
+  load_animation(LaikaFrames, Laika);
+  load_animation(MegaChonkerFrames, MegaChonker);
+
+  // background
+  Texture2D bg_yard = LoadTexture("assets/images/background/yard.png");
 
   int currentFrame = 0;
   float frameTimer = 0;
@@ -67,6 +70,7 @@ int start_game(void)
     ClearBackground(RAYWHITE);
 
     // Draw the current frame
+    DrawTexture(bg_yard, (SCREEN_WIDTH - bg_yard.width) / 2, ((SCREEN_HEIGHT - bg_yard.height) / 2), WHITE);
     animation(LaikaFrames, currentFrame, frameTimer, frameSpeed, Laika);
     animation(MegaChonkerFrames, currentFrame, frameTimer, frameSpeed, MegaChonker);
 
