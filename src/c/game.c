@@ -1,14 +1,24 @@
 #include "../../include/raylib.h"
 #include "../../include/raymath.h"
 #include <stdio.h>
+#include <string.h>
 
 #define SCREEN_WIDTH 1920
 #define SCREEN_HEIGHT 1080
 #define NUM_FRAMES 3
 
-void animation(Texture2D frames[NUM_FRAMES], int currentFrame, float frameTimer, float frameSpeed)
+void animation(Texture2D frames[NUM_FRAMES], int currentFrame, float frameTimer, float frameSpeed, const char *name)
 {
-  DrawTexture(frames[currentFrame], (SCREEN_WIDTH - frames[currentFrame].width) / 2, (SCREEN_HEIGHT - frames[currentFrame].height) / 2, WHITE);
+  Vector2 center = {(float)(SCREEN_WIDTH - frames[currentFrame].width) / 2, (float)(SCREEN_HEIGHT - frames[currentFrame].height) / 2};
+  if (strcmp(name, "Laika") == 0)
+  {
+    DrawTexture(frames[currentFrame], center.x, center.y, WHITE);
+  }
+  else if (strcmp(name, "MegaChonker") == 0)
+  {
+    DrawTexture(frames[currentFrame], center.x - 500, center.y, WHITE);
+    DrawTexture(frames[currentFrame], center.x + 500, center.y, WHITE);
+  }
 }
 
 void load_assets(Texture2D frames[NUM_FRAMES], const char *name)
@@ -29,12 +39,16 @@ int start_game(void)
   SetTargetFPS(60);
 
   // Load animation frames
-  Texture2D frames[3];
-  load_assets(frames, "Laika");
+  Texture2D LaikaFrames[3];
+  char Laika[] = "Laika";
+  load_assets(LaikaFrames, Laika);
+  Texture2D MegaChonkerFrames[3];
+  char MegaChonker[] = "MegaChonker";
+  load_assets(MegaChonkerFrames, MegaChonker);
 
   int currentFrame = 0;
   float frameTimer = 0;
-  float frameSpeed = 0.2f; // Adjust this to control animation speed
+  float frameSpeed = 0.3f; // Adjust this to control animation speed
 
   SetTargetFPS(60);
 
@@ -53,7 +67,8 @@ int start_game(void)
     ClearBackground(RAYWHITE);
 
     // Draw the current frame
-    animation(frames, currentFrame, frameTimer, frameSpeed);
+    animation(LaikaFrames, currentFrame, frameTimer, frameSpeed, Laika);
+    animation(MegaChonkerFrames, currentFrame, frameTimer, frameSpeed, MegaChonker);
 
     EndDrawing();
   }
@@ -61,7 +76,8 @@ int start_game(void)
   // Unload textures
   for (int i = 0; i < 3; i++)
   {
-    UnloadTexture(frames[i]);
+    UnloadTexture(LaikaFrames[i]);
+    UnloadTexture(MegaChonkerFrames[i]);
   }
 
   CloseWindow();
