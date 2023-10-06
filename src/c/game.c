@@ -16,8 +16,8 @@ void animation(Texture2D frames[NUM_FRAMES], int currentFrame, float frameTimer,
   }
   else if (strcmp(name, "MegaChonker") == 0)
   {
-    DrawTexture(frames[currentFrame], center.x - (285 * 2), center.y, WHITE);
-    DrawTexture(frames[currentFrame], center.x + (285 * 2), center.y, WHITE);
+    DrawTexture(frames[currentFrame], center.x - (250 * 2), center.y, WHITE);
+    DrawTexture(frames[currentFrame], center.x + (250 * 2), center.y, WHITE);
   }
 }
 
@@ -70,7 +70,7 @@ int start_game(void)
     ClearBackground(RAYWHITE);
 
     // Draw the current frame
-    DrawTexture(bg_yard, (SCREEN_WIDTH - bg_yard.width) / 2, ((SCREEN_HEIGHT - bg_yard.height) / 2), WHITE);
+    DrawTexture(bg_yard, ((SCREEN_WIDTH - bg_yard.width) / 2), ((SCREEN_HEIGHT - bg_yard.height) / 2), WHITE);
     animation(LaikaFrames, currentFrame, frameTimer, frameSpeed, Laika);
     animation(MegaChonkerFrames, currentFrame, frameTimer, frameSpeed, MegaChonker);
 
