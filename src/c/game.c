@@ -11,6 +11,17 @@ void animation(Texture2D frames[NUM_FRAMES], int currentFrame, float frameTimer,
   DrawTexture(frames[currentFrame], (SCREEN_WIDTH - frames[currentFrame].width) / 2, (SCREEN_HEIGHT - frames[currentFrame].height) / 2, WHITE);
 }
 
+void load_assets(Texture2D frames[NUM_FRAMES], const char *name)
+{
+  char filename[256];
+
+  for (int i = 0; i < NUM_FRAMES; i++)
+  {
+    sprintf(filename, "assets/images/avatar/%s/%s%d.png", name, name, i + 1);
+    frames[i] = LoadTexture(filename);
+  }
+}
+
 int start_game(void)
 {
 
@@ -19,9 +30,7 @@ int start_game(void)
 
   // Load animation frames
   Texture2D frames[3];
-  frames[0] = LoadTexture("assets/images/avatar/Laika1.png");
-  frames[1] = LoadTexture("assets/images/avatar/Laika2.png");
-  frames[2] = LoadTexture("assets/images/avatar/Laika3.png");
+  load_assets(frames, "Laika");
 
   int currentFrame = 0;
   float frameTimer = 0;
