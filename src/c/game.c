@@ -15,17 +15,16 @@ Vector2 get_center(Texture2D texture)
   return center;
 }
 
-void animation(Texture2D frames[NUM_FRAMES], int currentFrame, float frameTimer, float frameSpeed, const char *name)
+void animation(Texture2D frames[NUM_FRAMES], int currentFrame, float frameTimer, float frameSpeed, const char *name, Vector2 position)
 {
   Vector2 center = get_center(frames[currentFrame]);
   if (strcmp(name, "Laika") == 0)
   {
-    DrawTexture(frames[currentFrame], center.x, center.y, WHITE);
+    DrawTexture(frames[currentFrame], position.x, position.y, WHITE);
   }
   else if (strcmp(name, "MegaChonker") == 0)
   {
-    DrawTexture(frames[currentFrame], center.x - (250 * 2), center.y, WHITE);
-    DrawTexture(frames[currentFrame], center.x + (250 * 2), center.y, WHITE);
+    DrawTexture(frames[currentFrame], position.x, position.y, WHITE);
   }
 }
 
@@ -40,13 +39,13 @@ void load_animation(Texture2D frames[NUM_FRAMES], const char *name)
   }
 }
 
-bool IsMouseOverBox(Vector2 mousePosition, Vector2 imagePosition, Texture2D Box)
+bool IsMouseOverBox(Vector2 mousePosition, Vector2 boxPosition, Texture2D Box)
 {
-  return CheckCollisionPointRec(mousePosition, (Rectangle){imagePosition.x, imagePosition.y, Box.width, Box.height});
+  return CheckCollisionPointRec(mousePosition, (Rectangle){boxPosition.x, boxPosition.y, Box.width, Box.height});
 }
 
 // Function to copy the image to a new position
-void CopyLaikaImage(Vector2 *imagePosition, Vector2 targetPosition, Texture2D image)
+void CopyImage(Vector2 *imagePosition, Vector2 targetPosition, Texture2D image)
 {
   *imagePosition = targetPosition;
 }
@@ -56,6 +55,8 @@ int start_game(void)
 
   InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "MeowXMonster");
   SetTargetFPS(60);
+
+  Texture2D box_size = {250, 250};
 
   // Load animation frames
   Texture2D LaikaFrames[3];
@@ -68,6 +69,7 @@ int start_game(void)
   // background
   Texture2D bg_yard = LoadTexture("assets/images/background/yard.png");
   Texture2D Laika1 = LoadTexture("assets/images/avatar/Laika/Laika1.png");
+  Texture2D MegaChonker1 = LoadTexture("assets/images/avatar/MegaChonker/MegaChonker1.png");
 
   int currentFrame = 0;
   float frameTimer = 0;
@@ -77,8 +79,17 @@ int start_game(void)
 
   Vector2 imagePosition = {0, 0};                                              // Initial position of the image
   Vector2 targetPosition = {(get_center(bg_yard)).x, (get_center(bg_yard)).y}; // Initial position of the green rectangle
-  bool shouldCopyImage = false;
-  Color brownColor = BROWN;
+  Vector2 targetPosition2 = {(get_center(bg_yard)).x, (get_center(bg_yard)).y + 251};
+  Color brownColor_Laika = BROWN;
+  Color brownColor_MC = BROWN;
+
+  bool shouldCopyLaika = false;
+  bool shouldCopyMC = false;
+
+  bool shouldDrawAnimationLaika1 = false;
+  bool shouldDrawAnimationLaika2 = false;
+  bool shouldDrawAnimationMC1 = false;
+  bool shouldDrawAnimationMC2 = false;
 
   while (!WindowShouldClose())
   {
@@ -94,16 +105,64 @@ int start_game(void)
 
     if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
     {
-      if (IsMouseOverBox(mousePosition, imagePosition, Laika1))
+      if (IsMouseOverBox(mousePosition, (Vector2){0, 0}, Laika1))
       {
-        shouldCopyImage = true;
-        brownColor = DARKBROWN;
+        shouldCopyLaika = true;
+        shouldCopyMC = false;
+        brownColor_Laika = DARKBROWN;
+        brownColor_MC = BROWN;
       }
-      else if (CheckCollisionPointRec(mousePosition, (Rectangle){targetPosition.x, targetPosition.y, 285, 285}) && shouldCopyImage)
+      else if (IsMouseOverBox(mousePosition, (Vector2){0, 251}, MegaChonker1))
       {
-        CopyLaikaImage(&imagePosition, targetPosition, Laika1);
-        shouldCopyImage = false;
-        brownColor = BROWN;
+        shouldCopyLaika = false;
+        shouldCopyMC = true;
+        brownColor_Laika = BROWN;
+        brownColor_MC = DARKBROWN;
+      }
+      else if (IsMouseOverBox(mousePosition, (Vector2){0, 251}, box_size))
+      {
+        brownColor_MC = DARKBROWN; // Change color of the second brown rectangle
+      }
+      else if (CheckCollisionPointRec(mousePosition, (Rectangle){targetPosition.x, targetPosition.y, 250, 250}))
+      {
+        if (shouldCopyLaika)
+        {
+          CopyImage(&imagePosition, targetPosition, Laika1);
+          shouldCopyLaika = false;
+          shouldDrawAnimationLaika1 = true;
+          brownColor_Laika = BROWN;
+        }
+        else if (shouldCopyMC)
+        {
+          CopyImage(&imagePosition, targetPosition, MegaChonker1);
+          shouldCopyMC = false;
+          shouldDrawAnimationMC1 = true;
+          brownColor_MC = BROWN;
+        }
+      }
+      else if (CheckCollisionPointRec(mousePosition, (Rectangle){targetPosition2.x, targetPosition2.y, 250, 250}))
+      {
+        if (shouldCopyLaika)
+        {
+          CopyImage(&imagePosition, targetPosition2, Laika1);
+          shouldCopyLaika = false;
+          shouldDrawAnimationLaika2 = true;
+          brownColor_Laika = BROWN;
+        }
+        else if (shouldCopyMC)
+        {
+          CopyImage(&imagePosition, targetPosition2, MegaChonker1);
+          shouldCopyMC = false;
+          shouldDrawAnimationMC2 = true;
+          brownColor_MC = BROWN;
+        }
+      }
+      else
+      {
+        shouldCopyLaika = false;
+        shouldCopyMC = false;
+        brownColor_Laika = BROWN;
+        brownColor_MC = BROWN;
       }
     }
 
@@ -113,14 +172,42 @@ int start_game(void)
 
     // Draw the current frame
     DrawTexture(bg_yard, (get_center(bg_yard)).x, (get_center(bg_yard)).y, WHITE);
-    animation(LaikaFrames, currentFrame, frameTimer, frameSpeed, Laika);
-    animation(MegaChonkerFrames, currentFrame, frameTimer, frameSpeed, MegaChonker);
+    // animation(MegaChonkerFrames, currentFrame, frameTimer, frameSpeed, MegaChonker, get_center(MegaChonkerFrames[0]));
 
-    DrawRectangle(0, 0, 250, 250, brownColor);
-    DrawRectangle(targetPosition.x, targetPosition.y, 250, 250, (Color){0, 255, 0, 0}); // Transparent green
+    DrawRectangle(0, 0, 250, 250, brownColor_Laika);
+    DrawRectangle(0, 251, 250, 250, brownColor_MC);
+    DrawRectangle(targetPosition.x, targetPosition.y, 250, 250, (Color){0, 255, 0, 0});
+    DrawRectangle(targetPosition2.x, targetPosition2.y, 250, 250, (Color){0, 255, 0, 0}); // Transparent green
+
+    if (shouldDrawAnimationLaika1)
+    {
+      // Draw the Laika animation when it's copied
+      animation(LaikaFrames, currentFrame, frameTimer, frameSpeed, Laika, targetPosition);
+    }
+    if (shouldDrawAnimationLaika2)
+    {
+      // Draw the Laika animation when it's copied
+      animation(LaikaFrames, currentFrame, frameTimer, frameSpeed, Laika, targetPosition2);
+    }
+    if (shouldDrawAnimationMC1)
+    {
+      // Draw the Laika animation when it's copied
+      animation(MegaChonkerFrames, currentFrame, frameTimer, frameSpeed, MegaChonker, targetPosition);
+    }
+    if (shouldDrawAnimationMC2)
+    {
+      // Draw the Laika animation when it's copied
+      animation(MegaChonkerFrames, currentFrame, frameTimer, frameSpeed, MegaChonker, targetPosition2);
+    }
+    else
+    {
+      // Draw the LaikaFrames[0] (first frame) when it's not copied
+      DrawTexture(LaikaFrames[0], 0, 0, WHITE);
+      DrawTexture(MegaChonkerFrames[0], 0, 251, WHITE);
+    }
 
     DrawTexture(Laika1, 0, 0, WHITE);
-    DrawTexture(Laika1, imagePosition.x, imagePosition.y, WHITE);
+    DrawTexture(MegaChonker1, 0, 251, WHITE);
 
     EndDrawing();
   }
@@ -132,6 +219,7 @@ int start_game(void)
     UnloadTexture(MegaChonkerFrames[i]);
   }
   UnloadTexture(bg_yard);
+  UnloadTexture(Laika1);
 
   CloseWindow();
 
