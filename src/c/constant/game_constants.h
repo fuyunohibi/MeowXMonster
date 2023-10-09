@@ -14,6 +14,7 @@ typedef struct
   bool isAlive;
   int attackDamage;
   float attackPerSecond;
+  float attackTimer; 
   Texture2D frames[NUM_FRAMES];
   bool shouldDrawAnimation[NUM_BLOCKS];
 } Character;

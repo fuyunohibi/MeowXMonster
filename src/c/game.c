@@ -8,6 +8,7 @@
 #define SCREEN_HEIGHT 1080
 #define NUM_FRAMES 3
 #define NUM_BLOCKS 15
+#define MAX_CHARACTERS 15
 
 // Function prototypes
 Vector2 get_center(Texture2D texture);
@@ -51,6 +52,35 @@ bool shouldDrawAnimationMC[NUM_BLOCKS] = {false};
 bool shouldDrawAnimationMC1 = false;
 bool shouldDrawAnimationMC2 = false;
 
+Texture2D LaikaAtkTexture;
+
+typedef struct
+{
+  Vector2 position;
+  Vector2 direction;
+  float speed;
+  bool active; 
+} Projectile;
+
+#define MAX_PROJECTILES 10
+Projectile laikaProjectiles[MAX_PROJECTILES];
+
+Character charactersOnField[MAX_CHARACTERS];
+int charactersCount = 0;
+
+Character CreateCharacter(const char *name, int price, int HP, bool isAlive, int attackDamage, float attackPerSecond)
+{
+  Character newCharacter;
+  strncpy(newCharacter.name, name, sizeof(newCharacter.name));
+  newCharacter.price = price;
+  newCharacter.HP = HP;
+  newCharacter.isAlive = isAlive;
+  newCharacter.attackDamage = attackDamage;
+  newCharacter.attackPerSecond = attackPerSecond;
+  newCharacter.attackTimer = 0.0f; // Initialize the attack timer
+  return newCharacter;
+}
+
 void displayCharacterDetails(Character character)
 {
   printf("============= Display Chracter =============\n");
@@ -65,6 +95,7 @@ void displayCharacterDetails(Character character)
 int start_game(void)
 {
   // Initialization
+  // LaikaAtkTexture = LoadTexture("assets/images/avatar/Laika/Atk/LaikaAtk.png");
   InitializeGame();
   displayCharacterDetails(Laika);
   displayCharacterDetails(MegaChonker);
@@ -95,6 +126,21 @@ void checkAliveStatus(Character *character)
 // NOTE: For Tawan
 // checkAliveStatus(&Laika);
 // checkAliveStatus(&MegaChonker);
+
+void shootProjectileFromCharacter(Character character, Vector2 position)
+{
+  for (int j = 0; j < MAX_PROJECTILES; j++)
+  {
+    if (!laikaProjectiles[j].active)
+    {
+      laikaProjectiles[j].position = position;         // Starting position of the projectile, modify if needed
+      laikaProjectiles[j].direction = (Vector2){1, 0}; // Shoots to the right, modify if needed
+      laikaProjectiles[j].speed = 5.0f;
+      laikaProjectiles[j].active = true;
+      break;
+    }
+  }
+}
 
 Vector2 get_center(Texture2D texture)
 {
@@ -133,6 +179,10 @@ void CopyImage(Vector2 *imagePosition, Vector2 targetPosition, Texture2D image)
 
 void InitializeGame(void)
 {
+  for (int i = 0; i < MAX_PROJECTILES; i++)
+  {
+    laikaProjectiles[i].active = false;
+  }
   SetConfigFlags(FLAG_WINDOW_RESIZABLE);
   InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "MeowXMonster");
   SetTargetFPS(60);
@@ -180,6 +230,37 @@ void UpdateGame(void)
     currentFrame = (currentFrame + 1) % 3; // Cycle through frames
   }
 
+  // Update projectiles
+  for (int i = 0; i < MAX_PROJECTILES; i++)
+  {
+    if (laikaProjectiles[i].active)
+    {
+      laikaProjectiles[i].position.x += laikaProjectiles[i].direction.x * laikaProjectiles[i].speed;
+      laikaProjectiles[i].position.y += laikaProjectiles[i].direction.y * laikaProjectiles[i].speed;
+
+      // Check if projectile is out of bounds
+      if (laikaProjectiles[i].position.x > SCREEN_WIDTH || laikaProjectiles[i].position.x < 0 ||
+          laikaProjectiles[i].position.y > SCREEN_HEIGHT || laikaProjectiles[i].position.y < 0)
+      {
+        laikaProjectiles[i].active = false;
+      }
+    }
+  }
+
+  for (int i = 0; i < charactersCount; i++)
+  {
+    charactersOnField[i].attackTimer += GetFrameTime();
+
+    float timeBetweenShots = 1.0f / charactersOnField[i].attackPerSecond;
+
+    if (charactersOnField[i].attackTimer >= timeBetweenShots)
+    {
+      // Shoot!
+      charactersOnField[i].attackTimer = 0.0f; // Reset timer
+      shootProjectileFromCharacter(charactersOnField[i], targetPositions[i]);
+    }
+  }
+
   Vector2 mousePosition = GetMousePosition();
 
   if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
@@ -215,6 +296,11 @@ void UpdateGame(void)
           block_empty[i] = false;
           block_contains_Laika_animation[i] = true; // Mark this block as containing animation
           shouldCopyLaika = false;
+          if (charactersCount < MAX_CHARACTERS)
+          {
+            charactersOnField[charactersCount] = CreateCharacter("Laika", 100, 150, true, 50, 0.4);
+            charactersCount++;
+          }
         }
         else if (shouldCopyMC && block_empty[i])
         {
@@ -225,6 +311,11 @@ void UpdateGame(void)
           block_empty[i] = false;
           block_contains_MC_animation[i] = true; // Mark this block as containing animation
           shouldCopyMC = false;
+          if (charactersCount < MAX_CHARACTERS)
+          {
+            charactersOnField[charactersCount] = CreateCharacter("MegaChonker", 350, 400, true, 0, 0.0);
+            charactersCount++;
+          }
         }
         else if (block_contains_Laika_animation[i]) // Check if animation is present
         {
@@ -285,9 +376,18 @@ void DrawGame(void)
     }
   }
 
-  // Draw Laika1 and MegaChonker1 here (outside the loop)
   DrawTexture(Laika1, 0, 0, WHITE);
   DrawTexture(MegaChonker1, 0, 250, WHITE);
+
+  // Draw the projectiles
+  for (int i = 0; i < MAX_PROJECTILES; i++)
+  {
+    if (laikaProjectiles[i].active)
+    {
+      // DrawTexture(LaikaAtkTexture, laikaProjectiles[i].position.x, laikaProjectiles[i].position.y, WHITE);
+      DrawCircleV(laikaProjectiles[i].position, 5, BLUE);
+    }
+  }
 
   EndDrawing();
 }
