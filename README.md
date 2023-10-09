@@ -43,7 +43,7 @@
   
 ##### 3. Compile the Game:
 Run the following command:
-`clang App.c src/c/game.c -L lib/ -framework CoreVideo -framework IOKit -framework Cocoa -framework GLUT -framework OpenGL lib/libraylib.a -o compiled-raylib-game`
+`clang App.c src/c/game.c src/c/character/character.c -L lib/ -framework CoreVideo -framework IOKit -framework Cocoa -framework GLUT -framework OpenGL lib/libraylib.a -o compiled-raylib-game`
 - The compiled game will be in the root directory of the project named `compiled-raylib-game`
  #### 4. Run the compiled game by running the following command:
 `./compiled-raylib-game`
@@ -58,7 +58,7 @@ Run the following command:
 
 ##### 3. Compile the Game:
 Run the following command:
-`gcc -o compiled-raylib-game App.c src/c/game.c -Ipath/to/raylib/include -Lpath/to/raylib/lib -lraylib -lopengl32 -lgdi32 -lwinmm`
+`gcc -o compiled-raylib-game App.c src/c/game.c src/c/character/character.c -Ipath/to/raylib/include -Lpath/to/raylib/lib -lraylib -lopengl32 -lgdi32 -lwinmm`
 - <b>NOTE:</b> Replace `path/to/raylib/include` with the actual path to the raylib include folder and `path/to/raylib/lib` with the path to the raylib library folder. Ensure the paths are correct to avoid compilation errors.
 - After successful compilation, you'll find the game executable named `compiled-raylib-game.exe` in the root directory of the project.
 
@@ -87,7 +87,7 @@ First, compile and install `raylib`:
 `cd` to the root directory of the project.
 
 ##### 3. Compile the Game:
-`gcc -o compiled-raylib-game App.c src/c/game.c -I/path/to/raylib/include -L/path/to/raylib/lib -lraylib -lGL -lm -lpthread -ldl -lrt -lX11`
+`gcc -o compiled-raylib-game App.c src/c/game.c src/c/character/character.c -I/path/to/raylib/include -L/path/to/raylib/lib -lraylib -lGL -lm -lpthread -ldl -lrt -lX11`
 
 - <b>NOTE:</b> Replace `/path/to/raylib/include` with the path to the raylib include folder and `/path/to/raylib/lib` with the path to the raylib library folder.
 - The compiled game will be in the root directory of the project named `compiled-raylib-game`
