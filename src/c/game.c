@@ -1,5 +1,6 @@
 #include "../../include/raylib.h"
 #include "../../include/raymath.h"
+#include "character/character.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -20,8 +21,6 @@ void DrawGame(void);
 void UnloadGame(void);
 
 // Global variables
-char Laika[] = "Laika";
-char MegaChonker[] = "MegaChonker";
 Texture2D box_size = {250, 250};
 Texture2D LaikaFrames[3];
 Texture2D MegaChonkerFrames[3];
@@ -49,10 +48,21 @@ bool shouldDrawAnimationMC[NUM_BLOCKS] = {false};
 bool shouldDrawAnimationMC1 = false;
 bool shouldDrawAnimationMC2 = false;
 
+void displayCharacterDetails(Character character)
+{
+  printf("============= Display Chracter =============\n");
+  printf("Name: %s\n", character.name);
+  printf("HP: %d\n", character.HP);
+  printf("Attack Damage: %d\n", character.attackDamage);
+  printf("Attack per Second: %f\n", character.attackPerSecond);
+}
+
 int start_game(void)
 {
   // Initialization
   InitializeGame();
+  displayCharacterDetails(Laika);
+  displayCharacterDetails(MegaChonker);
 
   while (!WindowShouldClose())
   {
@@ -110,11 +120,15 @@ void InitializeGame(void)
   InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "MeowXMonster");
   SetTargetFPS(60);
 
-  // Load animation frames
-  char Laika[] = "Laika";
-  char MegaChonker[] = "MegaChonker";
-  load_animation(LaikaFrames, Laika);
-  load_animation(MegaChonkerFrames, MegaChonker);
+  // Initialize character
+  char LaikaName[50];
+  char MegaChonkerName[50];
+
+  strcpy(LaikaName, Laika.name);
+  strcpy(MegaChonkerName, MegaChonker.name);
+
+  load_animation(LaikaFrames, Laika.name);
+  load_animation(MegaChonkerFrames, MegaChonker.name);
 
   // Load background and character textures
   bg_yard = LoadTexture("assets/images/background/yard.png");
@@ -234,12 +248,12 @@ void DrawGame(void)
 
     if (shouldDrawAnimationLaika[i])
     {
-      animation(LaikaFrames, currentFrame, frameTimer, Laika, targetPositions[i]);
+      animation(LaikaFrames, currentFrame, frameTimer, Laika.name, targetPositions[i]);
     }
 
     if (shouldDrawAnimationMC[i])
     {
-      animation(MegaChonkerFrames, currentFrame, frameTimer, MegaChonker, targetPositions[i]);
+      animation(MegaChonkerFrames, currentFrame, frameTimer, MegaChonker.name, targetPositions[i]);
     }
   }
 
