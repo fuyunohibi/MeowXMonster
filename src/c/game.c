@@ -191,7 +191,7 @@ void UpdateGame(void)
         shouldCopyMC = false;
         brownColor_Laika = darkbrown;
         brownColor_MC = LIGHTBROWN;
-        printf("Block %d is %s\n", i, block_empty[i] ? "empty" : "occupied");
+        // printf("Block %d is %s\n", i, block_empty[i] ? "empty" : "occupied");
       }
       else if (IsMouseOverBox(mousePosition, (Vector2){0, 250}, MegaChonker1))
       {
@@ -199,7 +199,7 @@ void UpdateGame(void)
         shouldCopyMC = true;
         brownColor_Laika = LIGHTBROWN;
         brownColor_MC = darkbrown;
-        printf("Block %d is %s\n", i, block_empty[i] ? "empty" : "occupied");
+        // printf("Block %d is %s\n", i, block_empty[i] ? "empty" : "occupied");
       }
 
       else if (CheckCollisionPointRec(mousePosition, (Rectangle){targetPositions[i].x, targetPositions[i].y, 250, 250}))
