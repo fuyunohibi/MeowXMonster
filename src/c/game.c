@@ -55,6 +55,7 @@ void displayCharacterDetails(Character character)
 {
   printf("============= Display Chracter =============\n");
   printf("Name: %s\n", character.name);
+  printf("Price: %d\n", character.price);
   printf("HP: %d\n", character.HP);
   printf("Attack Damage: %d\n", character.attackDamage);
   printf("Attack per Second: %f\n", character.attackPerSecond);
@@ -81,6 +82,18 @@ int start_game(void)
 
   return 0;
 }
+
+void checkAliveStatus(Character *character)
+{
+  if (character->HP <= 0)
+  {
+    character->isAlive = false;
+  }
+}
+
+// NOTE: For Tawan
+// checkAliveStatus(&Laika);
+// checkAliveStatus(&MegaChonker);
 
 Vector2 get_center(Texture2D texture)
 {
