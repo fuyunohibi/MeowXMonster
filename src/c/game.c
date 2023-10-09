@@ -57,6 +57,7 @@ void displayCharacterDetails(Character character)
   printf("Name: %s\n", character.name);
   printf("Price: %d\n", character.price);
   printf("HP: %d\n", character.HP);
+  printf("isAlive: %s\n", character.isAlive ? "true" : "false");
   printf("Attack Damage: %d\n", character.attackDamage);
   printf("Attack per Second: %f\n", character.attackPerSecond);
 }
@@ -261,8 +262,13 @@ void DrawGame(void)
   DrawRectangle(0, 0, 250, 250, brownColor_Laika);
   DrawRectangle(0, 250, 250, 250, brownColor_MC);
 
-  DrawText("100", 115, 10, 30, WHITE);
-  DrawText("350", 115, 260, 30, WHITE);
+  char priceBuffer[50];
+
+  sprintf(priceBuffer, "%d", Laika.price);
+  DrawText(priceBuffer, 115, 10, 30, WHITE);
+
+  sprintf(priceBuffer, "%d", MegaChonker.price);
+  DrawText(priceBuffer, 115, 260, 30, WHITE);
 
   for (int i = 0; i < NUM_BLOCKS; i++)
   {
