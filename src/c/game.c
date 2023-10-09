@@ -106,6 +106,7 @@ void CopyImage(Vector2 *imagePosition, Vector2 targetPosition, Texture2D image)
 
 void InitializeGame(void)
 {
+  SetConfigFlags(FLAG_WINDOW_RESIZABLE);
   InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "MeowXMonster");
   SetTargetFPS(60);
 
