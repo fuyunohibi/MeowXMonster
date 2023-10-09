@@ -9,7 +9,9 @@
 typedef struct
 {
   char name[50];
+  int price;
   int HP;
+  bool isAlive;
   int attackDamage;
   float attackPerSecond;
   Texture2D frames[NUM_FRAMES];
