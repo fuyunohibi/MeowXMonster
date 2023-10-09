@@ -25,6 +25,7 @@ char MegaChonker[] = "MegaChonker";
 Texture2D box_size = {250, 250};
 Texture2D LaikaFrames[3];
 Texture2D MegaChonkerFrames[3];
+Texture2D bg;
 Texture2D bg_yard;
 Texture2D Laika1;
 Texture2D MegaChonker1;
@@ -35,8 +36,10 @@ Vector2 imagePosition = {0, 0};
 Vector2 targetPositions[NUM_BLOCKS];
 Vector2 targetPosition = {0, 0};
 Vector2 targetPosition2 = {0, 0};
-Color brownColor_Laika = BROWN;
-Color brownColor_MC = BROWN;
+Color LIGHTBROWN = (Color){100, 69, 19, 128};
+Color darkbrown = (Color){100, 69, 19, 200};
+Color brownColor_Laika = (Color){100, 69, 19, 128};
+Color brownColor_MC = (Color){100, 69, 19, 128};
 bool shouldCopyLaika = false;
 bool shouldCopyMC = false;
 bool block_empty[NUM_BLOCKS];
@@ -117,6 +120,7 @@ void InitializeGame(void)
   load_animation(MegaChonkerFrames, MegaChonker);
 
   // Load background and character textures
+  bg = LoadTexture("assets/images/background/background.png");
   bg_yard = LoadTexture("assets/images/background/yard.png");
   Laika1 = LoadTexture("assets/images/avatar/Laika/Laika1.png");
   MegaChonker1 = LoadTexture("assets/images/avatar/MegaChonker/MegaChonker1.png");
@@ -158,16 +162,16 @@ void UpdateGame(void)
       {
         shouldCopyLaika = true;
         shouldCopyMC = false;
-        brownColor_Laika = DARKBROWN;
-        brownColor_MC = BROWN;
+        brownColor_Laika = darkbrown;
+        brownColor_MC = LIGHTBROWN;
         printf("Block %d is %s\n", i, block_empty[i] ? "empty" : "occupied");
       }
       else if (IsMouseOverBox(mousePosition, (Vector2){0, 250}, MegaChonker1))
       {
         shouldCopyLaika = false;
         shouldCopyMC = true;
-        brownColor_Laika = BROWN;
-        brownColor_MC = DARKBROWN;
+        brownColor_Laika = LIGHTBROWN;
+        brownColor_MC = darkbrown;
         printf("Block %d is %s\n", i, block_empty[i] ? "empty" : "occupied");
       }
 
@@ -179,7 +183,7 @@ void UpdateGame(void)
           CopyImage(&imagePosition, targetPositions[i], Laika1);
           shouldDrawAnimationLaika[i] = true;
           shouldDrawAnimationMC[i] = false;
-          brownColor_Laika = BROWN;
+          brownColor_Laika = LIGHTBROWN;
           block_empty[i] = false;
           block_contains_Laika_animation[i] = true; // Mark this block as containing animation
           shouldCopyLaika = false;
@@ -189,7 +193,7 @@ void UpdateGame(void)
           CopyImage(&imagePosition, targetPositions[i], MegaChonker1);
           shouldDrawAnimationLaika[i] = false;
           shouldDrawAnimationMC[i] = true;
-          brownColor_MC = BROWN;
+          brownColor_MC = LIGHTBROWN;
           block_empty[i] = false;
           block_contains_MC_animation[i] = true; // Mark this block as containing animation
           shouldCopyMC = false;
@@ -210,8 +214,8 @@ void UpdateGame(void)
           shouldDrawAnimationMC[i] = false;
           shouldCopyLaika = false;
           shouldCopyMC = false;
-          brownColor_Laika = BROWN;
-          brownColor_MC = BROWN;
+          brownColor_Laika = LIGHTBROWN;
+          brownColor_MC = LIGHTBROWN;
         }
       }
     }
@@ -224,7 +228,8 @@ void DrawGame(void)
   ClearBackground(RAYWHITE);
 
   // Draw the current frame
-  DrawTexture(bg_yard, get_center(bg_yard).x, get_center(bg_yard).y, WHITE);
+  DrawTexture(bg, get_center(bg).x, get_center(bg).y, WHITE);
+  DrawTexture(bg_yard, get_center(bg_yard).x, get_center(bg_yard).y, (Color){0, 255, 0, 0});
 
   DrawRectangle(0, 0, 250, 250, brownColor_Laika);
   DrawRectangle(0, 250, 250, 250, brownColor_MC);
