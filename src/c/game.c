@@ -51,6 +51,8 @@ bool shouldDrawAnimationLaika2 = false;
 bool shouldDrawAnimationMC[NUM_BLOCKS] = {false};
 bool shouldDrawAnimationMC1 = false;
 bool shouldDrawAnimationMC2 = false;
+Vector2 charactersPOS[MAX_CHARACTERS];
+int charcount = 0;
 
 Texture2D LaikaAtkTexture;
 
@@ -59,7 +61,7 @@ typedef struct
   Vector2 position;
   Vector2 direction;
   float speed;
-  bool active; 
+  bool active;
 } Projectile;
 
 #define MAX_PROJECTILES 10
@@ -177,6 +179,14 @@ void CopyImage(Vector2 *imagePosition, Vector2 targetPosition, Texture2D image)
   *imagePosition = targetPosition;
 }
 
+Vector2 get_charPOS(Vector2 targetPosition, int charCount)
+{
+  Vector2 charPOS;
+  charactersPOS[charCount].x = targetPosition.x + 250;
+  charactersPOS[charCount].y = targetPosition.y + 125;
+  return charPOS;
+}
+
 void InitializeGame(void)
 {
   for (int i = 0; i < MAX_PROJECTILES; i++)
@@ -257,9 +267,11 @@ void UpdateGame(void)
     {
       // Shoot!
       charactersOnField[i].attackTimer = 0.0f; // Reset timer
-      shootProjectileFromCharacter(charactersOnField[i], targetPositions[i]);
+      // Vector2 shootingPosition = (Vector2){charactersPOS[i].x + 250, charactersPOS[i].y + 125};
+      shootProjectileFromCharacter(charactersOnField[i], charactersPOS[i]);
     }
   }
+  // printf("Character count: %d\n", charactersCount);
 
   Vector2 mousePosition = GetMousePosition();
 
@@ -299,6 +311,10 @@ void UpdateGame(void)
           if (charactersCount < MAX_CHARACTERS)
           {
             charactersOnField[charactersCount] = CreateCharacter("Laika", 100, 150, true, 50, 0.4);
+            // charactersPOS[charactersCount] = targetPositions[i];
+            charactersPOS[charactersCount].x = targetPositions[i].x + 250;
+            charactersPOS[charactersCount].y = targetPositions[i].y + 125;
+            printf("Character %d position: %f, %f\n", charactersCount, charactersPOS[charactersCount].x, charactersPOS[charactersCount].y);
             charactersCount++;
           }
         }
