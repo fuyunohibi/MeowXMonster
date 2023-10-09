@@ -260,6 +260,10 @@ void DrawGame(void)
 
   DrawRectangle(0, 0, 250, 250, brownColor_Laika);
   DrawRectangle(0, 250, 250, 250, brownColor_MC);
+
+  DrawText("100", 115, 10, 30, WHITE);
+  DrawText("350", 115, 260, 30, WHITE);
+
   for (int i = 0; i < NUM_BLOCKS; i++)
   {
     DrawRectangle(targetPositions[i].x, targetPositions[i].y, 250, 250, (Color){0, 255, 0, 0});
