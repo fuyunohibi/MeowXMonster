@@ -29,6 +29,7 @@ Texture2D BombFrames[3];
 Texture2D FartCatFrames[3];
 Texture2D bg;
 Texture2D bg_yard;
+Texture2D score_board;
 Texture2D Laika1;
 Texture2D MegaChonker1;
 Texture2D Bomb1;
@@ -234,6 +235,7 @@ void InitializeGame(void)
   // Load background and character textures
   bg = LoadTexture("assets/images/background/background.png");
   bg_yard = LoadTexture("assets/images/background/yard.png");
+  score_board = LoadTexture("assets/images/background/Score.png");
   Laika1 = LoadTexture("assets/images/avatar/Laika/Laika1.png");
   MegaChonker1 = LoadTexture("assets/images/avatar/MegaChonker/MegaChonker1.png");
   Bomb1 = LoadTexture("assets/images/avatar/Bomb/Bomb1.png");
@@ -393,6 +395,9 @@ void UpdateGame(void)
           if (charactersCount < MAX_CHARACTERS)
           {
             charactersOnField[charactersCount] = CreateCharacter("MegaChonker", 350, 400, true, 0, 0.0);
+            charactersPOS[charactersCount].x = targetPositions[i].x;
+            charactersPOS[charactersCount].y = targetPositions[i].y;
+            printf("Character %d position: %f, %f\n", charactersCount, charactersPOS[charactersCount].x, charactersPOS[charactersCount].y);
             charactersCount++;
           }
         }
@@ -411,6 +416,9 @@ void UpdateGame(void)
           if (charactersCount < MAX_CHARACTERS)
           {
             charactersOnField[charactersCount] = CreateCharacter("Bomb", 400, 100, true, 200, 0.0);
+            charactersPOS[charactersCount].x = targetPositions[i].x;
+            charactersPOS[charactersCount].y = targetPositions[i].y;
+            printf("Character %d position: %f, %f\n", charactersCount, charactersPOS[charactersCount].x, charactersPOS[charactersCount].y);
             charactersCount++;
           }
         }
@@ -429,6 +437,9 @@ void UpdateGame(void)
           if (charactersCount < MAX_CHARACTERS)
           {
             charactersOnField[charactersCount] = CreateCharacter("FartCat", 300, 150, true, 100, 0.0);
+            charactersPOS[charactersCount].x = targetPositions[i].x + 210;
+            charactersPOS[charactersCount].y = targetPositions[i].y + 150;
+            printf("Character %d position: %f, %f\n", charactersCount, charactersPOS[charactersCount].x, charactersPOS[charactersCount].y);
             charactersCount++;
           }
         }
@@ -488,6 +499,8 @@ void DrawGame(void)
   // Draw the current frame
   DrawTexture(bg, get_center(bg).x, get_center(bg).y, WHITE);
   DrawTexture(bg_yard, get_center(bg_yard).x, get_center(bg_yard).y, (Color){0, 255, 0, 0});
+  DrawTexture(score_board, 400, 0, WHITE);
+  DrawText("Score:", 490, 30, 30, BLACK);
 
   DrawRectangle(0, 0, 250, 250, brownColor_Laika);
   DrawRectangle(0, 250, 250, 250, brownColor_MC);
@@ -524,7 +537,6 @@ void DrawGame(void)
 
     if (shouldDrawAnimationBomb[i])
     {
-      printf("Drawing Bomb animation for block %d\n", i);
       animation(BombFrames, currentFrame, frameTimer, Bomb.name, targetPositions[i]);
     }
 
@@ -545,7 +557,6 @@ void DrawGame(void)
     if (laikaProjectiles[i].active)
     {
       // DrawTexture(LaikaAtkTexture, laikaProjectiles[i].position.x, laikaProjectiles[i].position.y, WHITE);
-      // DrawCircleV(laikaProjectiles[i].position, 5, BLUE);
       DrawRectangle(laikaProjectiles[i].position.x, laikaProjectiles[i].position.y, 40, 10, BLUE);
     }
   }
@@ -565,6 +576,7 @@ void UnloadGame(void)
   }
   UnloadTexture(bg);
   UnloadTexture(bg_yard);
+  UnloadTexture(score_board);
   UnloadTexture(Laika1);
   UnloadTexture(MegaChonker1);
   UnloadTexture(Bomb1);
