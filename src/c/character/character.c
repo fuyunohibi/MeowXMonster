@@ -48,7 +48,7 @@ MonsterCharacter Jelly = {
     .name = "Jelly The Monster",
     .killReward = 100,
     .HP = 200,
-    .rateOfSpawn = 35.0,
+    .rateOfSpawn = 40.0,
     .isAlive = true,
     .attackDamage = 80,
     .attackPerSecond = 0.0,
@@ -68,7 +68,7 @@ MonsterCharacter Muscle = {
     .name = "Muscle The Monster",
     .killReward = 300,
     .HP = 650,
-    .rateOfSpawn = 25.0,
+    .rateOfSpawn = 20.0,
     .isAlive = true,
     .attackDamage = 100,
     .attackPerSecond = 0.0,
@@ -82,4 +82,4 @@ MonsterCharacter Longleg = {
     .isAlive = true,
     .attackDamage = 200,
     .attackPerSecond = 0.0,
-}
+};
