@@ -28,6 +28,7 @@ Texture2D LaikaFrames[3];
 Texture2D MegaChonkerFrames[3];
 Texture2D BombFrames[3];
 Texture2D FartCatFrames[3];
+Texture2D UfoFrames[3];
 Texture2D bg;
 Texture2D bg_yard;
 Texture2D score_board;
@@ -35,6 +36,7 @@ Texture2D Laika1;
 Texture2D MegaChonker1;
 Texture2D Bomb1;
 Texture2D FartCat1;
+Texture2D ufo1;
 int currentFrame = 0;
 float frameTimer = 0;
 float frameSpeed = 0.3f;
@@ -186,14 +188,23 @@ void animation(Texture2D frames[NUM_FRAMES], int currentFrame, float frameTimer,
 void load_animation(Texture2D frames[NUM_FRAMES], const char *name)
 {
   char filename[256];
-
   for (int i = 0; i < NUM_FRAMES; i++)
   {
     sprintf(filename, "assets/images/avatar/%s/%s%d.png", name, name, i + 1);
     frames[i] = LoadTexture(filename);
   }
+  // }
 }
 
+void load_animation_monster(Texture2D frames[NUM_FRAMES], const char *name)
+{
+  char filename[256];
+  for (int i = 0; i < NUM_FRAMES; i++)
+  {
+    sprintf(filename, "assets/images/monster/%s/%s%d.png", name, name, i + 1);
+    frames[i] = LoadTexture(filename);
+  }
+}
 bool IsMouseOverBox(Vector2 mousePosition, Vector2 boxPosition, Texture2D Box)
 {
   return CheckCollisionPointRec(mousePosition, (Rectangle){boxPosition.x, boxPosition.y, Box.width, Box.height});
@@ -232,16 +243,19 @@ void InitializeGame(void)
   char MegaChonkerName[50];
   char BombName[50];
   char FartCatName[50];
+  char ufoName[50];
 
   strcpy(LaikaName, Laika.name);
   strcpy(MegaChonkerName, MegaChonker.name);
   strcpy(BombName, Bomb.name);
   strcpy(FartCatName, FartCat.name);
+  strcpy(ufoName, Ufo.name);
 
   load_animation(LaikaFrames, Laika.name);
   load_animation(MegaChonkerFrames, MegaChonker.name);
   load_animation(BombFrames, Bomb.name);
   load_animation(FartCatFrames, FartCat.name);
+  load_animation_monster(UfoFrames, "ufo");
 
   // Load background and character textures
   bg = LoadTexture("assets/images/background/background.png");
@@ -581,6 +595,8 @@ void DrawGame(void)
     DrawTexture(MegaChonker1, 0, 250, WHITE);
     DrawTexture(Bomb1, 0, 500, WHITE);
     DrawTexture(FartCat1, 0, 750, WHITE);
+
+    animation(UfoFrames, currentFrame, frameTimer, Ufo.name, (Vector2){1080, 150});
 
     // Draw the projectiles
     for (int i = 0; i < MAX_PROJECTILES; i++)
