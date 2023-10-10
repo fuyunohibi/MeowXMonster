@@ -5,6 +5,7 @@
 
 #define NUM_FRAMES 3
 #define NUM_BLOCKS 15
+#define NUM_POSITIONS 3
 
 typedef struct
 {
@@ -31,6 +32,9 @@ typedef struct
   float attackTimer;
   Texture2D frames[NUM_FRAMES];
   bool shouldDrawAnimation[NUM_BLOCKS];
+  Vector2 position;
+  bool active;
+  float animationTimer;
 } MonsterCharacter;
 
 #endif

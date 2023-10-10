@@ -10,6 +10,7 @@
 #define NUM_BLOCKS 15
 #define MAX_CHARACTERS 15
 #define INITIAL_REWARD 100
+#define MAX_MONSTERS 10
 
 // Function prototypes
 Vector2 get_center(Texture2D texture);
@@ -44,7 +45,7 @@ Vector2 imagePosition = {0, 0};
 Vector2 targetPositions[NUM_BLOCKS];
 Vector2 targetPosition = {0, 0};
 Vector2 targetPosition2 = {0, 0};
-Vector2 initPosition[3] = {{1800, 150}, {1900, 300}, {1900, 450}};
+Vector2 initPosition[3] = {{1920, 150}, {1920, 400}, {1920, 650}};
 Color LIGHTBROWN = (Color){100, 69, 19, 128};
 Color darkbrown = (Color){100, 69, 19, 200};
 Color brownColor_Laika = (Color){100, 69, 19, 128};
@@ -88,6 +89,18 @@ typedef struct
   bool active;
 } Projectile;
 
+typedef struct
+{
+  Vector2 position;
+  bool active;
+  float animationTimer;
+  // Add any other UFO-related variables you need here
+} UFO;
+
+MonsterCharacter ufos[MAX_CHARACTERS];
+float ufoSpawnTimer = 0.0f;
+float ufoSpawnInterval = 80.0f; // Delay between UFO spawns in seconds
+
 #define MAX_PROJECTILES 10
 #define MAX_Fart 3
 Projectile laikaProjectiles[MAX_PROJECTILES];
@@ -106,6 +119,7 @@ Character CreateCharacter(const char *name, int price, int HP, bool isAlive, int
   newCharacter.attackDamage = attackDamage;
   newCharacter.attackPerSecond = attackPerSecond;
   newCharacter.attackTimer = 0.0f; // Initialize the attack timer
+
   return newCharacter;
 }
 
@@ -118,6 +132,36 @@ void displayCharacterDetails(Character character)
   printf("isAlive: %s\n", character.isAlive ? "true" : "false");
   printf("Attack Damage: %d\n", character.attackDamage);
   printf("Attack per Second: %f\n", character.attackPerSecond);
+}
+
+MonsterCharacter CreateMonsterCharacter(MonsterCharacter *ufo, const char *name, int HP, bool isAlive, int attackDamage, float attackPerSecond)
+{
+  MonsterCharacter newCharacter;
+  strncpy(newCharacter.name, name, sizeof(newCharacter.name));
+  newCharacter.HP = HP;
+  newCharacter.isAlive = isAlive;
+  newCharacter.attackDamage = attackDamage;
+  newCharacter.attackPerSecond = attackPerSecond;
+  newCharacter.attackTimer = 0.0f; // Initialize the attack timer
+
+  int randomIndex = GetRandomValue(0, 2);    // Randomly choose an index from 0 to 2
+  ufo->position = initPosition[randomIndex]; // Use the selected position
+  ufo->active = true;
+  ufo->animationTimer = 0.0f;
+
+  return newCharacter;
+}
+
+void UpdateMonsters(MonsterCharacter *ufo, float deltaTime)
+{
+  ufo->position.x -= 5 * deltaTime; // Move UFO to the left
+
+  if (ufo->position.x < -UfoFrames[0].width || ufo->position.y < 0 || ufo->position.y > GetScreenHeight())
+  {
+    ufo->active = false; // Deactivate UFO when it goes off-screen
+  }
+
+  // Update any other UFO-related logic here
 }
 
 int start_game(void)
@@ -524,12 +568,6 @@ float fartCatAtkInterval = 12.0f;
 void DrawGame(void)
 {
   float deltaTime = GetFrameTime();
-  initPosition[0].x -= 100 * deltaTime;
-  if (initPosition[0].x > GetScreenWidth())
-  {
-    initPosition[0].x = -10; // Reset the UFO's position to the left edge
-  }
-  printf("UFO position: %f, %f\n", initPosition[0].x, initPosition[0].y);
 
   BeginDrawing();
   ClearBackground(RAYWHITE);
@@ -605,7 +643,31 @@ void DrawGame(void)
     DrawTexture(Bomb1, 0, 500, WHITE);
     DrawTexture(FartCat1, 0, 750, WHITE);
 
-    animation(UfoFrames, currentFrame, frameTimer, Ufo.name, initPosition[0]);
+    ufoSpawnTimer += deltaTime;
+
+    // Generate a new UFO if the spawn timer exceeds the interval
+    if (ufoSpawnTimer >= ufoSpawnInterval)
+    {
+      for (int i = 0; i < MAX_MONSTERS; i++)
+      {
+        if (!ufos[i].active)
+        {
+          CreateMonsterCharacter(&ufos[i], "ufo", 350, true, 120, 1.15);
+          ufoSpawnTimer = 0.0f; // Reset the spawn timer
+          break;                // Break out of the loop after spawning one UFO
+        }
+      }
+    }
+
+    // Update and draw active UFOs
+    for (int i = 0; i < MAX_MONSTERS; i++)
+    {
+      if (ufos[i].active)
+      {
+        UpdateMonsters(&ufos[i], deltaTime);
+        animation(UfoFrames, currentFrame, frameTimer, Ufo.name, ufos[i].position);
+      }
+    }
 
     // Draw the projectiles
     for (int i = 0; i < MAX_PROJECTILES; i++)
