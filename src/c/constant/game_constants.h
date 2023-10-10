@@ -19,18 +19,4 @@ typedef struct
   bool shouldDrawAnimation[NUM_BLOCKS];
 } Character;
 
-typedef struct
-{
-  char name[50];
-  int killReward;
-  float rateOfSpawn;
-  int HP;
-  bool isAlive;
-  int attackDamage;
-  float attackPerSecond;
-  float attackTimer; 
-  Texture2D frames[NUM_FRAMES];
-  bool shouldDrawAnimation[NUM_BLOCKS];
-} MonsterCharacter;
-
 #endif
