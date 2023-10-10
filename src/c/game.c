@@ -9,6 +9,7 @@
 #define NUM_FRAMES 3
 #define NUM_BLOCKS 15
 #define MAX_CHARACTERS 15
+#define INITIAL_REWARD 100
 
 // Function prototypes
 Vector2 get_center(Texture2D texture);

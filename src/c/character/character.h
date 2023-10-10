@@ -8,4 +8,8 @@ extern Character MegaChonker;
 extern Character Bomb;
 extern Character FartCat;
 
+extern MonsterCharacter Jelly;
+extern MonsterCharacter Muscle;
+extern MonsterCharacter Ufo;
+
 #endif
