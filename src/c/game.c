@@ -44,6 +44,7 @@ Vector2 imagePosition = {0, 0};
 Vector2 targetPositions[NUM_BLOCKS];
 Vector2 targetPosition = {0, 0};
 Vector2 targetPosition2 = {0, 0};
+Vector2 initPosition[3] = {{1800, 150}, {1900, 300}, {1900, 450}};
 Color LIGHTBROWN = (Color){100, 69, 19, 128};
 Color darkbrown = (Color){100, 69, 19, 200};
 Color brownColor_Laika = (Color){100, 69, 19, 128};
@@ -522,6 +523,14 @@ float fartCatAtkInterval = 12.0f;
 
 void DrawGame(void)
 {
+  float deltaTime = GetFrameTime();
+  initPosition[0].x -= 100 * deltaTime;
+  if (initPosition[0].x > GetScreenWidth())
+  {
+    initPosition[0].x = -10; // Reset the UFO's position to the left edge
+  }
+  printf("UFO position: %f, %f\n", initPosition[0].x, initPosition[0].y);
+
   BeginDrawing();
   ClearBackground(RAYWHITE);
 
@@ -596,7 +605,7 @@ void DrawGame(void)
     DrawTexture(Bomb1, 0, 500, WHITE);
     DrawTexture(FartCat1, 0, 750, WHITE);
 
-    animation(UfoFrames, currentFrame, frameTimer, Ufo.name, (Vector2){1080, 150});
+    animation(UfoFrames, currentFrame, frameTimer, Ufo.name, initPosition[0]);
 
     // Draw the projectiles
     for (int i = 0; i < MAX_PROJECTILES; i++)
