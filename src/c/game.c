@@ -72,6 +72,9 @@ Vector2 charactersPOS[MAX_CHARACTERS];
 int charcount = 0;
 
 Texture2D LaikaAtkTexture;
+Texture2D FartCatAtk;
+
+int move = 0;
 
 typedef struct
 {
@@ -82,7 +85,9 @@ typedef struct
 } Projectile;
 
 #define MAX_PROJECTILES 10
+#define MAX_Fart 3
 Projectile laikaProjectiles[MAX_PROJECTILES];
+Projectile FCProjectiles[MAX_Fart];
 
 Character charactersOnField[MAX_CHARACTERS];
 int charactersCount = 0;
@@ -212,6 +217,11 @@ void InitializeGame(void)
   {
     laikaProjectiles[i].active = false;
   }
+
+  for (int i = 0; i < MAX_Fart; i++)
+  {
+    FCProjectiles[i].active = false;
+  }
   SetConfigFlags(FLAG_WINDOW_RESIZABLE);
   InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "MeowXMonster");
   SetTargetFPS(60);
@@ -240,6 +250,7 @@ void InitializeGame(void)
   MegaChonker1 = LoadTexture("assets/images/avatar/MegaChonker/MegaChonker1.png");
   Bomb1 = LoadTexture("assets/images/avatar/Bomb/Bomb1.png");
   FartCat1 = LoadTexture("assets/images/avatar/FartCat/FartCat1.png");
+  FartCatAtk = LoadTexture("assets/images/avatar/FartCat/Atk/Fart.png");
 
   // Set initial positions for the blocks
   Vector2 blockStart = get_center(bg_yard);
@@ -490,6 +501,9 @@ void UpdateGame(void)
     }
   }
 }
+// Define a timer variable
+float fartCatAtkTimer = 0.0f;
+float fartCatAtkInterval = 12.0f;
 
 void DrawGame(void)
 {
@@ -521,6 +535,8 @@ void DrawGame(void)
   sprintf(priceBuffer, "%d", FartCat.price);
   DrawText(priceBuffer, 115, 760, 30, WHITE);
 
+  int move = 0;
+
   for (int i = 0; i < NUM_BLOCKS; i++)
   {
     DrawRectangle(targetPositions[i].x, targetPositions[i].y, 250, 250, (Color){0, 255, 0, 0});
@@ -544,20 +560,35 @@ void DrawGame(void)
     {
       animation(FartCatFrames, currentFrame, frameTimer, FartCat.name, targetPositions[i]);
     }
-  }
-
-  DrawTexture(Laika1, 0, 0, WHITE);
-  DrawTexture(MegaChonker1, 0, 250, WHITE);
-  DrawTexture(Bomb1, 0, 500, WHITE);
-  DrawTexture(FartCat1, 0, 750, WHITE);
-
-  // Draw the projectiles
-  for (int i = 0; i < MAX_PROJECTILES; i++)
-  {
-    if (laikaProjectiles[i].active)
+    // Draw FartCatAtk here, outside the for loop
+    for (int i = 0; i < NUM_BLOCKS; i++)
     {
-      // DrawTexture(LaikaAtkTexture, laikaProjectiles[i].position.x, laikaProjectiles[i].position.y, WHITE);
-      DrawRectangle(laikaProjectiles[i].position.x, laikaProjectiles[i].position.y, 40, 10, BLUE);
+      if (shouldDrawAnimationFC[i])
+      {
+        // Check the timer to display FartCatAtk
+        fartCatAtkTimer += GetFrameTime();
+
+        if (fartCatAtkTimer >= fartCatAtkInterval)
+        {
+          DrawTexture(FartCatAtk, targetPositions[i].x + 220 + move, targetPositions[i].y + 100, WHITE);
+          fartCatAtkTimer = 0.0f; // Reset the timer
+        }
+        // move += 10;
+      }
+    }
+    DrawTexture(Laika1, 0, 0, WHITE);
+    DrawTexture(MegaChonker1, 0, 250, WHITE);
+    DrawTexture(Bomb1, 0, 500, WHITE);
+    DrawTexture(FartCat1, 0, 750, WHITE);
+
+    // Draw the projectiles
+    for (int i = 0; i < MAX_PROJECTILES; i++)
+    {
+      if (laikaProjectiles[i].active)
+      {
+        // DrawTexture(LaikaAtkTexture, laikaProjectiles[i].position.x, laikaProjectiles[i].position.y, WHITE);
+        DrawRectangle(laikaProjectiles[i].position.x, laikaProjectiles[i].position.y, 40, 10, BLUE);
+      }
     }
   }
 
@@ -581,6 +612,7 @@ void UnloadGame(void)
   UnloadTexture(MegaChonker1);
   UnloadTexture(Bomb1);
   UnloadTexture(FartCat1);
+  UnloadTexture(FartCatAtk);
 
   CloseWindow();
 }
