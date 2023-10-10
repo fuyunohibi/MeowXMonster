@@ -79,8 +79,6 @@ int charcount = 0;
 Texture2D LaikaAtkTexture;
 Texture2D FartCatAtk;
 
-int move = 0;
-
 typedef struct
 {
   Vector2 position;
