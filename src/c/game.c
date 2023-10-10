@@ -25,10 +25,14 @@ void UnloadGame(void);
 Texture2D box_size = {250, 250};
 Texture2D LaikaFrames[3];
 Texture2D MegaChonkerFrames[3];
+Texture2D BombFrames[3];
+Texture2D FartCatFrames[3];
 Texture2D bg;
 Texture2D bg_yard;
 Texture2D Laika1;
 Texture2D MegaChonker1;
+Texture2D Bomb1;
+Texture2D FartCat1;
 int currentFrame = 0;
 float frameTimer = 0;
 float frameSpeed = 0.3f;
@@ -40,17 +44,29 @@ Color LIGHTBROWN = (Color){100, 69, 19, 128};
 Color darkbrown = (Color){100, 69, 19, 200};
 Color brownColor_Laika = (Color){100, 69, 19, 128};
 Color brownColor_MC = (Color){100, 69, 19, 128};
+Color brownColor_Bomb = (Color){100, 69, 19, 128};
+Color brownColor_FC = (Color){100, 69, 19, 128};
 bool shouldCopyLaika = false;
 bool shouldCopyMC = false;
+bool shouldCopyBomb = false;
+bool shouldCopyFC = false;
 bool block_empty[NUM_BLOCKS];
 bool block_contains_Laika_animation[NUM_BLOCKS];
 bool block_contains_MC_animation[NUM_BLOCKS];
+bool block_contains_Bomb_animation[NUM_BLOCKS];
+bool block_contains_FC_animation[NUM_BLOCKS];
 bool shouldDrawAnimationLaika[NUM_BLOCKS] = {false};
 bool shouldDrawAnimationLaika1 = false;
 bool shouldDrawAnimationLaika2 = false;
 bool shouldDrawAnimationMC[NUM_BLOCKS] = {false};
 bool shouldDrawAnimationMC1 = false;
 bool shouldDrawAnimationMC2 = false;
+bool shouldDrawAnimationBomb[NUM_BLOCKS] = {false};
+bool shouldDrawAnimationBomb1 = false;
+bool shouldDrawAnimationBomb2 = false;
+bool shouldDrawAnimationFC[NUM_BLOCKS] = {false};
+bool shouldDrawAnimationFC1 = false;
+bool shouldDrawAnimationFC2 = false;
 Vector2 charactersPOS[MAX_CHARACTERS];
 int charcount = 0;
 
@@ -101,6 +117,8 @@ int start_game(void)
   InitializeGame();
   displayCharacterDetails(Laika);
   displayCharacterDetails(MegaChonker);
+  displayCharacterDetails(Bomb);
+  displayCharacterDetails(FartCat);
 
   while (!WindowShouldClose())
   {
@@ -200,18 +218,26 @@ void InitializeGame(void)
   // Initialize character
   char LaikaName[50];
   char MegaChonkerName[50];
+  char BombName[50];
+  char FartCatName[50];
 
   strcpy(LaikaName, Laika.name);
   strcpy(MegaChonkerName, MegaChonker.name);
+  strcpy(BombName, Bomb.name);
+  strcpy(FartCatName, FartCat.name);
 
   load_animation(LaikaFrames, Laika.name);
   load_animation(MegaChonkerFrames, MegaChonker.name);
+  load_animation(BombFrames, Bomb.name);
+  load_animation(FartCatFrames, FartCat.name);
 
   // Load background and character textures
   bg = LoadTexture("assets/images/background/background.png");
   bg_yard = LoadTexture("assets/images/background/yard.png");
   Laika1 = LoadTexture("assets/images/avatar/Laika/Laika1.png");
   MegaChonker1 = LoadTexture("assets/images/avatar/MegaChonker/MegaChonker1.png");
+  Bomb1 = LoadTexture("assets/images/avatar/Bomb/Bomb1.png");
+  FartCat1 = LoadTexture("assets/images/avatar/FartCat/FartCat1.png");
 
   // Set initial positions for the blocks
   Vector2 blockStart = get_center(bg_yard);
@@ -223,6 +249,8 @@ void InitializeGame(void)
     block_empty[i] = true;
     block_contains_Laika_animation[i] = false;
     block_contains_MC_animation[i] = false;
+    block_contains_Bomb_animation[i] = false;
+    block_contains_FC_animation[i] = false;
   }
 
   // Set initial positions
@@ -258,7 +286,7 @@ void UpdateGame(void)
   }
 
   for (int i = 0; i < charactersCount; i++)
-  {
+  { // Loop through all characters
     charactersOnField[i].attackTimer += GetFrameTime();
 
     float timeBetweenShots = 1.0f / charactersOnField[i].attackPerSecond;
@@ -267,7 +295,6 @@ void UpdateGame(void)
     {
       // Shoot!
       charactersOnField[i].attackTimer = 0.0f; // Reset timer
-      // Vector2 shootingPosition = (Vector2){charactersPOS[i].x + 250, charactersPOS[i].y + 125};
       shootProjectileFromCharacter(charactersOnField[i], charactersPOS[i]);
     }
   }
@@ -283,16 +310,49 @@ void UpdateGame(void)
       {
         shouldCopyLaika = true;
         shouldCopyMC = false;
+        shouldCopyBomb = false;
+        shouldCopyFC = false;
         brownColor_Laika = darkbrown;
         brownColor_MC = LIGHTBROWN;
+        brownColor_Bomb = LIGHTBROWN;
+        brownColor_FC = LIGHTBROWN;
         // printf("Block %d is %s\n", i, block_empty[i] ? "empty" : "occupied");
       }
       else if (IsMouseOverBox(mousePosition, (Vector2){0, 250}, MegaChonker1))
       {
         shouldCopyLaika = false;
         shouldCopyMC = true;
+        shouldCopyBomb = false;
+        shouldCopyFC = false;
         brownColor_Laika = LIGHTBROWN;
         brownColor_MC = darkbrown;
+        brownColor_Bomb = LIGHTBROWN;
+        brownColor_FC = LIGHTBROWN;
+        // printf("Block %d is %s\n", i, block_empty[i] ? "empty" : "occupied");
+      }
+      // Bomb
+      else if (IsMouseOverBox(mousePosition, (Vector2){0, 500}, Bomb1))
+      {
+        shouldCopyLaika = false;
+        shouldCopyMC = false;
+        shouldCopyBomb = true;
+        shouldCopyFC = false;
+        brownColor_Laika = LIGHTBROWN;
+        brownColor_MC = LIGHTBROWN;
+        brownColor_Bomb = darkbrown;
+        brownColor_FC = LIGHTBROWN;
+        // printf("Block %d is %s\n", i, block_empty[i] ? "empty" : "occupied");
+      }
+      else if (IsMouseOverBox(mousePosition, (Vector2){0, 750}, FartCat1))
+      {
+        shouldCopyLaika = false;
+        shouldCopyMC = false;
+        shouldCopyBomb = false;
+        shouldCopyFC = true;
+        brownColor_Laika = LIGHTBROWN;
+        brownColor_MC = LIGHTBROWN;
+        brownColor_Bomb = LIGHTBROWN;
+        brownColor_FC = darkbrown;
         // printf("Block %d is %s\n", i, block_empty[i] ? "empty" : "occupied");
       }
 
@@ -304,16 +364,17 @@ void UpdateGame(void)
           CopyImage(&imagePosition, targetPositions[i], Laika1);
           shouldDrawAnimationLaika[i] = true;
           shouldDrawAnimationMC[i] = false;
+          shouldDrawAnimationBomb[i] = false;
+          shouldDrawAnimationFC[i] = false;
           brownColor_Laika = LIGHTBROWN;
           block_empty[i] = false;
           block_contains_Laika_animation[i] = true; // Mark this block as containing animation
           shouldCopyLaika = false;
           if (charactersCount < MAX_CHARACTERS)
           {
-            charactersOnField[charactersCount] = CreateCharacter("Laika", 100, 150, true, 50, 0.4);
-            // charactersPOS[charactersCount] = targetPositions[i];
-            charactersPOS[charactersCount].x = targetPositions[i].x + 250;
-            charactersPOS[charactersCount].y = targetPositions[i].y + 125;
+            charactersOnField[charactersCount] = CreateCharacter("Laika", 100, 150, true, 50, 1.15);
+            charactersPOS[charactersCount].x = targetPositions[i].x + 210;
+            charactersPOS[charactersCount].y = targetPositions[i].y + 130;
             printf("Character %d position: %f, %f\n", charactersCount, charactersPOS[charactersCount].x, charactersPOS[charactersCount].y);
             charactersCount++;
           }
@@ -323,6 +384,8 @@ void UpdateGame(void)
           CopyImage(&imagePosition, targetPositions[i], MegaChonker1);
           shouldDrawAnimationLaika[i] = false;
           shouldDrawAnimationMC[i] = true;
+          shouldDrawAnimationBomb[i] = false;
+          shouldDrawAnimationFC[i] = false;
           brownColor_MC = LIGHTBROWN;
           block_empty[i] = false;
           block_contains_MC_animation[i] = true; // Mark this block as containing animation
@@ -333,24 +396,84 @@ void UpdateGame(void)
             charactersCount++;
           }
         }
+        // Bomb
+        else if (shouldCopyBomb && block_empty[i])
+        {
+          CopyImage(&imagePosition, targetPositions[i], Bomb1);
+          shouldDrawAnimationLaika[i] = false;
+          shouldDrawAnimationMC[i] = false;
+          shouldDrawAnimationBomb[i] = true;
+          shouldDrawAnimationFC[i] = false;
+          brownColor_Bomb = LIGHTBROWN;
+          block_empty[i] = false;
+          block_contains_Bomb_animation[i] = true; // Mark this block as containing animation
+          shouldCopyBomb = false;
+          if (charactersCount < MAX_CHARACTERS)
+          {
+            charactersOnField[charactersCount] = CreateCharacter("Bomb", 400, 100, true, 200, 0.0);
+            charactersCount++;
+          }
+        }
+        // FartCat
+        else if (shouldCopyFC && block_empty[i])
+        {
+          CopyImage(&imagePosition, targetPositions[i], FartCat1);
+          shouldDrawAnimationFC[i] = true;
+          shouldDrawAnimationMC[i] = false;
+          shouldDrawAnimationBomb[i] = false;
+          shouldDrawAnimationBomb[i] = false;
+          brownColor_FC = LIGHTBROWN;
+          block_empty[i] = false;
+          block_contains_FC_animation[i] = true; // Mark this block as containing animation
+          shouldCopyFC = false;
+          if (charactersCount < MAX_CHARACTERS)
+          {
+            charactersOnField[charactersCount] = CreateCharacter("FartCat", 300, 150, true, 100, 0.0);
+            charactersCount++;
+          }
+        }
         else if (block_contains_Laika_animation[i]) // Check if animation is present
         {
           shouldDrawAnimationLaika[i] = true; // Re-draw the animation
           shouldDrawAnimationMC[i] = false;
+          shouldDrawAnimationBomb[i] = false;
+          shouldDrawAnimationFC[i] = false;
         }
         else if (block_contains_MC_animation[i]) // Check if animation is present
         {
           shouldDrawAnimationLaika[i] = false; // Re-draw the animation
           shouldDrawAnimationMC[i] = true;
+          shouldDrawAnimationBomb[i] = false;
+          shouldDrawAnimationFC[i] = false;
+        }
+        else if (block_contains_Bomb_animation[i]) // Check if animation is present
+        {
+          shouldDrawAnimationLaika[i] = false;
+          shouldDrawAnimationMC[i] = false;
+          shouldDrawAnimationBomb[i] = true; // Re-draw the animation
+          shouldDrawAnimationFC[i] = false;
+        }
+        else if (block_contains_FC_animation[i]) // Check if animation is present
+        {
+          shouldDrawAnimationLaika[i] = false;
+          shouldDrawAnimationMC[i] = false;
+          shouldDrawAnimationBomb[i] = false; // Re-draw the animation
+          shouldDrawAnimationFC[i] = true;    // Re-draw the animation
         }
         else
         {
           shouldDrawAnimationLaika[i] = false;
           shouldDrawAnimationMC[i] = false;
+          shouldDrawAnimationBomb[i] = false;
+          shouldDrawAnimationFC[i] = false;
           shouldCopyLaika = false;
           shouldCopyMC = false;
+          shouldCopyBomb = false;
+          shouldCopyFC = false;
           brownColor_Laika = LIGHTBROWN;
           brownColor_MC = LIGHTBROWN;
+          brownColor_Bomb = LIGHTBROWN;
+          brownColor_FC = LIGHTBROWN;
         }
       }
     }
@@ -368,6 +491,8 @@ void DrawGame(void)
 
   DrawRectangle(0, 0, 250, 250, brownColor_Laika);
   DrawRectangle(0, 250, 250, 250, brownColor_MC);
+  DrawRectangle(0, 500, 250, 250, brownColor_Bomb);
+  DrawRectangle(0, 750, 250, 250, brownColor_FC);
 
   char priceBuffer[50];
 
@@ -376,6 +501,12 @@ void DrawGame(void)
 
   sprintf(priceBuffer, "%d", MegaChonker.price);
   DrawText(priceBuffer, 115, 260, 30, WHITE);
+
+  sprintf(priceBuffer, "%d", Bomb.price);
+  DrawText(priceBuffer, 115, 510, 30, WHITE);
+
+  sprintf(priceBuffer, "%d", FartCat.price);
+  DrawText(priceBuffer, 115, 760, 30, WHITE);
 
   for (int i = 0; i < NUM_BLOCKS; i++)
   {
@@ -390,10 +521,23 @@ void DrawGame(void)
     {
       animation(MegaChonkerFrames, currentFrame, frameTimer, MegaChonker.name, targetPositions[i]);
     }
+
+    if (shouldDrawAnimationBomb[i])
+    {
+      printf("Drawing Bomb animation for block %d\n", i);
+      animation(BombFrames, currentFrame, frameTimer, Bomb.name, targetPositions[i]);
+    }
+
+    if (shouldDrawAnimationFC[i])
+    {
+      animation(FartCatFrames, currentFrame, frameTimer, FartCat.name, targetPositions[i]);
+    }
   }
 
   DrawTexture(Laika1, 0, 0, WHITE);
   DrawTexture(MegaChonker1, 0, 250, WHITE);
+  DrawTexture(Bomb1, 0, 500, WHITE);
+  DrawTexture(FartCat1, 0, 750, WHITE);
 
   // Draw the projectiles
   for (int i = 0; i < MAX_PROJECTILES; i++)
@@ -401,7 +545,8 @@ void DrawGame(void)
     if (laikaProjectiles[i].active)
     {
       // DrawTexture(LaikaAtkTexture, laikaProjectiles[i].position.x, laikaProjectiles[i].position.y, WHITE);
-      DrawCircleV(laikaProjectiles[i].position, 5, BLUE);
+      // DrawCircleV(laikaProjectiles[i].position, 5, BLUE);
+      DrawRectangle(laikaProjectiles[i].position.x, laikaProjectiles[i].position.y, 40, 10, BLUE);
     }
   }
 
@@ -415,10 +560,15 @@ void UnloadGame(void)
   {
     UnloadTexture(LaikaFrames[i]);
     UnloadTexture(MegaChonkerFrames[i]);
+    UnloadTexture(BombFrames[i]);
+    UnloadTexture(FartCatFrames[i]);
   }
+  UnloadTexture(bg);
   UnloadTexture(bg_yard);
   UnloadTexture(Laika1);
   UnloadTexture(MegaChonker1);
+  UnloadTexture(Bomb1);
+  UnloadTexture(FartCat1);
 
   CloseWindow();
 }

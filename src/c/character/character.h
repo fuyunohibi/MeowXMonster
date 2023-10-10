@@ -5,5 +5,7 @@
 
 extern Character Laika;
 extern Character MegaChonker;
+extern Character Bomb;
+extern Character FartCat;
 
 #endif
