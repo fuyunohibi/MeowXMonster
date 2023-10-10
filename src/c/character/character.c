@@ -23,7 +23,7 @@ Character FartCat = {
 Character MegaChonker = {
     .name = "MegaChonker",
     .price = 200,
-    .HP = 500,
+    .HP = 800,
     .isAlive = true,
     .attackDamage = 0,
     .attackPerSecond = 0.0,
@@ -39,33 +39,47 @@ Character Bomb = {
 };
 
 // ==================== MONSTER CHARACTERS ====================
+// ============ ASCENDING BASE ON STRENTH OF MONSTER ============
+
+// AVG ATTACK OF CAT IS 750
+// AVG HP OF CAT IS 500
 
 MonsterCharacter Jelly = {
     .name = "Jelly The Monster",
     .killReward = 100,
-    .HP = 150,
-    .rateOfSpawn = 0.0,
+    .HP = 200,
+    .rateOfSpawn = 35.0,
     .isAlive = true,
-    .attackDamage = 100,
-    .attackPerSecond = 0.0,
-};
-
-MonsterCharacter Muscle = {
-    .name = "Muscle The Monster",
-    .killReward = 300,
-    .HP = 150,
-    .rateOfSpawn = 0.0,
-    .isAlive = true,
-    .attackDamage = 100,
+    .attackDamage = 80,
     .attackPerSecond = 0.0,
 };
 
 MonsterCharacter Ufo = {
     .name = "Ufo The Monster",
     .killReward = 500,
-    .HP = 150,
-    .rateOfSpawn = 0.0,
+    .HP = 350,
+    .rateOfSpawn = 25.0,
+    .isAlive = true,
+    .attackDamage = 120,
+    .attackPerSecond = 0.0,
+};
+
+MonsterCharacter Muscle = {
+    .name = "Muscle The Monster",
+    .killReward = 300,
+    .HP = 650,
+    .rateOfSpawn = 25.0,
     .isAlive = true,
     .attackDamage = 100,
     .attackPerSecond = 0.0,
 };
+
+MonsterCharacter Longleg = {
+    .name = "Longleg The Monster",
+    .killReward = 500,
+    .HP = 400,
+    .rateOfSpawn = 15.0,
+    .isAlive = true,
+    .attackDamage = 200,
+    .attackPerSecond = 0.0,
+}
