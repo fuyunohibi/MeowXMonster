@@ -40,7 +40,6 @@ Texture2D Laika1;
 Texture2D MegaChonker1;
 Texture2D Bomb1;
 Texture2D FartCat1;
-Texture2D ufo1;
 int currentFrame = 0;
 float frameTimer = 0;
 float frameSpeed = 0.3f;
@@ -132,6 +131,7 @@ void displayCharacterDetails(Character character)
 }
 
 MonsterCharacter CreateMonsterCharacter(MonsterCharacter *monster, const char *name, int HP, bool isAlive, int attackDamage, float attackPerSecond)
+MonsterCharacter CreateMonsterCharacter(MonsterCharacter *monster, const char *name, int HP, bool isAlive, int attackDamage, float attackPerSecond)
 {
   MonsterCharacter newCharacter;
   strncpy(newCharacter.name, name, sizeof(newCharacter.name));
@@ -155,6 +155,7 @@ void UpdateMonsters(MonsterCharacter *monster, float deltaTime, int speed)
 
   if (monster->position.x < -UfoFrames[0].width || monster->position.y < 0 || monster->position.y > GetScreenHeight())
   {
+    monster->active = false; // Deactivate UFO when it goes off-screen
     monster->active = false; // Deactivate UFO when it goes off-screen
   }
 
@@ -286,12 +287,14 @@ void InitializeGame(void)
   char BombName[50];
   char FartCatName[50];
   char ufoName[50];
+  char MuscleName[50];
 
   strcpy(LaikaName, Laika.name);
   strcpy(MegaChonkerName, MegaChonker.name);
   strcpy(BombName, Bomb.name);
   strcpy(FartCatName, FartCat.name);
   strcpy(ufoName, Ufo.name);
+  strcpy(MuscleName, Muscle.name);
 
   load_animation(LaikaFrames, Laika.name);
   load_animation(MegaChonkerFrames, MegaChonker.name);
@@ -678,6 +681,7 @@ void DrawGame(void)
       }
     }
 
+    int k = 1;
     // Update and draw active UFOs
     for (int i = 0; i < MAX_MONSTERS; i++)
     {
