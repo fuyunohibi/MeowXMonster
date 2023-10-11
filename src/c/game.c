@@ -131,7 +131,6 @@ void displayCharacterDetails(Character character)
 }
 
 MonsterCharacter CreateMonsterCharacter(MonsterCharacter *monster, const char *name, int HP, bool isAlive, int attackDamage, float attackPerSecond)
-MonsterCharacter CreateMonsterCharacter(MonsterCharacter *monster, const char *name, int HP, bool isAlive, int attackDamage, float attackPerSecond)
 {
   MonsterCharacter newCharacter;
   strncpy(newCharacter.name, name, sizeof(newCharacter.name));
