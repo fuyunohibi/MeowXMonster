@@ -29,7 +29,10 @@ Texture2D LaikaFrames[3];
 Texture2D MegaChonkerFrames[3];
 Texture2D BombFrames[3];
 Texture2D FartCatFrames[3];
+Texture2D JellyFrames[3];
 Texture2D UfoFrames[3];
+Texture2D MuscleFrames[3];
+Texture2D LonglegFrames[3];
 Texture2D bg;
 Texture2D bg_yard;
 Texture2D score_board;
@@ -87,17 +90,13 @@ typedef struct
   bool active;
 } Projectile;
 
-typedef struct
-{
-  Vector2 position;
-  bool active;
-  float animationTimer;
-  // Add any other UFO-related variables you need here
-} UFO;
-
+MonsterCharacter jellys[MAX_CHARACTERS];
 MonsterCharacter ufos[MAX_CHARACTERS];
-float ufoSpawnTimer = 0.0f;
-float ufoSpawnInterval = 80.0f; // Delay between UFO spawns in seconds
+MonsterCharacter muscles[MAX_CHARACTERS];
+MonsterCharacter longlegs[MAX_CHARACTERS];
+
+float monsterSpawnTimer = 0.0f;
+float monsterSpawnInterval = 80.0f; // Delay between UFO spawns in seconds
 
 #define MAX_PROJECTILES 10
 #define MAX_Fart 3
@@ -132,7 +131,7 @@ void displayCharacterDetails(Character character)
   printf("Attack per Second: %f\n", character.attackPerSecond);
 }
 
-MonsterCharacter CreateMonsterCharacter(MonsterCharacter *ufo, const char *name, int HP, bool isAlive, int attackDamage, float attackPerSecond)
+MonsterCharacter CreateMonsterCharacter(MonsterCharacter *monster, const char *name, int HP, bool isAlive, int attackDamage, float attackPerSecond)
 {
   MonsterCharacter newCharacter;
   strncpy(newCharacter.name, name, sizeof(newCharacter.name));
@@ -143,20 +142,20 @@ MonsterCharacter CreateMonsterCharacter(MonsterCharacter *ufo, const char *name,
   newCharacter.attackTimer = 0.0f; // Initialize the attack timer
 
   int randomIndex = GetRandomValue(0, 2);    // Randomly choose an index from 0 to 2
-  ufo->position = initPosition[randomIndex]; // Use the selected position
-  ufo->active = true;
-  ufo->animationTimer = 0.0f;
+  monster->position = initPosition[randomIndex]; // Use the selected position
+  monster->active = true;
+  monster->animationTimer = 0.0f;
 
   return newCharacter;
 }
 
-void UpdateMonsters(MonsterCharacter *ufo, float deltaTime)
+void UpdateMonsters(MonsterCharacter *monster, float deltaTime, int speed)
 {
-  ufo->position.x -= 5 * deltaTime; // Move UFO to the left
+  monster->position.x -= speed * deltaTime; // Move monster to the left
 
-  if (ufo->position.x < -UfoFrames[0].width || ufo->position.y < 0 || ufo->position.y > GetScreenHeight())
+  if (monster->position.x < -UfoFrames[0].width || monster->position.y < 0 || monster->position.y > GetScreenHeight())
   {
-    ufo->active = false; // Deactivate UFO when it goes off-screen
+    monster->active = false; // Deactivate UFO when it goes off-screen
   }
 
   // Update any other UFO-related logic here
@@ -298,7 +297,10 @@ void InitializeGame(void)
   load_animation(MegaChonkerFrames, MegaChonker.name);
   load_animation(BombFrames, Bomb.name);
   load_animation(FartCatFrames, FartCat.name);
+  load_animation_monster(JellyFrames, "jelly");
   load_animation_monster(UfoFrames, "ufo");
+  load_animation_monster(MuscleFrames, "muscle");
+  load_animation_monster(LonglegFrames, "LongLeg");
 
   // Load background and character textures
   bg = LoadTexture("assets/images/background/background.png");
@@ -561,7 +563,7 @@ void UpdateGame(void)
 }
 // Define a timer variable
 float fartCatAtkTimer = 0.0f;
-float fartCatAtkInterval = 12.0f;
+float fartCatAtkInterval = 20.0f;
 
 void DrawGame(void)
 {
@@ -641,18 +643,37 @@ void DrawGame(void)
     DrawTexture(Bomb1, 0, 500, WHITE);
     DrawTexture(FartCat1, 0, 750, WHITE);
 
-    ufoSpawnTimer += deltaTime;
+    monsterSpawnTimer += deltaTime;
 
     // Generate a new UFO if the spawn timer exceeds the interval
-    if (ufoSpawnTimer >= ufoSpawnInterval)
+    if (monsterSpawnTimer >= monsterSpawnInterval)
     {
-      for (int i = 0; i < MAX_MONSTERS; i++)
+      int randomIndex = GetRandomValue(0, 3);
+      for(int i = 0; i < MAX_MONSTERS; i++)
       {
-        if (!ufos[i].active)
+        if (!jellys[i].active && randomIndex == 0)
+        {
+          CreateMonsterCharacter(&jellys[i], "jelly", 350, true, 120, 1.15);
+          monsterSpawnTimer = 0.0f; // Reset the spawn timer
+          break;
+        }
+        else if (!ufos[i].active && randomIndex == 1)
         {
           CreateMonsterCharacter(&ufos[i], "ufo", 350, true, 120, 1.15);
-          ufoSpawnTimer = 0.0f; // Reset the spawn timer
-          break;                // Break out of the loop after spawning one UFO
+          monsterSpawnTimer = 0.0f; // Reset the spawn timer
+          break;
+        }
+        else if (!muscles[i].active && randomIndex == 2)
+        {
+          CreateMonsterCharacter(&muscles[i], "muscle", 350, true, 120, 1.15);
+          monsterSpawnTimer = 0.0f; // Reset the spawn timer
+          break;
+        }
+        else if (!longlegs[i].active && randomIndex == 3)
+        {
+          CreateMonsterCharacter(&longlegs[i], "longlegs", 350, true, 120, 1.15);
+          monsterSpawnTimer = 0.0f; // Reset the spawn timer
+          break;
         }
       }
     }
@@ -660,10 +681,25 @@ void DrawGame(void)
     // Update and draw active UFOs
     for (int i = 0; i < MAX_MONSTERS; i++)
     {
+      if (jellys[i].active)
+      {
+        UpdateMonsters(&jellys[i], deltaTime, Jelly.walkSpeed);
+        animation(JellyFrames, currentFrame, frameTimer, Jelly.name, jellys[i].position);
+      }
       if (ufos[i].active)
       {
-        UpdateMonsters(&ufos[i], deltaTime);
+        UpdateMonsters(&ufos[i], deltaTime, Ufo.walkSpeed);
         animation(UfoFrames, currentFrame, frameTimer, Ufo.name, ufos[i].position);
+      }
+      if (muscles[i].active)
+      {
+        UpdateMonsters(&muscles[i], deltaTime, Muscle.walkSpeed);
+        animation(MuscleFrames, currentFrame, frameTimer, Muscle.name, muscles[i].position);
+      }
+      if (longlegs[i].active)
+      {
+        UpdateMonsters(&longlegs[i], deltaTime, Longleg.walkSpeed);
+        animation(LonglegFrames, currentFrame, frameTimer, Longleg.name, longlegs[i].position);
       }
     }
 
