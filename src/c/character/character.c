@@ -52,6 +52,7 @@ MonsterCharacter Jelly = {
     .isAlive = true,
     .attackDamage = 80,
     .attackPerSecond = 0.0,
+    .walkSpeed = 5.0,
 };
 
 MonsterCharacter Ufo = {
@@ -62,6 +63,7 @@ MonsterCharacter Ufo = {
     .isAlive = true,
     .attackDamage = 120,
     .attackPerSecond = 0.0,
+    .walkSpeed = 4.5,
 };
 
 MonsterCharacter Muscle = {
@@ -72,6 +74,7 @@ MonsterCharacter Muscle = {
     .isAlive = true,
     .attackDamage = 100,
     .attackPerSecond = 0.0,
+    .walkSpeed = 4.0,
 };
 
 MonsterCharacter Longleg = {
@@ -82,4 +85,5 @@ MonsterCharacter Longleg = {
     .isAlive = true,
     .attackDamage = 200,
     .attackPerSecond = 0.0,
+    .walkSpeed = 3.5,
 };

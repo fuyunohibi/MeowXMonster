@@ -9,7 +9,8 @@ extern Character Bomb;
 extern Character FartCat;
 
 extern MonsterCharacter Jelly;
-extern MonsterCharacter Muscle;
 extern MonsterCharacter Ufo;
+extern MonsterCharacter Muscle;
+extern MonsterCharacter Longleg;
 
 #endif

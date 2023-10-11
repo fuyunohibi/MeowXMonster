@@ -35,6 +35,7 @@ typedef struct
   Vector2 position;
   bool active;
   float animationTimer;
+  float walkSpeed;
 } MonsterCharacter;
 
 #endif
