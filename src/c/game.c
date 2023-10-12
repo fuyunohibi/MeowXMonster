@@ -22,6 +22,7 @@ void InitializeGame(void);
 void UpdateGame(void);
 void DrawGame(void);
 void UnloadGame(void);
+void GameOver(void);
 
 // Global variables
 Texture2D box_size = {250, 250};
@@ -76,7 +77,6 @@ bool shouldDrawAnimationFC[NUM_BLOCKS] = {false};
 bool shouldDrawAnimationFC1 = false;
 bool shouldDrawAnimationFC2 = false;
 Vector2 charactersPOS[MAX_CHARACTERS];
-int charcount = 0;
 
 Texture2D LaikaAtkTexture;
 Texture2D FartCatAtk;
@@ -148,17 +148,17 @@ MonsterCharacter CreateMonsterCharacter(MonsterCharacter *monster, const char *n
   return newCharacter;
 }
 
-void UpdateMonsters(MonsterCharacter *monster, float deltaTime, int speed)
+void UpdateMonsters(MonsterCharacter *monster, float deltaTime, int speed, Texture2D monsterFrames[NUM_FRAMES])
 {
   monster->position.x -= speed * deltaTime; // Move monster to the left
 
-  if (monster->position.x < -UfoFrames[0].width || monster->position.y < 0 || monster->position.y > GetScreenHeight())
+  if (monster->position.x < 250)
   {
-    monster->active = false; // Deactivate UFO when it goes off-screen
-    monster->active = false; // Deactivate UFO when it goes off-screen
+    // monster->active = false; // Deactivate monster when it goes off-screen
+    UnloadGame(); // Game over when monster walk through column 1 (x = 250), Change UnloadGame() to function GameOver()
   }
 
-  // Update any other UFO-related logic here
+  // Update any other monster-related logic here
 }
 
 int start_game(void)
@@ -255,14 +255,6 @@ bool IsMouseOverBox(Vector2 mousePosition, Vector2 boxPosition, Texture2D Box)
 void CopyImage(Vector2 *imagePosition, Vector2 targetPosition, Texture2D image)
 {
   *imagePosition = targetPosition;
-}
-
-Vector2 get_charPOS(Vector2 targetPosition, int charCount)
-{
-  Vector2 charPOS;
-  charactersPOS[charCount].x = targetPosition.x + 250;
-  charactersPOS[charCount].y = targetPosition.y + 125;
-  return charPOS;
 }
 
 void InitializeGame(void)
@@ -650,7 +642,7 @@ void DrawGame(void)
     // Generate a new UFO if the spawn timer exceeds the interval
     if (monsterSpawnTimer >= monsterSpawnInterval)
     {
-      int randomIndex = GetRandomValue(0, 3);
+      int randomIndex = GetRandomValue(0, 3); // Use random_number from asm for random with probability
       for(int i = 0; i < MAX_MONSTERS; i++)
       {
         if (!jellys[i].active && randomIndex == 0)
@@ -680,28 +672,27 @@ void DrawGame(void)
       }
     }
 
-    int k = 1;
     // Update and draw active UFOs
     for (int i = 0; i < MAX_MONSTERS; i++)
     {
       if (jellys[i].active)
       {
-        UpdateMonsters(&jellys[i], deltaTime, Jelly.walkSpeed);
+        UpdateMonsters(&jellys[i], deltaTime, Jelly.walkSpeed, JellyFrames);
         animation(JellyFrames, currentFrame, frameTimer, Jelly.name, jellys[i].position);
       }
       if (ufos[i].active)
       {
-        UpdateMonsters(&ufos[i], deltaTime, Ufo.walkSpeed);
+        UpdateMonsters(&ufos[i], deltaTime, Ufo.walkSpeed, UfoFrames);
         animation(UfoFrames, currentFrame, frameTimer, Ufo.name, ufos[i].position);
       }
       if (muscles[i].active)
       {
-        UpdateMonsters(&muscles[i], deltaTime, Muscle.walkSpeed);
+        UpdateMonsters(&muscles[i], deltaTime, Muscle.walkSpeed, MuscleFrames);
         animation(MuscleFrames, currentFrame, frameTimer, Muscle.name, muscles[i].position);
       }
       if (longlegs[i].active)
       {
-        UpdateMonsters(&longlegs[i], deltaTime, Longleg.walkSpeed);
+        UpdateMonsters(&longlegs[i], deltaTime, Longleg.walkSpeed, LonglegFrames);
         animation(LonglegFrames, currentFrame, frameTimer, Longleg.name, longlegs[i].position);
       }
     }
