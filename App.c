@@ -1,9 +1,9 @@
 #include <stdio.h>
 
-extern void start_game(void);
+extern void intropage(void);
 
 int main () {
   printf("Starting MoewXMonster...\n");
-  start_game();
+  intropage();
   return 0;
 }
