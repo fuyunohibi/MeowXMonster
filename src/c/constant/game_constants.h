@@ -36,6 +36,7 @@ typedef struct
   bool active;
   float animationTimer;
   float walkSpeed;
+  int row;
 } MonsterCharacter;
 
 #endif

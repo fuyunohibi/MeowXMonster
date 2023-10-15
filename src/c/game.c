@@ -104,6 +104,7 @@ Projectile FCProjectiles[MAX_Fart];
 
 Character charactersOnField[MAX_CHARACTERS];
 int charactersCount = 0;
+int charactersRow[NUM_BLOCKS];
 
 Character CreateCharacter(const char *name, int price, int HP, bool isAlive, int attackDamage, float attackPerSecond)
 {
@@ -130,12 +131,11 @@ void displayCharacterDetails(Character character)
   printf("Attack per Second: %f\n", character.attackPerSecond);
 }
 
-MonsterCharacter CreateMonsterCharacter(MonsterCharacter *monster, const char *name, int HP, bool isAlive, int attackDamage, float attackPerSecond)
+MonsterCharacter CreateMonsterCharacter(MonsterCharacter *monster, const char *name, int HP, int attackDamage, float attackPerSecond)
 {
   MonsterCharacter newCharacter;
   strncpy(newCharacter.name, name, sizeof(newCharacter.name));
   newCharacter.HP = HP;
-  newCharacter.isAlive = isAlive;
   newCharacter.attackDamage = attackDamage;
   newCharacter.attackPerSecond = attackPerSecond;
   newCharacter.attackTimer = 0.0f; // Initialize the attack timer
@@ -143,13 +143,41 @@ MonsterCharacter CreateMonsterCharacter(MonsterCharacter *monster, const char *n
   int randomIndex = GetRandomValue(0, 2);    // Randomly choose an index from 0 to 2
   monster->position = initPosition[randomIndex]; // Use the selected position
   monster->active = true;
+  monster->isAlive = true;
   monster->animationTimer = 0.0f;
+  monster->row = randomIndex;
 
   return newCharacter;
 }
 
+int findRow(int i)
+{
+  while(i > 2)
+  {
+    i -= 3;
+  }
+
+  return i;
+}
+
 void UpdateMonsters(MonsterCharacter *monster, float deltaTime, int speed, Texture2D monsterFrames[NUM_FRAMES])
 {
+  for (int i = 0; i < charactersCount; i++)
+  {
+    if (monster->position.x <= charactersPOS[i].x && monster->row == charactersRow[i] && monster->isAlive)
+    {
+      charactersOnField[i].HP -= monster->attackDamage;
+      printf("Character %d HP: %d\n", i, charactersOnField[i].HP);
+      if (charactersOnField[i].HP <= 0)
+      {
+        charactersOnField[i].isAlive = false;
+      }
+
+      monster->active = false;
+      monster->isAlive = false;
+    }
+  }
+
   monster->position.x -= speed * deltaTime; // Move monster to the left
 
   if (monster->position.x < 250)
@@ -442,7 +470,8 @@ void UpdateGame(void)
             charactersOnField[charactersCount] = CreateCharacter("Laika", 100, 150, true, 50, 1.15);
             charactersPOS[charactersCount].x = targetPositions[i].x + 210;
             charactersPOS[charactersCount].y = targetPositions[i].y + 130;
-            printf("Character %d position: %f, %f\n", charactersCount, charactersPOS[charactersCount].x, charactersPOS[charactersCount].y);
+            charactersRow[charactersCount] = findRow(i);
+            printf("Character %d position: %f, %f Row: %d\n", charactersCount, charactersPOS[charactersCount].x, charactersPOS[charactersCount].y, charactersRow[charactersCount]);
             charactersCount++;
           }
         }
@@ -462,7 +491,8 @@ void UpdateGame(void)
             charactersOnField[charactersCount] = CreateCharacter("MegaChonker", 350, 400, true, 0, 0.0);
             charactersPOS[charactersCount].x = targetPositions[i].x;
             charactersPOS[charactersCount].y = targetPositions[i].y;
-            printf("Character %d position: %f, %f\n", charactersCount, charactersPOS[charactersCount].x, charactersPOS[charactersCount].y);
+            charactersRow[charactersCount] = findRow(i);
+            printf("Character %d position: %f, %f Row: %d\n", charactersCount, charactersPOS[charactersCount].x, charactersPOS[charactersCount].y, charactersRow[charactersCount]);
             charactersCount++;
           }
         }
@@ -483,7 +513,8 @@ void UpdateGame(void)
             charactersOnField[charactersCount] = CreateCharacter("Bomb", 400, 100, true, 200, 0.0);
             charactersPOS[charactersCount].x = targetPositions[i].x;
             charactersPOS[charactersCount].y = targetPositions[i].y;
-            printf("Character %d position: %f, %f\n", charactersCount, charactersPOS[charactersCount].x, charactersPOS[charactersCount].y);
+            charactersRow[charactersCount] = findRow(i);
+            printf("Character %d position: %f, %f Row: %d\n", charactersCount, charactersPOS[charactersCount].x, charactersPOS[charactersCount].y, charactersRow[charactersCount]);
             charactersCount++;
           }
         }
@@ -504,7 +535,8 @@ void UpdateGame(void)
             charactersOnField[charactersCount] = CreateCharacter("FartCat", 300, 150, true, 100, 0.0);
             charactersPOS[charactersCount].x = targetPositions[i].x + 210;
             charactersPOS[charactersCount].y = targetPositions[i].y + 150;
-            printf("Character %d position: %f, %f\n", charactersCount, charactersPOS[charactersCount].x, charactersPOS[charactersCount].y);
+            charactersRow[charactersCount] = findRow(i);
+            printf("Character %d position: %f, %f Row: %d\n", charactersCount, charactersPOS[charactersCount].x, charactersPOS[charactersCount].y, charactersRow[charactersCount]);
             charactersCount++;
           }
         }
@@ -643,29 +675,29 @@ void DrawGame(void)
     if (monsterSpawnTimer >= monsterSpawnInterval)
     {
       int randomIndex = GetRandomValue(0, 3); // Use random_number from asm for random with probability
-      for(int i = 0; i < MAX_MONSTERS; i++)
+      for (int i = 0; i < MAX_MONSTERS; i++)
       {
         if (!jellys[i].active && randomIndex == 0)
         {
-          CreateMonsterCharacter(&jellys[i], "jelly", 350, true, 120, 1.15);
+          CreateMonsterCharacter(&jellys[i], "jelly", 350, 120, 1.15);
           monsterSpawnTimer = 0.0f; // Reset the spawn timer
           break;
         }
         else if (!ufos[i].active && randomIndex == 1)
         {
-          CreateMonsterCharacter(&ufos[i], "ufo", 350, true, 120, 1.15);
+          CreateMonsterCharacter(&ufos[i], "ufo", 350, 120, 1.15);
           monsterSpawnTimer = 0.0f; // Reset the spawn timer
           break;
         }
         else if (!muscles[i].active && randomIndex == 2)
         {
-          CreateMonsterCharacter(&muscles[i], "muscle", 350, true, 120, 1.15);
+          CreateMonsterCharacter(&muscles[i], "muscle", 350, 120, 1.15);
           monsterSpawnTimer = 0.0f; // Reset the spawn timer
           break;
         }
         else if (!longlegs[i].active && randomIndex == 3)
         {
-          CreateMonsterCharacter(&longlegs[i], "longlegs", 350, true, 120, 1.15);
+          CreateMonsterCharacter(&longlegs[i], "longlegs", 350, 120, 1.15);
           monsterSpawnTimer = 0.0f; // Reset the spawn timer
           break;
         }
@@ -678,22 +710,34 @@ void DrawGame(void)
       if (jellys[i].active)
       {
         UpdateMonsters(&jellys[i], deltaTime, Jelly.walkSpeed, JellyFrames);
-        animation(JellyFrames, currentFrame, frameTimer, Jelly.name, jellys[i].position);
+        if (jellys[i].isAlive)
+        {
+          animation(JellyFrames, currentFrame, frameTimer, Jelly.name, jellys[i].position);
+        }
       }
       if (ufos[i].active)
       {
         UpdateMonsters(&ufos[i], deltaTime, Ufo.walkSpeed, UfoFrames);
-        animation(UfoFrames, currentFrame, frameTimer, Ufo.name, ufos[i].position);
+        if (ufos[i].isAlive)
+        {
+          animation(UfoFrames, currentFrame, frameTimer, Ufo.name, ufos[i].position);
+        }
       }
       if (muscles[i].active)
       {
         UpdateMonsters(&muscles[i], deltaTime, Muscle.walkSpeed, MuscleFrames);
-        animation(MuscleFrames, currentFrame, frameTimer, Muscle.name, muscles[i].position);
+        if (muscles[i].isAlive)
+        {
+          animation(MuscleFrames, currentFrame, frameTimer, Muscle.name, muscles[i].position);
+        }
       }
       if (longlegs[i].active)
       {
         UpdateMonsters(&longlegs[i], deltaTime, Longleg.walkSpeed, LonglegFrames);
-        animation(LonglegFrames, currentFrame, frameTimer, Longleg.name, longlegs[i].position);
+        if (longlegs[i].isAlive)
+        {
+          animation(LonglegFrames, currentFrame, frameTimer, Longleg.name, longlegs[i].position);
+        }
       }
     }
 
