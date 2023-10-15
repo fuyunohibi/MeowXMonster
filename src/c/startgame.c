@@ -16,17 +16,14 @@ Texture2D button;
 int CheckButtonPress(int x, int y, int width, int height) {
     int mouseX = GetMouseX();
     int mouseY = GetMouseY();
+    //printf("mouseX: %d, mouseY: %d\n", mouseX, mouseY);
 
-    if (CheckCollisionPointRec((Vector2){(float)mouseX, (float)mouseY}, (Rectangle){(float)x, (float)y, (float)width, (float)height})) {
-        if (IsMouseButtonDown(MOUSE_LEFT_BUTTON)) {
-            printf("button pressed\n");
-            return 1;
-        } else {
-            return 0;
-        }
+    if (CheckCollisionPointRec((Vector2){(float)mouseX, (float)mouseY}, (Rectangle){720, 690, 480, 130})) {
+        //printf("mouseX: %d, mouseY: %d\n", mouseX, mouseY);
+        return 1;
+    } else {
+        return 0;
     }
-
-    return NORMAL;
 }
 
 
@@ -55,6 +52,7 @@ int intropage(void) {
             if (currentScreen == MAIN_MENU) {
                 if (CheckButtonPress(10, 10, button.width, button.height) == 1) {
                     currentScreen = GAMEPLAY;
+                    CloseWindow();
                     start_game();
                 } else if (CheckButtonPress(100, 200, 200, 50) == 1) {
                     currentScreen = SETTINGS;
@@ -76,7 +74,7 @@ int intropage(void) {
 
         // Draw content based on the current screen
         if (currentScreen == MAIN_MENU) {
-            DrawTexture(button, 10, 10, WHITE);
+            DrawTexture(button, 0, 0, WHITE);
         } else if (currentScreen == SETTINGS) {
             // Draw your settings content here
         } else if (currentScreen == GAMEPLAY) {
