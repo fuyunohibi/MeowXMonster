@@ -89,7 +89,7 @@ MonsterCharacter longlegs[MAX_CHARACTERS];
 float monsterSpawnTimer = 0.0f;
 float monsterSpawnInterval = 80.0f; // Delay between UFO spawns in seconds
 
-#define MAX_PROJECTILES 10
+#define MAX_PROJECTILES 100
 #define MAX_Fart 3
 Projectile laikaProjectiles[MAX_PROJECTILES];
 Projectile FCProjectiles[MAX_Fart];
@@ -97,5 +97,12 @@ Projectile FCProjectiles[MAX_Fart];
 Character charactersOnField[MAX_CHARACTERS];
 int charactersCount = 0;
 int charactersRow[NUM_BLOCKS];
+MonsterCharacter monsterRow1[MAX_MONSTERS];
+MonsterCharacter monsterRow2[MAX_MONSTERS];
+MonsterCharacter monsterRow3[MAX_MONSTERS];
+int monsterRow1Size = 0;
+int monsterRow2Size = 0;
+int monsterRow3Size = 0;
+int monsterCount = 0;
 
 #endif // GAME_DATA_H

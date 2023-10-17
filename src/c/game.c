@@ -33,21 +33,17 @@ void displayCharacterDetails(Character character)
 
 MonsterCharacter CreateMonsterCharacter(MonsterCharacter *monster, const char *name, int HP, int attackDamage, float attackPerSecond)
 {
-  MonsterCharacter newCharacter;
-  strncpy(newCharacter.name, name, sizeof(newCharacter.name));
-  newCharacter.HP = HP;
-  newCharacter.attackDamage = attackDamage;
-  newCharacter.attackPerSecond = attackPerSecond;
-  newCharacter.attackTimer = 0.0f; // Initialize the attack timer
-
+  strncpy(monster->name, name, sizeof(monster->name));
+  monster->attackDamage = attackDamage;
+  monster->attackPerSecond = attackPerSecond;
+  monster->animationTimer = 0.0f;
+  monster->HP = HP;
   int randomIndex = GetRandomValue(0, 2);    // Randomly choose an index from 0 to 2
   monster->position = initPosition[randomIndex]; // Use the selected position
   monster->active = true;
   monster->isAlive = true;
   monster->animationTimer = 0.0f;
   monster->row = randomIndex;
-
-  return newCharacter;
 }
 
 int findRow(int i)
@@ -80,7 +76,36 @@ void UpdateMonsters(MonsterCharacter *monster, float deltaTime, int speed, Textu
     }
   }
 
-  monster->position.x -= speed * deltaTime; // Move monster to the left
+  for (int i = 0; i < MAX_PROJECTILES; i++)
+  {
+    if (laikaProjectiles[i].active)
+    {
+      if (laikaProjectiles[i].position.y == 296 && laikaProjectiles[i].position.x >= monster->position.x && monster->row == 0)
+      {
+        laikaProjectiles[i].active = false;
+        monster->HP -= Laika.attackDamage;
+      }
+      else if (laikaProjectiles[i].position.y == 546 && laikaProjectiles[i].position.x >= monster->position.x && monster->row == 1)
+      {
+        laikaProjectiles[i].active = false;
+        monster->HP -= Laika.attackDamage;
+      }
+      else if (laikaProjectiles[i].position.y == 796 && laikaProjectiles[i].position.x >= monster->position.x && monster->row == 2)
+      {
+        laikaProjectiles[i].active = false;
+        monster->HP -= Laika.attackDamage;
+      }
+    }
+  }
+  if (monster->HP <= 0)
+  {
+    monster->active = false;
+    monster->isAlive = false;
+  }
+
+  if(monster->isAlive){
+    monster->position.x -= speed * deltaTime;
+  } // Move monster to the left
 
   if (monster->position.x < 250)
   {
@@ -136,7 +161,7 @@ void shootProjectileFromCharacter(Character character, Vector2 position)
     {
       laikaProjectiles[j].position = position;         // Starting position of the projectile, modify if needed
       laikaProjectiles[j].direction = (Vector2){1, 0}; // Shoots to the right, modify if needed
-      laikaProjectiles[j].speed = 5.0f;
+      laikaProjectiles[j].speed = 3.0f;
       laikaProjectiles[j].active = true;
       break;
     }
@@ -272,13 +297,84 @@ void UpdateGame(void)
     {
       laikaProjectiles[i].position.x += laikaProjectiles[i].direction.x * laikaProjectiles[i].speed;
       laikaProjectiles[i].position.y += laikaProjectiles[i].direction.y * laikaProjectiles[i].speed;
-
+      // printf("%f, %f", laikaProjectiles[i].direction.x, laikaProjectiles[i].speed);
+    
       // Check if projectile is out of bounds
       if (laikaProjectiles[i].position.x > SCREEN_WIDTH || laikaProjectiles[i].position.x < 0 ||
           laikaProjectiles[i].position.y > SCREEN_HEIGHT || laikaProjectiles[i].position.y < 0)
       {
         laikaProjectiles[i].active = false;
       }
+
+      // if (laikaProjectiles[i].position.y > 0 && laikaProjectiles[i].position.y < 310)
+      // {
+      //   for (int j = 0; j < MAX_MONSTERS; j++)
+      //   {
+      //     if ((laikaProjectiles[i].position.x >= jellys[j].position.x && jellys[j].row == 0) || 
+      //         (laikaProjectiles[i].position.x >= ufos[j].position.x && ufos[j].row == 0) ||
+      //         (laikaProjectiles[i].position.x >= muscles[j].position.x && muscles[j].row == 0) || 
+      //         (laikaProjectiles[i].position.x >= longlegs[j].position.x && longlegs[j].row == 0))
+      //     {
+      //       laikaProjectiles[i].active = false;
+      //       printf("%f, %f\n", laikaProjectiles[i].position.x, jellys[j].position.x);
+      //       printf("%f, %f\n", laikaProjectiles[i].position.x, ufos[j].position.x);
+      //       printf("%f, %f\n", laikaProjectiles[i].position.x, muscles[j].position.x);
+      //       printf("%f, %f\n", laikaProjectiles[i].position.x, longlegs[j].position.x);
+      //     }
+      //   }
+      // }
+      // else if (laikaProjectiles[i].position.y >= 310 && laikaProjectiles[i].position.y < 560)
+      // {
+      //   for (int j = 0; j < monsterRow2Size; j++)
+      //   {
+      //     if (laikaProjectiles[i].position.x >= monsterRow2[j].position.x)
+      //     {
+      //       laikaProjectiles[i].active = false;
+      //       printf("%f, %f\n", laikaProjectiles[i].position.x, monsterRow2[j].position.x);
+      //     }
+      //   }
+      // }
+      // else if (laikaProjectiles[i].position.y >= 560 && laikaProjectiles[i].position.y < 810)
+      // {
+      //   for (int j = 0; j < monsterRow3Size; j++)
+      //   {
+      //     if (laikaProjectiles[i].position.x >= monsterRow3[j].position.x)
+      //     {
+      //       laikaProjectiles[i].active = false;
+      //       printf("%f, %f\n", laikaProjectiles[i].position.x, monsterRow3[j].position.x);
+      //     }
+      //   }
+      // }
+      // 296 546 796
+      // if(laikaProjectiles[i].position.y > 0 && laikaProjectiles[i].position.y < 310){
+      //   for(int j = 0 ;j < monsterRow1Size; j++){
+      //     if(laikaProjectiles[i].position.x >= monsterRow1[j].position.x){
+      //       laikaProjectiles[i].active = false;
+      //       printf("%f, %f\n", laikaProjectiles[i].position.x, monsterRow1[j].position.x);
+      //     }
+      //   }
+      // }
+      // else if(laikaProjectiles[i].position.y >= 310 && laikaProjectiles[i].position.y < 560){
+      //   for (int j = 0; j < monsterRow2Size; j++)
+      //   {
+      //     if (laikaProjectiles[i].position.x >= monsterRow2[j].position.x)
+      //     {
+      //       laikaProjectiles[i].active = false;
+      //       printf("%f, %f\n", laikaProjectiles[i].position.x, monsterRow2[j].position.x);
+      //     }
+      //   }
+      // }
+      // else if(laikaProjectiles[i].position.y >= 560 && laikaProjectiles[i].position.y < 810){
+      //   for (int j = 0; j < monsterRow3Size; j++)
+      //   {
+      //     if (laikaProjectiles[i].position.x >= monsterRow3[j].position.x)
+      //     {
+      //       laikaProjectiles[i].active = false;
+      //       printf("%f, %f\n", laikaProjectiles[i].position.x, monsterRow3[j].position.x);
+      //     }
+      //   }
+      // }
+      
     }
   }
 
@@ -369,7 +465,7 @@ void UpdateGame(void)
           shouldCopyLaika = false;
           if (charactersCount < MAX_CHARACTERS)
           {
-            charactersOnField[charactersCount] = CreateCharacter("Laika", 100, 150, true, 50, 1.15);
+            charactersOnField[charactersCount] = CreateCharacter(Laika.name, Laika.price, Laika.HP, true, Laika.attackDamage, Laika.attackPerSecond);
             charactersPOS[charactersCount].x = targetPositions[i].x + 210;
             charactersPOS[charactersCount].y = targetPositions[i].y + 130;
             charactersRow[charactersCount] = findRow(i);
@@ -390,7 +486,7 @@ void UpdateGame(void)
           shouldCopyMC = false;
           if (charactersCount < MAX_CHARACTERS)
           {
-            charactersOnField[charactersCount] = CreateCharacter("MegaChonker", 350, 400, true, 0, 0.0);
+            charactersOnField[charactersCount] = CreateCharacter(MegaChonker.name, MegaChonker.price, MegaChonker.HP, true, MegaChonker.attackDamage, MegaChonker.attackPerSecond);
             charactersPOS[charactersCount].x = targetPositions[i].x;
             charactersPOS[charactersCount].y = targetPositions[i].y;
             charactersRow[charactersCount] = findRow(i);
@@ -412,7 +508,7 @@ void UpdateGame(void)
           shouldCopyBomb = false;
           if (charactersCount < MAX_CHARACTERS)
           {
-            charactersOnField[charactersCount] = CreateCharacter("Bomb", 400, 100, true, 200, 0.0);
+            charactersOnField[charactersCount] = CreateCharacter(Bomb.name, Bomb.price, Bomb.HP, true, Bomb.attackDamage, Bomb.attackPerSecond);
             charactersPOS[charactersCount].x = targetPositions[i].x;
             charactersPOS[charactersCount].y = targetPositions[i].y;
             charactersRow[charactersCount] = findRow(i);
@@ -434,7 +530,7 @@ void UpdateGame(void)
           shouldCopyFC = false;
           if (charactersCount < MAX_CHARACTERS)
           {
-            charactersOnField[charactersCount] = CreateCharacter("FartCat", 300, 150, true, 100, 0.0);
+            charactersOnField[charactersCount] = CreateCharacter(FartCat.name, FartCat.price, FartCat.HP, true, FartCat.attackDamage, FartCat.attackPerSecond);
             charactersPOS[charactersCount].x = targetPositions[i].x + 210;
             charactersPOS[charactersCount].y = targetPositions[i].y + 150;
             charactersRow[charactersCount] = findRow(i);

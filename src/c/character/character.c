@@ -7,8 +7,8 @@ Character Laika = {
     .price = 100,
     .HP = 200,
     .isAlive = true,
-    .attackDamage = 150,
-    .attackPerSecond = 0.0,
+    .attackDamage = 50,
+    .attackPerSecond = 0.5,
 };
 
 Character FartCat = {
