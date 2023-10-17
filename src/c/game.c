@@ -6,6 +6,8 @@
 #include "constant/game_functions.h"
 #include "character/character.h"
 
+extern int findRow(int i);  //line 55
+
 Character CreateCharacter(const char *name, int price, int HP, bool isAlive, int attackDamage, float attackPerSecond)
 {
   Character newCharacter;
@@ -50,15 +52,14 @@ MonsterCharacter CreateMonsterCharacter(MonsterCharacter *monster, const char *n
   return newCharacter;
 }
 
-int findRow(int i)
-{
-  while(i > 2)
-  {
-    i -= 3;
-  }
+// int findRow(int i) {
+//   while(i > 2)
+//   {
+//     i -= 3;
+//   }
 
-  return i;
-}
+//   return i;
+// }
 
 void UpdateMonsters(MonsterCharacter *monster, float deltaTime, int speed, Texture2D monsterFrames[NUM_FRAMES])
 {
