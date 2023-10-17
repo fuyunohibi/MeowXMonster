@@ -67,6 +67,8 @@ bool shouldDrawAnimationFC[NUM_BLOCKS] = {false};
 bool shouldDrawAnimationFC1 = false;
 bool shouldDrawAnimationFC2 = false;
 Vector2 charactersPOS[MAX_CHARACTERS];
+int score = 0;
+char scoreBuffer[50];
 
 Texture2D LaikaAtkTexture;
 Texture2D FartCatAtk;

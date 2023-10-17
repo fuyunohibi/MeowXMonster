@@ -75,6 +75,8 @@ void UpdateMonsters(MonsterCharacter *monster, float deltaTime, int speed, Textu
 
       monster->active = false;
       monster->isAlive = false;
+
+      score += 1;
     }
   }
 
@@ -503,6 +505,8 @@ void DrawGame(void)
   DrawTexture(bg_yard, get_center(bg_yard).x, get_center(bg_yard).y, (Color){0, 255, 0, 0});
   DrawTexture(score_board, 400, 0, WHITE);
   DrawText("Score:", 490, 30, 30, BLACK);
+  sprintf(scoreBuffer, "%d", score);
+  DrawText(scoreBuffer, 530, 80, 30, BLACK);
 
   DrawRectangle(0, 0, 250, 250, brownColor_Laika);
   DrawRectangle(0, 250, 250, 250, brownColor_MC);
