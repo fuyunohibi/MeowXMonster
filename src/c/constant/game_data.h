@@ -10,7 +10,7 @@
 #define NUM_BLOCKS 15
 #define MAX_CHARACTERS 15
 #define INITIAL_REWARD 100
-#define MAX_MONSTERS 10
+#define MAX_MONSTERS 80
 
 // Extern declarations for global variables
 
@@ -86,6 +86,9 @@ MonsterCharacter ufos[MAX_CHARACTERS];
 MonsterCharacter muscles[MAX_CHARACTERS];
 MonsterCharacter longlegs[MAX_CHARACTERS];
 
+float fartCatAtkTimer = 0.0f;
+float fartCatAtkInterval = 20.0f;
+
 float monsterSpawnTimer = 0.0f;
 float monsterSpawnInterval = 80.0f; // Delay between UFO spawns in seconds
 
@@ -97,12 +100,6 @@ Projectile FCProjectiles[MAX_Fart];
 Character charactersOnField[MAX_CHARACTERS];
 int charactersCount = 0;
 int charactersRow[NUM_BLOCKS];
-MonsterCharacter monsterRow1[MAX_MONSTERS];
-MonsterCharacter monsterRow2[MAX_MONSTERS];
-MonsterCharacter monsterRow3[MAX_MONSTERS];
-int monsterRow1Size = 0;
-int monsterRow2Size = 0;
-int monsterRow3Size = 0;
 int monsterCount = 0;
 
 #endif // GAME_DATA_H
