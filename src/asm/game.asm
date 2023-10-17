@@ -9,6 +9,7 @@ section .text
 .global score_kill
 .global check_price
 .global random_number
+.global findRow
 
 reduce_HP:
     SUB R0, R0, R1      @ R0 current HP, R1 attack HP
@@ -50,6 +51,26 @@ random_number:
     str r0, [result]
 
     BX LR
+
+findRow:
+    ; Function prologue
+    push {r1, lr}   ; Save r1 and link register (lr) on the stack
+    mov r1, r0      ; Copy the value of r0 (i) to r1
+
+    ; Compare i with 2
+    cmp r1, #2
+    ble done  ; Branch to done if i <= 2
+
+loop:
+    ; Subtract 3 from i
+    sub r1, r1, #3
+    ; Compare i with 2 again
+    cmp r1, #2
+    bgt loop  ; If i > 2, continue looping
+
+done:
+    ; Function epilogue
+    pop {r1, pc}  ; Restore r1 and return by branching to the link register (lr)
 
 
 
