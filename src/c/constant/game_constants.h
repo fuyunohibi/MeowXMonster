@@ -18,6 +18,7 @@ typedef struct
   float attackTimer;
   Texture2D frames[NUM_FRAMES];
   bool shouldDrawAnimation[NUM_BLOCKS];
+  int blockPosition;
 } Character;
 
 typedef struct
