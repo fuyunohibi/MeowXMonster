@@ -5,7 +5,7 @@
 
 // Function prototypes
 Vector2 get_center(Texture2D texture);
-void animation(Texture2D frames[NUM_FRAMES], int currentFrame, float frameTimer, const char *name, Vector2 position);
+void animation(Texture2D frames[NUM_FRAMES], int currentFrame, Vector2 position);
 void load_animation(Texture2D frames[NUM_FRAMES], const char *name);
 bool IsMouseOverBox(Vector2 mousePosition, Vector2 boxPosition, Texture2D Box);
 void CopyImage(Vector2 *imagePosition, Vector2 targetPosition, Texture2D image);
