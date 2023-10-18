@@ -90,10 +90,10 @@ float fartCatAtkTimer = 0.0f;
 float fartCatAtkInterval = 20.0f;
 
 float monsterSpawnTimer = 0.0f;
-float monsterSpawnInterval = 80.0f; // Delay between UFO spawns in seconds
+float monsterSpawnInterval = 80.0f; // Delay between monster spawns in seconds
 
 #define MAX_PROJECTILES 100
-#define MAX_Fart 3
+#define MAX_Fart 100
 Projectile laikaProjectiles[MAX_PROJECTILES];
 Projectile FCProjectiles[MAX_Fart];
 
