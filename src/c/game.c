@@ -8,7 +8,7 @@
 
 // extern int findRow(int i);
 
-Character CreateCharacter(const char *name, int price, int HP, bool isAlive, int attackDamage, float attackPerSecond, int blockPosition)
+Character CreateCharacter(const char *name, int price, int HP, bool isAlive, int attackDamage, float attackPerSecond, int blockPosition, float rightBoundery)
 {
   Character newCharacter;
   strncpy(newCharacter.name, name, sizeof(newCharacter.name));
@@ -19,6 +19,7 @@ Character CreateCharacter(const char *name, int price, int HP, bool isAlive, int
   newCharacter.attackPerSecond = attackPerSecond;
   newCharacter.blockPosition = blockPosition;
   newCharacter.attackTimer = 0.0f; // Initialize the attack timer
+  newCharacter.rightBoundery = rightBoundery;
 
   return newCharacter;
 }
@@ -57,19 +58,43 @@ int findRow(int i) {
   return i;
 }
 
-void UpdateMonsters(MonsterCharacter *monster, float deltaTime, int speed, Texture2D monsterFrames[NUM_FRAMES])
+void UpdateMonsters(MonsterCharacter *monster, float deltaTime, int speed)
 {
   for (int i = 0; i < charactersCount; i++)
   {
-    float characterRightBoundary = charactersPOS[i].x + 180.0;
+    float characterRightBoundary = charactersPOS[i].x + charactersOnField[i].rightBoundery;
     if (monster->position.x <= characterRightBoundary && monster->row == charactersRow[i] && monster->isAlive && charactersOnField[i].isAlive)
     {
       monster->position.x = characterRightBoundary;
       charactersOnField[i].HP -= monster->attackDamage;
-      if (strcmp(charactersOnField[i].name, Laika.name) != 0) // Laika not do damage to monster when overlap
+      // if (strcmp(charactersOnField[i].name, FartCat.name) == 0) // FartCat do damage to nearly monster
+      // {
+      //   printf("Fart Cat\n");
+      //   monster->HP -= charactersOnField[i].attackDamage;
+      // }
+      if(strcmp(charactersOnField[i].name, Bomb.name) == 0) // Bomb do AOE damage
       {
-        printf(charactersOnField[i].name);
+        printf("Bomb Attack\n");
         monster->HP -= charactersOnField[i].attackDamage;
+        for(int j = 0; j < MAX_MONSTERS; j++)
+        {
+          if (jellys[j].position.x <= charactersPOS[i].x + 300.0)
+          {
+            jellys[j].HP -= charactersOnField[i].attackDamage;
+          }
+          if (ufos[j].position.x <= charactersPOS[i].x + 300.0)
+          {
+            ufos[j].HP -= charactersOnField[i].attackDamage;
+          }
+          if (muscles[j].position.x <= charactersPOS[i].x + 300.0)
+          {
+            muscles[j].HP -= charactersOnField[i].attackDamage;
+          }
+          if (longlegs[j].position.x <= charactersPOS[i].x + 300.0)
+          {
+            longlegs[j].HP -= charactersOnField[i].attackDamage;
+          }
+        }
       }
       if (charactersOnField[i].HP <= 0)
       {
@@ -83,6 +108,7 @@ void UpdateMonsters(MonsterCharacter *monster, float deltaTime, int speed, Textu
         block_contains_MC_animation[charactersOnField[i].blockPosition] = false;
         block_contains_FC_animation[charactersOnField[i].blockPosition] = false;
         block_empty[charactersOnField[i].blockPosition] = true;
+        FCProjectiles[i].active = false;
       }
       break;
     }
@@ -106,6 +132,17 @@ void UpdateMonsters(MonsterCharacter *monster, float deltaTime, int speed, Textu
       {
         laikaProjectiles[i].active = false;
         monster->HP -= Laika.attackDamage;
+      }
+    }
+  }
+
+  for(int i = 0; i < charactersCount; i++)
+  {
+    if(FCProjectiles[i].active)
+    {
+      if (charactersRow[i] == monster->row && charactersPOS[i].x >= monster->position.x)
+      {
+        monster->HP -= FartCat.attackDamage;
       }
     }
   }
@@ -170,7 +207,7 @@ void shootProjectileFromCharacter(Character character, Vector2 position)
   {
     if (!laikaProjectiles[j].active)
     {
-      laikaProjectiles[j].position.x = position.x + 210;         // Starting position of the projectile, modify if needed
+      laikaProjectiles[j].position.x = position.x + 210; // Starting position of the projectile
       laikaProjectiles[j].position.y = position.y + 130;
       laikaProjectiles[j].direction = (Vector2){1, 0}; // Shoots to the right, modify if needed
       laikaProjectiles[j].speed = 3.0f;
@@ -231,10 +268,11 @@ void InitializeGame(void)
     laikaProjectiles[i].active = false;
   }
 
-  for (int i = 0; i < MAX_Fart; i++)
+  for (int i = 0; i < MAX_CHARACTERS; i++)
   {
     FCProjectiles[i].active = false;
   }
+
   SetConfigFlags(FLAG_WINDOW_RESIZABLE);
   InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "MeowXMonster");
   SetTargetFPS(60);
@@ -306,7 +344,7 @@ void UpdateGame(void)
     UnloadGame();
   }
 
-  // Update projectiles
+  // Update projectiles (Laika's bullet)
   for (int i = 0; i < MAX_PROJECTILES; i++)
   {
     if (laikaProjectiles[i].active)
@@ -324,19 +362,21 @@ void UpdateGame(void)
   }
 
   for (int i = 0; i < charactersCount; i++)
-  { // Loop through all characters
-    charactersOnField[i].attackTimer += GetFrameTime();
-
-    float timeBetweenShots = 1.0f / charactersOnField[i].attackPerSecond;
-
-    if (charactersOnField[i].attackTimer >= timeBetweenShots)
+  {
+    if (strcmp(charactersOnField[i].name, Laika.name) == 0)
     {
-      // Shoot!
-      charactersOnField[i].attackTimer = 0.0f; // Reset timer
-      shootProjectileFromCharacter(charactersOnField[i], charactersPOS[i]);
+      charactersOnField[i].attackTimer += GetFrameTime();
+
+      float timeBetweenShots = 1.0f / charactersOnField[i].attackPerSecond;
+
+      if (charactersOnField[i].attackTimer >= timeBetweenShots)
+      {
+        // Shoot!
+        charactersOnField[i].attackTimer = 0.0f; // Reset timer
+        shootProjectileFromCharacter(charactersOnField[i], charactersPOS[i]);
+      }
     }
   }
-  // printf("Character count: %d\n", charactersCount);
 
   Vector2 mousePosition = GetMousePosition();
 
@@ -410,7 +450,7 @@ void UpdateGame(void)
           shouldCopyLaika = false;
           if (charactersCount < MAX_CHARACTERS)
           {
-            charactersOnField[charactersCount] = CreateCharacter(Laika.name, Laika.price, Laika.HP, true, Laika.attackDamage, Laika.attackPerSecond, i);
+            charactersOnField[charactersCount] = CreateCharacter(Laika.name, Laika.price, Laika.HP, true, Laika.attackDamage, Laika.attackPerSecond, i, Laika.rightBoundery);
             charactersPOS[charactersCount].x = targetPositions[i].x;
             charactersPOS[charactersCount].y = targetPositions[i].y;
             charactersRow[charactersCount] = findRow(i);
@@ -431,7 +471,7 @@ void UpdateGame(void)
           shouldCopyMC = false;
           if (charactersCount < MAX_CHARACTERS)
           {
-            charactersOnField[charactersCount] = CreateCharacter(MegaChonker.name, MegaChonker.price, MegaChonker.HP, true, MegaChonker.attackDamage, MegaChonker.attackPerSecond, i);
+            charactersOnField[charactersCount] = CreateCharacter(MegaChonker.name, MegaChonker.price, MegaChonker.HP, true, MegaChonker.attackDamage, MegaChonker.attackPerSecond, i, MegaChonker.rightBoundery);
             charactersPOS[charactersCount].x = targetPositions[i].x;
             charactersPOS[charactersCount].y = targetPositions[i].y;
             charactersRow[charactersCount] = findRow(i);
@@ -453,7 +493,7 @@ void UpdateGame(void)
           shouldCopyBomb = false;
           if (charactersCount < MAX_CHARACTERS)
           {
-            charactersOnField[charactersCount] = CreateCharacter(Bomb.name, Bomb.price, Bomb.HP, true, Bomb.attackDamage, Bomb.attackPerSecond, i);
+            charactersOnField[charactersCount] = CreateCharacter(Bomb.name, Bomb.price, Bomb.HP, true, Bomb.attackDamage, Bomb.attackPerSecond, i, Bomb.rightBoundery);
             charactersPOS[charactersCount].x = targetPositions[i].x;
             charactersPOS[charactersCount].y = targetPositions[i].y;
             charactersRow[charactersCount] = findRow(i);
@@ -475,7 +515,8 @@ void UpdateGame(void)
           shouldCopyFC = false;
           if (charactersCount < MAX_CHARACTERS)
           {
-            charactersOnField[charactersCount] = CreateCharacter(FartCat.name, FartCat.price, FartCat.HP, true, FartCat.attackDamage, FartCat.attackPerSecond, i);
+            charactersOnField[charactersCount] = CreateCharacter(FartCat.name, FartCat.price, FartCat.HP, true, FartCat.attackDamage, FartCat.attackPerSecond, i, FartCat.rightBoundery);
+            FCProjectiles[charactersCount].active = true;
             charactersPOS[charactersCount].x = targetPositions[i].x + 210;
             charactersPOS[charactersCount].y = targetPositions[i].y + 150;
             charactersRow[charactersCount] = findRow(i);
@@ -588,58 +629,103 @@ void DrawGame(void)
     {
       animation(FartCatFrames, currentFrame, frameTimer, FartCat.name, targetPositions[i]);
     }
-    // Draw FartCatAtk here, outside the for loop
-    for (int i = 0; i < NUM_BLOCKS; i++)
-    {
-      if (shouldDrawAnimationFC[i])
-      {
-        // Check the timer to display FartCatAtk
-        fartCatAtkTimer += GetFrameTime();
 
-        if (fartCatAtkTimer >= fartCatAtkInterval)
+    // Draw FartCatAtk here, outside the for loop
+    // for (int i = 0; i < NUM_BLOCKS; i++)
+    // {
+    //   if (shouldDrawAnimationFC[i])
+    //   {
+    //     // Check the timer to display FartCatAtk
+    //     fartCatAtkTimer += GetFrameTime();
+
+    //     if (fartCatAtkTimer >= fartCatAtkInterval)
+    //     {
+    //       DrawTexture(FartCatAtk, targetPositions[i].x + 220, targetPositions[i].y + 100, WHITE);
+    //       fartCatAtkTimer = 0.0f; // Reset the timer
+    //     }
+    //   }
+    // }
+
+    for (int i = 0; i < charactersCount; i++)
+    {
+      if (strcmp(charactersOnField[i].name, FartCat.name) == 0)
+      {
+        charactersOnField[i].attackTimer += GetFrameTime();
+
+        float timeBetweenShots = 1.0f / charactersOnField[i].attackPerSecond;
+        // printf("FartCat Attack Timer: %f\n", charactersOnField[i].attackTimer);
+        // printf("Time Between Shots: %f\n", timeBetweenShots);
+
+        if (charactersOnField[i].attackTimer >= timeBetweenShots && FCProjectiles[i].active == true)
         {
-          DrawTexture(FartCatAtk, targetPositions[i].x + 220, targetPositions[i].y + 100, WHITE);
-          fartCatAtkTimer = 0.0f; // Reset the timer
+          // Shoot!
+          DrawTexture(FartCatAtk, charactersPOS[i].x, charactersPOS[i].y - 30, WHITE);
+          charactersOnField[i].attackTimer = 0.0f; // Reset timer
         }
       }
     }
+
     DrawTexture(Laika1, 0, 0, WHITE);
     DrawTexture(MegaChonker1, 0, 250, WHITE);
     DrawTexture(Bomb1, 0, 500, WHITE);
     DrawTexture(FartCat1, 0, 750, WHITE);
 
     monsterSpawnTimer += deltaTime;
+    int randomIndex = GetRandomValue(0, 3); // Use random_number from asm for random with probability
+
+    if(monsterCount < 10)
+    {
+      randomIndex = GetRandomValue(0, 1);
+      monsterSpawnInterval = 80.0f;
+    }
+    else if(monsterCount < 20)
+    {
+      randomIndex = GetRandomValue(0, 2);
+      monsterSpawnInterval = 75.0f;
+    }
+    else if(monsterCount < 30)
+    {
+      monsterSpawnInterval = 70.0f;
+    }
+    else if(monsterCount < 40)
+    {
+      monsterSpawnInterval = 65.0f;
+    }
+    else
+    {
+      monsterSpawnInterval = 60.0f;
+    }
 
     // Generate a new monster if the spawn timer exceeds the interval
     if (monsterSpawnTimer >= monsterSpawnInterval && monsterCount < MAX_MONSTERS)
     {
-      int randomIndex = GetRandomValue(0, 3); // Use random_number from asm for random with probability
+      
       for (int i = 0; i < MAX_MONSTERS; i++)
       {
         if (!jellys[i].active && randomIndex == 0)
         {
-          CreateMonsterCharacter(&jellys[i], "jelly", 350, 120, 1.15);
+          CreateMonsterCharacter(&jellys[i], Jelly.name, Jelly.HP, Jelly.attackDamage, Jelly.attackPerSecond);
           monsterSpawnTimer = 0.0f; // Reset the spawn timer
           monsterCount++;
           break;
         }
         else if (!ufos[i].active && randomIndex == 1)
         {
-          CreateMonsterCharacter(&ufos[i], "ufo", 350, 120, 1.15);
+          CreateMonsterCharacter(&ufos[i], Ufo.name, Ufo.HP, Ufo.attackDamage, Ufo.attackPerSecond);
           monsterSpawnTimer = 0.0f; // Reset the spawn timer
           monsterCount++;
           break;
         }
         else if (!muscles[i].active && randomIndex == 2)
         {
-          CreateMonsterCharacter(&muscles[i], "muscle", 350, 120, 1.15);
+          CreateMonsterCharacter(&muscles[i], Muscle.name, Muscle.HP, Muscle.attackDamage, Muscle.attackPerSecond);
           monsterSpawnTimer = 0.0f; // Reset the spawn timer
           monsterCount++;
           break;
         }
         else if (!longlegs[i].active && randomIndex == 3)
         {
-          CreateMonsterCharacter(&longlegs[i], "longlegs", 350, 120, 1.15);
+          CreateMonsterCharacter(&longlegs[i], Longleg.name, Longleg.HP, Longleg.attackDamage, Longleg.attackPerSecond);
           monsterSpawnTimer = 0.0f; // Reset the spawn timer
           monsterCount++;
           break;
@@ -652,7 +738,7 @@ void DrawGame(void)
     {
       if (jellys[i].active)
       {
-        UpdateMonsters(&jellys[i], deltaTime, Jelly.walkSpeed, JellyFrames);
+        UpdateMonsters(&jellys[i], deltaTime, Jelly.walkSpeed);
         if (jellys[i].isAlive)
         {
           animation(JellyFrames, currentFrame, frameTimer, Jelly.name, jellys[i].position);
@@ -660,7 +746,7 @@ void DrawGame(void)
       }
       if (ufos[i].active)
       {
-        UpdateMonsters(&ufos[i], deltaTime, Ufo.walkSpeed, UfoFrames);
+        UpdateMonsters(&ufos[i], deltaTime, Ufo.walkSpeed);
         if (ufos[i].isAlive)
         {
           animation(UfoFrames, currentFrame, frameTimer, Ufo.name, ufos[i].position);
@@ -668,7 +754,7 @@ void DrawGame(void)
       }
       if (muscles[i].active)
       {
-        UpdateMonsters(&muscles[i], deltaTime, Muscle.walkSpeed, MuscleFrames);
+        UpdateMonsters(&muscles[i], deltaTime, Muscle.walkSpeed);
         if (muscles[i].isAlive)
         {
           animation(MuscleFrames, currentFrame, frameTimer, Muscle.name, muscles[i].position);
@@ -676,7 +762,7 @@ void DrawGame(void)
       }
       if (longlegs[i].active)
       {
-        UpdateMonsters(&longlegs[i], deltaTime, Longleg.walkSpeed, LonglegFrames);
+        UpdateMonsters(&longlegs[i], deltaTime, Longleg.walkSpeed);
         if (longlegs[i].isAlive)
         {
           animation(LonglegFrames, currentFrame, frameTimer, Longleg.name, longlegs[i].position);
@@ -689,10 +775,18 @@ void DrawGame(void)
     {
       if (laikaProjectiles[i].active)
       {
-        // DrawTexture(LaikaAtkTexture, laikaProjectiles[i].position.x, laikaProjectiles[i].position.y, WHITE);
         DrawRectangle(laikaProjectiles[i].position.x, laikaProjectiles[i].position.y, 40, 10, BLUE);
       }
     }
+
+    // for (int i = 0; i < charactersCount; i++)
+    // {
+    //   if (FCProjectiles[i].active)
+    //   {
+    //     DrawTexture(FartCatAtk, charactersPOS[i].x, charactersPOS[i].y - 30, WHITE);
+    //   }
+    //   FCProjectiles[i].active = false;
+    // }
   }
 
   EndDrawing();

@@ -9,15 +9,17 @@ Character Laika = {
     .isAlive = true,
     .attackDamage = 50,
     .attackPerSecond = 0.5,
+    .rightBoundery = 180.0,
 };
 
 Character FartCat = {
     .name = "FartCat",
     .price = 250,
-    .HP = 30000,
+    .HP = 50000,
     .isAlive = true,
-    .attackDamage = 250,
-    .attackPerSecond = 0.0,
+    .attackDamage = 1,
+    .attackPerSecond = 0.05,
+    .rightBoundery = 0.0,
 };
 
 Character MegaChonker = {
@@ -27,15 +29,17 @@ Character MegaChonker = {
     .isAlive = true,
     .attackDamage = 0,
     .attackPerSecond = 0.0,
+    .rightBoundery = 180.0,
 };
 
 Character Bomb = {
     .name = "Bomb",
     .price = 400,
-    .HP = 100,
+    .HP = 50,
     .isAlive = true,
     .attackDamage = 350,
     .attackPerSecond = 0.0,
+    .rightBoundery = 180.0,
 };
 
 // ==================== MONSTER CHARACTERS ====================
@@ -47,7 +51,7 @@ Character Bomb = {
 MonsterCharacter Jelly = {
     .name = "Jelly The Monster",
     .killReward = 100,
-    .HP = 200,
+    .HP = 150,
     .rateOfSpawn = 40.0,
     .isAlive = true,
     .attackDamage = 80,
@@ -58,7 +62,7 @@ MonsterCharacter Jelly = {
 MonsterCharacter Ufo = {
     .name = "Ufo The Monster",
     .killReward = 500,
-    .HP = 350,
+    .HP = 250,
     .rateOfSpawn = 25.0,
     .isAlive = true,
     .attackDamage = 120,
@@ -69,7 +73,7 @@ MonsterCharacter Ufo = {
 MonsterCharacter Muscle = {
     .name = "Muscle The Monster",
     .killReward = 300,
-    .HP = 650,
+    .HP = 400,
     .rateOfSpawn = 20.0,
     .isAlive = true,
     .attackDamage = 100,
@@ -80,7 +84,7 @@ MonsterCharacter Muscle = {
 MonsterCharacter Longleg = {
     .name = "Longleg The Monster",
     .killReward = 500,
-    .HP = 400,
+    .HP = 600,
     .rateOfSpawn = 15.0,
     .isAlive = true,
     .attackDamage = 200,
