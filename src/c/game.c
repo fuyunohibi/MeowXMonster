@@ -40,7 +40,6 @@ MonsterCharacter CreateMonsterCharacter(MonsterCharacter *monster, const char *n
   strncpy(monster->name, name, sizeof(monster->name));
   monster->attackDamage = attackDamage;
   monster->attackPerSecond = attackPerSecond;
-  monster->animationTimer = 0.0f;
   monster->HP = HP;
   int randomIndex = GetRandomValue(0, 2);    // Randomly choose an index from 0 to 2
   monster->position = initPosition[randomIndex]; // Use the selected position
@@ -98,16 +97,17 @@ void UpdateMonsters(MonsterCharacter *monster, float deltaTime, int speed)
       }
       if (charactersOnField[i].HP <= 0)
       {
+        int blockPosition = charactersOnField[i].blockPosition;
         charactersOnField[i].isAlive = false;
-        shouldDrawAnimationLaika[charactersOnField[i].blockPosition] = false;
-        shouldDrawAnimationBomb[charactersOnField[i].blockPosition] = false;
-        shouldDrawAnimationMC[charactersOnField[i].blockPosition] = false;
-        shouldDrawAnimationFC[charactersOnField[i].blockPosition] = false;
-        block_contains_Laika_animation[charactersOnField[i].blockPosition] = false;
-        block_contains_Bomb_animation[charactersOnField[i].blockPosition] = false;
-        block_contains_MC_animation[charactersOnField[i].blockPosition] = false;
-        block_contains_FC_animation[charactersOnField[i].blockPosition] = false;
-        block_empty[charactersOnField[i].blockPosition] = true;
+        shouldDrawAnimationLaika[blockPosition] = false;
+        shouldDrawAnimationBomb[blockPosition] = false;
+        shouldDrawAnimationMC[blockPosition] = false;
+        shouldDrawAnimationFC[blockPosition] = false;
+        block_contains_Laika_animation[blockPosition] = false;
+        block_contains_Bomb_animation[blockPosition] = false;
+        block_contains_MC_animation[blockPosition] = false;
+        block_contains_FC_animation[blockPosition] = false;
+        block_empty[blockPosition] = true;
         FCProjectiles[i].active = false;
       }
       break;
@@ -161,7 +161,6 @@ void UpdateMonsters(MonsterCharacter *monster, float deltaTime, int speed)
 
   if (monster->position.x < 250)
   {
-    // monster->active = false; // Deactivate monster when it goes off-screen
     UnloadGame(); // Game over when monster walk through column 1 (x = 250), Change UnloadGame() to function GameOver()
   }
 }
@@ -630,21 +629,14 @@ void DrawGame(void)
       animation(FartCatFrames, currentFrame, frameTimer, FartCat.name, targetPositions[i]);
     }
 
-    // Draw FartCatAtk here, outside the for loop
-    // for (int i = 0; i < NUM_BLOCKS; i++)
-    // {
-    //   if (shouldDrawAnimationFC[i])
-    //   {
-    //     // Check the timer to display FartCatAtk
-    //     fartCatAtkTimer += GetFrameTime();
-
-    //     if (fartCatAtkTimer >= fartCatAtkInterval)
-    //     {
-    //       DrawTexture(FartCatAtk, targetPositions[i].x + 220, targetPositions[i].y + 100, WHITE);
-    //       fartCatAtkTimer = 0.0f; // Reset the timer
-    //     }
-    //   }
-    // }
+    // Draw the projectiles
+    for (int i = 0; i < MAX_PROJECTILES; i++)
+    {
+      if (laikaProjectiles[i].active)
+      {
+        DrawRectangle(laikaProjectiles[i].position.x, laikaProjectiles[i].position.y, 40, 10, BLUE);
+      }
+    }
 
     for (int i = 0; i < charactersCount; i++)
     {
@@ -653,8 +645,6 @@ void DrawGame(void)
         charactersOnField[i].attackTimer += GetFrameTime();
 
         float timeBetweenShots = 1.0f / charactersOnField[i].attackPerSecond;
-        // printf("FartCat Attack Timer: %f\n", charactersOnField[i].attackTimer);
-        // printf("Time Between Shots: %f\n", timeBetweenShots);
 
         if (charactersOnField[i].attackTimer >= timeBetweenShots && FCProjectiles[i].active == true)
         {
@@ -769,24 +759,6 @@ void DrawGame(void)
         }
       }
     }
-
-    // Draw the projectiles
-    for (int i = 0; i < MAX_PROJECTILES; i++)
-    {
-      if (laikaProjectiles[i].active)
-      {
-        DrawRectangle(laikaProjectiles[i].position.x, laikaProjectiles[i].position.y, 40, 10, BLUE);
-      }
-    }
-
-    // for (int i = 0; i < charactersCount; i++)
-    // {
-    //   if (FCProjectiles[i].active)
-    //   {
-    //     DrawTexture(FartCatAtk, charactersPOS[i].x, charactersPOS[i].y - 30, WHITE);
-    //   }
-    //   FCProjectiles[i].active = false;
-    // }
   }
 
   EndDrawing();
