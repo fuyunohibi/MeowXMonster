@@ -35,7 +35,7 @@ void displayCharacterDetails(Character character)
   printf("Attack per Second: %f\n", character.attackPerSecond);
 }
 
-MonsterCharacter CreateMonsterCharacter(MonsterCharacter *monster, const char *name, int HP, int attackDamage, float attackPerSecond)
+MonsterCharacter CreateMonsterCharacter(MonsterCharacter *monster, const char *name, int HP, float attackDamage, float attackPerSecond, int killReward)
 {
   strncpy(monster->name, name, sizeof(monster->name));
   monster->attackDamage = attackDamage;
@@ -46,6 +46,7 @@ MonsterCharacter CreateMonsterCharacter(MonsterCharacter *monster, const char *n
   monster->active = true;
   monster->isAlive = true;
   monster->row = randomIndex;
+  monster->killReward = killReward;
 }
 
 int findRow(int i) {
@@ -66,14 +67,12 @@ void UpdateMonsters(MonsterCharacter *monster, float deltaTime, int speed)
     {
       monster->position.x = characterRightBoundary;
       charactersOnField[i].HP -= monster->attackDamage;
-      // if (strcmp(charactersOnField[i].name, FartCat.name) == 0) // FartCat do damage to nearly monster
-      // {
-      //   printf("Fart Cat\n");
-      //   monster->HP -= charactersOnField[i].attackDamage;
-      // }
+      if(strcmp(charactersOnField[i].name, FartCat.name) == 0)
+      {
+        monster->HP -= charactersOnField[i].attackDamage;
+      }
       if(strcmp(charactersOnField[i].name, Bomb.name) == 0) // Bomb do AOE damage
       {
-        printf("Bomb Attack\n");
         monster->HP -= charactersOnField[i].attackDamage;
         for(int j = 0; j < MAX_MONSTERS; j++)
         {
@@ -109,6 +108,11 @@ void UpdateMonsters(MonsterCharacter *monster, float deltaTime, int speed)
         block_contains_FC_animation[blockPosition] = false;
         block_empty[blockPosition] = true;
         FCProjectiles[i].active = false;
+        printf("%s", charactersOnField[i].name);
+        // if (strcmp(charactersOnField[i].name, Bomb.name) == 0)
+        // {
+        // add logic for bomb explode
+        // }
       }
       break;
     }
@@ -136,22 +140,12 @@ void UpdateMonsters(MonsterCharacter *monster, float deltaTime, int speed)
     }
   }
 
-  for(int i = 0; i < charactersCount; i++)
-  {
-    if(FCProjectiles[i].active)
-    {
-      if (charactersRow[i] == monster->row && charactersPOS[i].x >= monster->position.x)
-      {
-        monster->HP -= FartCat.attackDamage;
-      }
-    }
-  }
-
   if (monster->HP <= 0)
   {
     monster->isAlive = false;
     monster->active = false;
     score++;
+    money += monster->killReward;
   }
 
   if(monster->isAlive)
@@ -188,18 +182,6 @@ int start_game(void)
   return 0;
 }
 
-void checkAliveStatus(Character *character)
-{
-  if (character->HP <= 0)
-  {
-    character->isAlive = false;
-  }
-}
-
-// NOTE: For Tawan
-// checkAliveStatus(&Laika);
-// checkAliveStatus(&MegaChonker);
-
 void shootProjectileFromCharacter(Character character, Vector2 position)
 {
   for (int j = 0; j < MAX_PROJECTILES; j++)
@@ -224,9 +206,8 @@ Vector2 get_center(Texture2D texture)
   return center;
 }
 
-void animation(Texture2D frames[NUM_FRAMES], int currentFrame, float frameTimer, const char *name, Vector2 position)
+void animation(Texture2D frames[NUM_FRAMES], int currentFrame, Vector2 position)
 {
-  Vector2 center = get_center(frames[currentFrame]);
   DrawTexture(frames[currentFrame], position.x, position.y, WHITE);
 }
 
@@ -250,6 +231,17 @@ void load_animation_monster(Texture2D frames[NUM_FRAMES], const char *name)
     frames[i] = LoadTexture(filename);
   }
 }
+
+void load_animation_explode(Texture2D frames[NUM_FRAMES])
+{
+  char filename[256];
+  for (int i = 0; i < NUM_FRAMES; i++)
+  {
+    sprintf(filename, "assets/images/avatar/Bomb/Atk/BombExplode%d.png", i + 1);
+    frames[i] = LoadTexture(filename);
+  }
+}
+
 bool IsMouseOverBox(Vector2 mousePosition, Vector2 boxPosition, Texture2D Box)
 {
   return CheckCollisionPointRec(mousePosition, (Rectangle){boxPosition.x, boxPosition.y, Box.width, Box.height});
@@ -299,6 +291,7 @@ void InitializeGame(void)
   load_animation_monster(UfoFrames, "ufo");
   load_animation_monster(MuscleFrames, "muscle");
   load_animation_monster(LonglegFrames, "LongLeg");
+  load_animation_explode(ExplodeFrames);
 
   // Load background and character textures
   bg = LoadTexture("assets/images/background/background.png");
@@ -339,6 +332,14 @@ void UpdateGame(void)
     currentFrame = (currentFrame + 1) % 3; // Cycle through frames
   }
 
+  static double moneyTimer = 0;
+  moneyTimer += GetFrameTime();
+  if (moneyTimer >= 3.0) // Increase money every 3 seconds
+  {
+    money += 50; // Increase money by 100
+    moneyTimer = 0;
+  }
+
   if(monsterCount >= MAX_MONSTERS && score >= MAX_MONSTERS){
     UnloadGame();
   }
@@ -368,7 +369,7 @@ void UpdateGame(void)
 
       float timeBetweenShots = 1.0f / charactersOnField[i].attackPerSecond;
 
-      if (charactersOnField[i].attackTimer >= timeBetweenShots)
+      if (charactersOnField[i].attackTimer >= timeBetweenShots && charactersOnField[i].isAlive)
       {
         // Shoot!
         charactersOnField[i].attackTimer = 0.0f; // Reset timer
@@ -436,7 +437,7 @@ void UpdateGame(void)
       else if (CheckCollisionPointRec(mousePosition, (Rectangle){targetPositions[i].x, targetPositions[i].y, 250, 250}))
       {
         printf("=====================================\n");
-        if (shouldCopyLaika && block_empty[i])
+        if (shouldCopyLaika && block_empty[i] && charactersCount < MAX_CHARACTERS && money >= Laika.price)
         {
           CopyImage(&imagePosition, targetPositions[i], Laika1);
           shouldDrawAnimationLaika[i] = true;
@@ -447,17 +448,15 @@ void UpdateGame(void)
           block_empty[i] = false;
           block_contains_Laika_animation[i] = true; // Mark this block as containing animation
           shouldCopyLaika = false;
-          if (charactersCount < MAX_CHARACTERS)
-          {
-            charactersOnField[charactersCount] = CreateCharacter(Laika.name, Laika.price, Laika.HP, true, Laika.attackDamage, Laika.attackPerSecond, i, Laika.rightBoundery);
-            charactersPOS[charactersCount].x = targetPositions[i].x;
-            charactersPOS[charactersCount].y = targetPositions[i].y;
-            charactersRow[charactersCount] = findRow(i);
-            printf("Character %d position: %f, %f Row: %d\n", charactersCount, charactersPOS[charactersCount].x, charactersPOS[charactersCount].y, charactersRow[charactersCount]);
-            charactersCount++;
-          }
+          money -= Laika.price;
+          charactersOnField[charactersCount] = CreateCharacter(Laika.name, Laika.price, Laika.HP, true, Laika.attackDamage, Laika.attackPerSecond, i, Laika.rightBoundery);
+          charactersPOS[charactersCount].x = targetPositions[i].x;
+          charactersPOS[charactersCount].y = targetPositions[i].y;
+          charactersRow[charactersCount] = findRow(i);
+          printf("Character: %s position: %f, %f Row: %d\n", charactersOnField[charactersCount].name, charactersPOS[charactersCount].x, charactersPOS[charactersCount].y, charactersRow[charactersCount]);
+          charactersCount++;
         }
-        else if (shouldCopyMC && block_empty[i])
+        else if (shouldCopyMC && block_empty[i] && charactersCount < MAX_CHARACTERS && money >= MegaChonker.price)
         {
           CopyImage(&imagePosition, targetPositions[i], MegaChonker1);
           shouldDrawAnimationLaika[i] = false;
@@ -468,18 +467,16 @@ void UpdateGame(void)
           block_empty[i] = false;
           block_contains_MC_animation[i] = true; // Mark this block as containing animation
           shouldCopyMC = false;
-          if (charactersCount < MAX_CHARACTERS)
-          {
-            charactersOnField[charactersCount] = CreateCharacter(MegaChonker.name, MegaChonker.price, MegaChonker.HP, true, MegaChonker.attackDamage, MegaChonker.attackPerSecond, i, MegaChonker.rightBoundery);
-            charactersPOS[charactersCount].x = targetPositions[i].x;
-            charactersPOS[charactersCount].y = targetPositions[i].y;
-            charactersRow[charactersCount] = findRow(i);
-            printf("Character %d position: %f, %f Row: %d\n", charactersCount, charactersPOS[charactersCount].x, charactersPOS[charactersCount].y, charactersRow[charactersCount]);
-            charactersCount++;
-          }
+          money -= MegaChonker.price;
+          charactersOnField[charactersCount] = CreateCharacter(MegaChonker.name, MegaChonker.price, MegaChonker.HP, true, MegaChonker.attackDamage, MegaChonker.attackPerSecond, i, MegaChonker.rightBoundery);
+          charactersPOS[charactersCount].x = targetPositions[i].x;
+          charactersPOS[charactersCount].y = targetPositions[i].y;
+          charactersRow[charactersCount] = findRow(i);
+          printf("Character: %s position: %f, %f Row: %d\n", charactersOnField[charactersCount].name, charactersPOS[charactersCount].x, charactersPOS[charactersCount].y, charactersRow[charactersCount]);
+          charactersCount++;
         }
         // Bomb
-        else if (shouldCopyBomb && block_empty[i])
+        else if (shouldCopyBomb && block_empty[i] && charactersCount < MAX_CHARACTERS && money >= Bomb.price)
         {
           CopyImage(&imagePosition, targetPositions[i], Bomb1);
           shouldDrawAnimationLaika[i] = false;
@@ -490,18 +487,16 @@ void UpdateGame(void)
           block_empty[i] = false;
           block_contains_Bomb_animation[i] = true; // Mark this block as containing animation
           shouldCopyBomb = false;
-          if (charactersCount < MAX_CHARACTERS)
-          {
-            charactersOnField[charactersCount] = CreateCharacter(Bomb.name, Bomb.price, Bomb.HP, true, Bomb.attackDamage, Bomb.attackPerSecond, i, Bomb.rightBoundery);
-            charactersPOS[charactersCount].x = targetPositions[i].x;
-            charactersPOS[charactersCount].y = targetPositions[i].y;
-            charactersRow[charactersCount] = findRow(i);
-            printf("Character %d position: %f, %f Row: %d\n", charactersCount, charactersPOS[charactersCount].x, charactersPOS[charactersCount].y, charactersRow[charactersCount]);
-            charactersCount++;
-          }
+          money -= Bomb.price;
+          charactersOnField[charactersCount] = CreateCharacter(Bomb.name, Bomb.price, Bomb.HP, true, Bomb.attackDamage, Bomb.attackPerSecond, i, Bomb.rightBoundery);
+          charactersPOS[charactersCount].x = targetPositions[i].x;
+          charactersPOS[charactersCount].y = targetPositions[i].y;
+          charactersRow[charactersCount] = findRow(i);
+          printf("Character: %s position: %f, %f Row: %d\n", charactersOnField[charactersCount].name, charactersPOS[charactersCount].x, charactersPOS[charactersCount].y, charactersRow[charactersCount]);
+          charactersCount++;
         }
         // FartCat
-        else if (shouldCopyFC && block_empty[i])
+        else if (shouldCopyFC && block_empty[i] && charactersCount < MAX_CHARACTERS && money >= FartCat.price)
         {
           CopyImage(&imagePosition, targetPositions[i], FartCat1);
           shouldDrawAnimationFC[i] = true;
@@ -512,16 +507,14 @@ void UpdateGame(void)
           block_empty[i] = false;
           block_contains_FC_animation[i] = true; // Mark this block as containing animation
           shouldCopyFC = false;
-          if (charactersCount < MAX_CHARACTERS)
-          {
-            charactersOnField[charactersCount] = CreateCharacter(FartCat.name, FartCat.price, FartCat.HP, true, FartCat.attackDamage, FartCat.attackPerSecond, i, FartCat.rightBoundery);
-            FCProjectiles[charactersCount].active = true;
-            charactersPOS[charactersCount].x = targetPositions[i].x + 210;
-            charactersPOS[charactersCount].y = targetPositions[i].y + 150;
-            charactersRow[charactersCount] = findRow(i);
-            printf("Character %d position: %f, %f Row: %d\n", charactersCount, charactersPOS[charactersCount].x, charactersPOS[charactersCount].y, charactersRow[charactersCount]);
-            charactersCount++;
-          }
+          money -= FartCat.price;
+          charactersOnField[charactersCount] = CreateCharacter(FartCat.name, FartCat.price, FartCat.HP, true, FartCat.attackDamage, FartCat.attackPerSecond, i, FartCat.rightBoundery);
+          FCProjectiles[charactersCount].active = true;
+          charactersPOS[charactersCount].x = targetPositions[i].x + 210;
+          charactersPOS[charactersCount].y = targetPositions[i].y + 150;
+          charactersRow[charactersCount] = findRow(i);
+          printf("Character: %s position: %f, %f Row: %d\n", charactersOnField[charactersCount].name, charactersPOS[charactersCount].x, charactersPOS[charactersCount].y, charactersRow[charactersCount]);
+          charactersCount++;
         }
         else if (block_contains_Laika_animation[i]) // Check if animation is present
         {
@@ -585,6 +578,9 @@ void DrawGame(void)
   DrawText("Score:", 490, 30, 30, BLACK);
   sprintf(scoreBuffer, "%d", score);
   DrawText(scoreBuffer, 530, 80, 30, BLACK);
+  DrawText("Money:", 750, 30, 30, BLACK);
+  sprintf(moneyBuffer, "%d", money);
+  DrawText(moneyBuffer, 790, 80, 30, BLACK);
 
   DrawRectangle(0, 0, 250, 250, brownColor_Laika);
   DrawRectangle(0, 250, 250, 250, brownColor_MC);
@@ -611,22 +607,22 @@ void DrawGame(void)
 
     if (shouldDrawAnimationLaika[i])
     {
-      animation(LaikaFrames, currentFrame, frameTimer, Laika.name, targetPositions[i]);
+      animation(LaikaFrames, currentFrame, targetPositions[i]);
     }
 
     if (shouldDrawAnimationMC[i])
     {
-      animation(MegaChonkerFrames, currentFrame, frameTimer, MegaChonker.name, targetPositions[i]);
+      animation(MegaChonkerFrames, currentFrame, targetPositions[i]);
     }
 
     if (shouldDrawAnimationBomb[i])
     {
-      animation(BombFrames, currentFrame, frameTimer, Bomb.name, targetPositions[i]);
+      animation(BombFrames, currentFrame, targetPositions[i]);
     }
 
     if (shouldDrawAnimationFC[i])
     {
-      animation(FartCatFrames, currentFrame, frameTimer, FartCat.name, targetPositions[i]);
+      animation(FartCatFrames, currentFrame, targetPositions[i]);
     }
 
     // Draw the projectiles
@@ -646,7 +642,7 @@ void DrawGame(void)
 
         float timeBetweenShots = 1.0f / charactersOnField[i].attackPerSecond;
 
-        if (charactersOnField[i].attackTimer >= timeBetweenShots && FCProjectiles[i].active == true)
+        if (charactersOnField[i].attackTimer >= timeBetweenShots && FCProjectiles[i].active)
         {
           // Shoot!
           DrawTexture(FartCatAtk, charactersPOS[i].x, charactersPOS[i].y - 30, WHITE);
@@ -694,28 +690,28 @@ void DrawGame(void)
       {
         if (!jellys[i].active && randomIndex == 0)
         {
-          CreateMonsterCharacter(&jellys[i], Jelly.name, Jelly.HP, Jelly.attackDamage, Jelly.attackPerSecond);
+          CreateMonsterCharacter(&jellys[i], Jelly.name, Jelly.HP, Jelly.attackDamage, Jelly.attackPerSecond, Jelly.killReward);
           monsterSpawnTimer = 0.0f; // Reset the spawn timer
           monsterCount++;
           break;
         }
         else if (!ufos[i].active && randomIndex == 1)
         {
-          CreateMonsterCharacter(&ufos[i], Ufo.name, Ufo.HP, Ufo.attackDamage, Ufo.attackPerSecond);
+          CreateMonsterCharacter(&ufos[i], Ufo.name, Ufo.HP, Ufo.attackDamage, Ufo.attackPerSecond, Ufo.killReward);
           monsterSpawnTimer = 0.0f; // Reset the spawn timer
           monsterCount++;
           break;
         }
         else if (!muscles[i].active && randomIndex == 2)
         {
-          CreateMonsterCharacter(&muscles[i], Muscle.name, Muscle.HP, Muscle.attackDamage, Muscle.attackPerSecond);
+          CreateMonsterCharacter(&muscles[i], Muscle.name, Muscle.HP, Muscle.attackDamage, Muscle.attackPerSecond, Muscle.killReward);
           monsterSpawnTimer = 0.0f; // Reset the spawn timer
           monsterCount++;
           break;
         }
         else if (!longlegs[i].active && randomIndex == 3)
         {
-          CreateMonsterCharacter(&longlegs[i], Longleg.name, Longleg.HP, Longleg.attackDamage, Longleg.attackPerSecond);
+          CreateMonsterCharacter(&longlegs[i], Longleg.name, Longleg.HP, Longleg.attackDamage, Longleg.attackPerSecond, Longleg.killReward);
           monsterSpawnTimer = 0.0f; // Reset the spawn timer
           monsterCount++;
           break;
@@ -731,7 +727,7 @@ void DrawGame(void)
         UpdateMonsters(&jellys[i], deltaTime, Jelly.walkSpeed);
         if (jellys[i].isAlive)
         {
-          animation(JellyFrames, currentFrame, frameTimer, Jelly.name, jellys[i].position);
+          animation(JellyFrames, currentFrame, jellys[i].position);
         }
       }
       if (ufos[i].active)
@@ -739,7 +735,7 @@ void DrawGame(void)
         UpdateMonsters(&ufos[i], deltaTime, Ufo.walkSpeed);
         if (ufos[i].isAlive)
         {
-          animation(UfoFrames, currentFrame, frameTimer, Ufo.name, ufos[i].position);
+          animation(UfoFrames, currentFrame, ufos[i].position);
         }
       }
       if (muscles[i].active)
@@ -747,7 +743,7 @@ void DrawGame(void)
         UpdateMonsters(&muscles[i], deltaTime, Muscle.walkSpeed);
         if (muscles[i].isAlive)
         {
-          animation(MuscleFrames, currentFrame, frameTimer, Muscle.name, muscles[i].position);
+          animation(MuscleFrames, currentFrame, muscles[i].position);
         }
       }
       if (longlegs[i].active)
@@ -755,11 +751,39 @@ void DrawGame(void)
         UpdateMonsters(&longlegs[i], deltaTime, Longleg.walkSpeed);
         if (longlegs[i].isAlive)
         {
-          animation(LonglegFrames, currentFrame, frameTimer, Longleg.name, longlegs[i].position);
+          animation(LonglegFrames, currentFrame, longlegs[i].position);
         }
       }
     }
   }
+
+  // for(int i = 0; i < explodeCount; i++)
+  // {
+  //   if(explodes[i].active)
+  //   {
+  //     // explodes[i].frameTimer += GetFrameTime();
+  //     // if(explodes[i].frameTimer >= explodes[i].frameSpeed)
+  //     // {
+  //     //   explodes[i].frameTimer = 0;
+  //     //   explodes[i].frame = (explodes[i].frame + 1) % 3;
+  //     // }
+  //     printf("Explode frame: %d\n", explodes[i].frame);
+  //     animation(ExplodeFrames, explodes[i].frame, explodes[i].frame, Bomb.name, explodes[i].position);
+  //     explodes[i].frame++;
+  //   }
+  //   if(explodes[i].frame >= 3)
+  //   {
+  //     explodes[i].active = false;
+  //     explodes[i].frame = 0;
+  //     explodeCount--;
+  //   }
+  // }
+
+  // if(shouldDrawAnimationExplode)
+  // {
+  //   animation(ExplodeFrames, currentFrame, frameTimer, Bomb.name, explodePosition);
+  //   shouldDrawAnimationExplode = false;
+  // }
 
   EndDrawing();
 }
@@ -773,6 +797,7 @@ void UnloadGame(void)
     UnloadTexture(MegaChonkerFrames[i]);
     UnloadTexture(BombFrames[i]);
     UnloadTexture(FartCatFrames[i]);
+    // UnloadTexture(ExplodeFrames[i]);
   }
   UnloadTexture(bg);
   UnloadTexture(bg_yard);

@@ -13,7 +13,7 @@ typedef struct
   int price;
   int HP;
   bool isAlive;
-  int attackDamage;
+  float attackDamage;
   float attackPerSecond;
   float attackTimer;
   Texture2D frames[NUM_FRAMES];

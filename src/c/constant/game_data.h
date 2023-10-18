@@ -66,12 +66,17 @@ bool shouldDrawAnimationBomb2 = false;
 bool shouldDrawAnimationFC[NUM_BLOCKS] = {false};
 bool shouldDrawAnimationFC1 = false;
 bool shouldDrawAnimationFC2 = false;
+// bool shouldDrawAnimationExplode = false;
+// Vector2 explodePosition = {0, 0};
 Vector2 charactersPOS[MAX_CHARACTERS];
 int score = 0;
 char scoreBuffer[50];
+int money = 100;
+char moneyBuffer[50];
 
 Texture2D LaikaAtkTexture;
 Texture2D FartCatAtk;
+Texture2D ExplodeFrames[3];
 
 typedef struct
 {
@@ -94,6 +99,7 @@ float monsterSpawnInterval = 80.0f; // Delay between monster spawns in seconds
 
 #define MAX_PROJECTILES 100
 #define MAX_Fart 100
+
 Projectile laikaProjectiles[MAX_PROJECTILES];
 Projectile FCProjectiles[MAX_Fart];
 
