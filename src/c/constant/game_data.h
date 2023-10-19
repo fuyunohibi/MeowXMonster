@@ -8,9 +8,9 @@
 #define SCREEN_HEIGHT 1080
 #define NUM_FRAMES 3
 #define NUM_BLOCKS 15
-#define MAX_CHARACTERS 15
+#define MAX_CHARACTERS 30
 #define INITIAL_REWARD 100
-#define MAX_MONSTERS 80
+#define MAX_MONSTERS 70
 
 // Extern declarations for global variables
 
@@ -69,6 +69,7 @@ bool shouldDrawAnimationFC2 = false;
 // bool shouldDrawAnimationExplode = false;
 // Vector2 explodePosition = {0, 0};
 Vector2 charactersPOS[MAX_CHARACTERS];
+
 int score = 0;
 char scoreBuffer[50];
 int money = 100;
@@ -86,10 +87,17 @@ typedef struct
   bool active;
 } Projectile;
 
-MonsterCharacter jellys[MAX_CHARACTERS];
-MonsterCharacter ufos[MAX_CHARACTERS];
-MonsterCharacter muscles[MAX_CHARACTERS];
-MonsterCharacter longlegs[MAX_CHARACTERS];
+typedef struct
+{
+  Vector2 position;
+  bool active;
+  int currentFrame;
+} Explosion;
+
+MonsterCharacter jellys[MAX_MONSTERS];
+MonsterCharacter ufos[MAX_MONSTERS];
+MonsterCharacter muscles[MAX_MONSTERS];
+MonsterCharacter longlegs[MAX_MONSTERS];
 
 float fartCatAtkTimer = 0.0f;
 float fartCatAtkInterval = 20.0f;
@@ -102,6 +110,7 @@ float monsterSpawnInterval = 80.0f; // Delay between monster spawns in seconds
 
 Projectile laikaProjectiles[MAX_PROJECTILES];
 Projectile FCProjectiles[MAX_Fart];
+Explosion bombExplosions[MAX_CHARACTERS];
 
 Character charactersOnField[MAX_CHARACTERS];
 int charactersCount = 0;
