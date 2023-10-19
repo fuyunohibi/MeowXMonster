@@ -66,36 +66,44 @@ void UpdateMonsters(MonsterCharacter *monster, float deltaTime, int speed)
     if (monster->position.x <= characterRightBoundary && monster->row == charactersRow[i] && monster->isAlive && charactersOnField[i].isAlive)
     {
       monster->position.x = characterRightBoundary;
-      charactersOnField[i].HP -= monster->attackDamage;
+      
       if(strcmp(charactersOnField[i].name, FartCat.name) == 0)
       {
         monster->HP -= charactersOnField[i].attackDamage;
       }
       if(strcmp(charactersOnField[i].name, Bomb.name) == 0) // Bomb do AOE damage
       {
+        // printf("%s\n", charactersOnField[i].name);
         monster->HP -= charactersOnField[i].attackDamage;
         for(int j = 0; j < MAX_MONSTERS; j++)
         {
-          if (jellys[j].position.x <= charactersPOS[i].x + 300.0)
+          if (charactersPOS[i].x <= jellys[j].position.x <= characterRightBoundary && abs(jellys[j].row - charactersRow[i]) <= 1)
           {
             jellys[j].HP -= charactersOnField[i].attackDamage;
           }
-          if (ufos[j].position.x <= charactersPOS[i].x + 300.0)
+          if (charactersPOS[i].x <= ufos[j].position.x <= characterRightBoundary && abs(ufos[j].row - charactersRow[i]) <= 1)
           {
             ufos[j].HP -= charactersOnField[i].attackDamage;
           }
-          if (muscles[j].position.x <= charactersPOS[i].x + 300.0)
+          if (charactersPOS[i].x <= muscles[j].position.x <= characterRightBoundary && abs(muscles[j].row - charactersRow[i]) <= 1)
           {
             muscles[j].HP -= charactersOnField[i].attackDamage;
           }
-          if (longlegs[j].position.x <= charactersPOS[i].x + 300.0)
+          if (charactersPOS[i].x <= longlegs[j].position.x <= characterRightBoundary && abs(longlegs[j].row - charactersRow[i]) <= 1)
           {
             longlegs[j].HP -= charactersOnField[i].attackDamage;
           }
         }
+        bombExplosions[i].active = true;
+        bombExplosions[i].position = charactersPOS[i];
+        // printf("Bomb active: %s\n", bombExplosions[i].active ? "true" : "false");
+        // printf("Bomb explosion position: %f, %f\n", bombExplosions[i].position.x, bombExplosions[i].position.y);
       }
+      charactersOnField[i].HP -= monster->attackDamage;
+      // printf("Character: %s HP: %d\n", charactersOnField[i].name, charactersOnField[i].HP);
       if (charactersOnField[i].HP <= 0)
       {
+        // printf("%s\n", charactersOnField[i].name);
         int blockPosition = charactersOnField[i].blockPosition;
         charactersOnField[i].isAlive = false;
         shouldDrawAnimationLaika[blockPosition] = false;
@@ -108,11 +116,6 @@ void UpdateMonsters(MonsterCharacter *monster, float deltaTime, int speed)
         block_contains_FC_animation[blockPosition] = false;
         block_empty[blockPosition] = true;
         FCProjectiles[i].active = false;
-        printf("%s", charactersOnField[i].name);
-        // if (strcmp(charactersOnField[i].name, Bomb.name) == 0)
-        // {
-        // add logic for bomb explode
-        // }
       }
       break;
     }
@@ -264,6 +267,14 @@ void InitializeGame(void)
     FCProjectiles[i].active = false;
   }
 
+  for(int i = 0; i < MAX_CHARACTERS; i++)
+  {
+    bombExplosions[i].active = false;
+    bombExplosions[i].currentFrame = 0;
+    // printf("Bomb %d active: %s\n", i, bombExplosions[i].active ? "true" : "false");
+    // printf("Bomb currentFrame: %d\n", bombExplosions[i].currentFrame);
+  }
+
   SetConfigFlags(FLAG_WINDOW_RESIZABLE);
   InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "MeowXMonster");
   SetTargetFPS(60);
@@ -340,7 +351,7 @@ void UpdateGame(void)
     moneyTimer = 0;
   }
 
-  if(monsterCount >= MAX_MONSTERS && score >= MAX_MONSTERS){
+  if(monsterCount >= MAX_MONSTERS && score == MAX_MONSTERS){
     UnloadGame();
   }
 
@@ -657,33 +668,36 @@ void DrawGame(void)
     DrawTexture(FartCat1, 0, 750, WHITE);
 
     monsterSpawnTimer += deltaTime;
-    int randomIndex = GetRandomValue(0, 3); // Use random_number from asm for random with probability
+    int randomIndex;// Use random_number from asm for random with probability
 
     if(monsterCount < 10)
     {
       randomIndex = GetRandomValue(0, 1);
-      monsterSpawnInterval = 80.0f;
+      monsterSpawnInterval = 70.0f;
     }
     else if(monsterCount < 20)
     {
       randomIndex = GetRandomValue(0, 2);
-      monsterSpawnInterval = 75.0f;
+      monsterSpawnInterval = 65.0f;
     }
     else if(monsterCount < 30)
     {
-      monsterSpawnInterval = 70.0f;
+      randomIndex = GetRandomValue(0, 3);
+      monsterSpawnInterval = 60.0f;
     }
     else if(monsterCount < 40)
     {
-      monsterSpawnInterval = 65.0f;
+      randomIndex = GetRandomValue(0, 3);
+      monsterSpawnInterval = 55.0f;
     }
     else
     {
-      monsterSpawnInterval = 60.0f;
+      randomIndex = GetRandomValue(0, 3);
+      monsterSpawnInterval = 50.0f;
     }
 
     // Generate a new monster if the spawn timer exceeds the interval
-    if (monsterSpawnTimer >= monsterSpawnInterval && monsterCount < MAX_MONSTERS)
+    if (monsterSpawnTimer >= monsterSpawnInterval && monsterCount <= MAX_MONSTERS)
     {
       
       for (int i = 0; i < MAX_MONSTERS; i++)
@@ -757,33 +771,24 @@ void DrawGame(void)
     }
   }
 
-  // for(int i = 0; i < explodeCount; i++)
-  // {
-  //   if(explodes[i].active)
-  //   {
-  //     // explodes[i].frameTimer += GetFrameTime();
-  //     // if(explodes[i].frameTimer >= explodes[i].frameSpeed)
-  //     // {
-  //     //   explodes[i].frameTimer = 0;
-  //     //   explodes[i].frame = (explodes[i].frame + 1) % 3;
-  //     // }
-  //     printf("Explode frame: %d\n", explodes[i].frame);
-  //     animation(ExplodeFrames, explodes[i].frame, explodes[i].frame, Bomb.name, explodes[i].position);
-  //     explodes[i].frame++;
-  //   }
-  //   if(explodes[i].frame >= 3)
-  //   {
-  //     explodes[i].active = false;
-  //     explodes[i].frame = 0;
-  //     explodeCount--;
-  //   }
-  // }
-
-  // if(shouldDrawAnimationExplode)
-  // {
-  //   animation(ExplodeFrames, currentFrame, frameTimer, Bomb.name, explodePosition);
-  //   shouldDrawAnimationExplode = false;
-  // }
+  for(int i = 0; i < charactersCount; i++)
+  {
+    if (bombExplosions[i].active)
+    {
+      //printf("Character %d is exploding\n", i);
+      //printf("Explode frame: %d\n", bombExplosions[i].currentFrame);
+      if (bombExplosions[i].currentFrame >= 2)
+      {
+        bombExplosions[i].active = false;
+        bombExplosions[i].currentFrame = 0;
+      }
+      else if (bombExplosions[i].currentFrame >= 0)
+      {
+        animation(ExplodeFrames, bombExplosions[i].currentFrame, bombExplosions[i].position);
+        bombExplosions[i].currentFrame += 1;
+      }
+    }
+  }
 
   EndDrawing();
 }
