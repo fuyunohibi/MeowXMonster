@@ -1,7 +1,7 @@
 #ifndef GAME_DATA_H
 #define GAME_DATA_H
 
-#include "../../../include/raylib.h"
+#include <raylib.h>
 #include "../character/character.h"
 
 #define SCREEN_WIDTH 1920

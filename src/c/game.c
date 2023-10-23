@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <string.h>
-#include "../../include/raylib.h"
-#include "../../include/raymath.h"
+#include <raylib.h>
 #include "constant/game_data.h"
 #include "constant/game_functions.h"
 #include "character/character.h"
+#include <stdlib.h>
 
 // extern int findRow(int i);
 // extern bool IsMouseOverBox(Vector2 mousePosition, Vector2 boxPosition, Texture2D Box)
@@ -223,7 +223,7 @@ void load_animation(Texture2D frames[NUM_FRAMES], const char *name)
   char filename[256];
   for (int i = 0; i < NUM_FRAMES; i++)
   {
-    sprintf(filename, "assets/images/avatar/%s/%s%d.png", name, name, i + 1);
+    sprintf(filename, "../assets/images/avatar/%s/%s%d.png", name, name, i + 1);
     frames[i] = LoadTexture(filename);
   }
   // }
@@ -234,7 +234,7 @@ void load_animation_monster(Texture2D frames[NUM_FRAMES], const char *name)
   char filename[256];
   for (int i = 0; i < NUM_FRAMES; i++)
   {
-    sprintf(filename, "assets/images/monster/%s/%s%d.png", name, name, i + 1);
+    sprintf(filename, "../assets/images/monster/%s/%s%d.png", name, name, i + 1);
     frames[i] = LoadTexture(filename);
   }
 }
@@ -244,7 +244,7 @@ void load_animation_explode(Texture2D frames[NUM_FRAMES])
   char filename[256];
   for (int i = 0; i < NUM_FRAMES; i++)
   {
-    sprintf(filename, "assets/images/avatar/Bomb/Atk/BombExplode%d.png", i + 1);
+    sprintf(filename, "../assets/images/avatar/Bomb/Atk/BombExplode%d.png", i + 1);
     frames[i] = LoadTexture(filename);
   }
 }
@@ -309,14 +309,14 @@ void InitializeGame(void)
   load_animation_explode(ExplodeFrames);
 
   // Load background and character textures
-  bg = LoadTexture("assets/images/background/background.png");
-  bg_yard = LoadTexture("assets/images/background/yard.png");
-  score_board = LoadTexture("assets/images/background/Score.png");
-  Laika1 = LoadTexture("assets/images/avatar/Laika/Laika1.png");
-  MegaChonker1 = LoadTexture("assets/images/avatar/MegaChonker/MegaChonker1.png");
-  Bomb1 = LoadTexture("assets/images/avatar/Bomb/Bomb1.png");
-  FartCat1 = LoadTexture("assets/images/avatar/FartCat/FartCat1.png");
-  FartCatAtk = LoadTexture("assets/images/avatar/FartCat/Atk/Fart.png");
+  bg = LoadTexture("../assets/images/background/background.png");
+  bg_yard = LoadTexture("../assets/images/background/yard.png");
+  score_board = LoadTexture("../assets/images/background/Score.png");
+  Laika1 = LoadTexture("../assets/images/avatar/Laika/Laika1.png");
+  MegaChonker1 = LoadTexture("../assets/images/avatar/MegaChonker/MegaChonker1.png");
+  Bomb1 = LoadTexture("../assets/images/avatar/Bomb/Bomb1.png");
+  FartCat1 = LoadTexture("../assets/images/avatar/FartCat/FartCat1.png");
+  FartCatAtk = LoadTexture("../assets/images/avatar/FartCat/Atk/Fart.png");
 
   // Set initial positions for the blocks
   Vector2 blockStart = get_center(bg_yard);
