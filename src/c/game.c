@@ -7,6 +7,10 @@
 #include "character/character.h"
 
 // extern int findRow(int i);
+// extern bool IsMouseOverBox(Vector2 mousePosition, Vector2 boxPosition, Texture2D Box)
+// extern void CopyImage(Vector2 *imagePosition, Vector2 targetPosition, Texture2D image)
+// extern void shootProjectileFromCharacter(Character character, Vector2 position)
+
 
 Character CreateCharacter(const char *name, int price, int HP, bool isAlive, int attackDamage, float attackPerSecond, int blockPosition, float rightBoundery)
 {
