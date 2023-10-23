@@ -1,6 +1,8 @@
 {
   "files.associations": {
-    "raymath.h": "c"
+    "*.txt": "cmake",
+    "raymath.h": "c",
+    "string.h": "c"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }

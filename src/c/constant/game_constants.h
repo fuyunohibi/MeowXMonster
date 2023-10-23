@@ -1,7 +1,7 @@
 #ifndef GAME_CONSTANTS_H
 #define GAME_CONSTANTS_H
 
-#include "../../../include/raylib.h"
+#include <raylib.h>
 
 #define NUM_FRAMES 3
 #define NUM_BLOCKS 15

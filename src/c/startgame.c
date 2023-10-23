@@ -1,8 +1,7 @@
-#include "../../include/raylib.h"
-#include "../../include/raymath.h"
 #include "character/character.h"
 #include <stdio.h>
 #include <string.h>
+#include <raylib.h>
 
 extern void start_game(void);
 extern Vector2 get_center(Texture2D texture);
@@ -35,8 +34,8 @@ int intropage(void) {
     InitWindow(screenWidth, screenHeight, "Screen Switching Example");
     SetTargetFPS(60);
 
-    startgamebg = LoadTexture("assets/images/background/Introbg.png");
-    button = LoadTexture("assets/images/background/Butt.png");
+    startgamebg = LoadTexture("../assets/images/background/Introbg.png");
+    button = LoadTexture("../assets/images/background/Butt.png");
 
 
     enum GameScreen currentScreen = MAIN_MENU;
