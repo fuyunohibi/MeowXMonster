@@ -73,6 +73,61 @@ done:
     pop {r1, pc}  ; Restore r1 and return by branching to the link register (lr)
 
 
+check_HP_eqaul_zero:
+    cmp r0 , #0
+    ble return_true
+    bl return_false
+
+;test
+displayCharacterDetails:
+    @ Prologue
+    push {lr}    @ Save the return address
+
+    @ Display the header
+    ldr r0, =character_format
+    bl printf
+
+    @ Display character details
+    ldr r0, [sp, #4]   @ Load the character parameter from the stack
+    ldr r1, [r0]       @ Load the address of character.name
+    ldr r0, [r1]       @ Load the address of the name string
+    ldr r1, =character_format + 40  @ Offset to name in the format string
+    bl printf
+
+    ldr r0, [sp, #4]   @ Load the character parameter from the stack
+    ldr r1, [r0, #4]   @ Load character.price
+    ldr r2, =character_format + 59  @ Offset to price in the format string
+    bl printf
+
+    ldr r0, [sp, #4]   @ Load the character parameter from the stack
+    ldr r1, [r0, #8]   @ Load character.HP
+    ldr r2, =character_format + 78  @ Offset to HP in the format string
+    bl printf
+
+    ldr r0, [sp, #4]   @ Load the character parameter from the stack
+    ldrb r1, [r0, #12]  @ Load character.isAlive
+    ldr r2, =character_format + 100  @ Offset to isAlive in the format string
+    cmp r1, #0
+    ite ne
+    movne r1, #19  @ Offset for "true"
+    moveq r1, #24  @ Offset for "false"
+    add r2, r2, r1
+    bl printf
+
+    ldr r0, [sp, #4]   @ Load the character parameter from the stack
+    ldr r1, [r0, #16]  @ Load character.attackDamage
+    ldr r2, =character_format + 112  @ Offset to attackDamage in the format string
+    bl printf
+
+    ldr r0, [sp, #4]   @ Load the character parameter from the stack
+    ldr r1, [r0, #20]  @ Load character.attackPerSecond
+    ldr r2, =character_format + 130  @ Offset to attackPerSecond in the format string
+    bl printf
+
+    @ Epilogue
+    pop {lr}     @ Restore the return address
+    bx lr        @ Return
+
 
 
 
