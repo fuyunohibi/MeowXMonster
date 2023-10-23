@@ -1,6 +1,6 @@
-prefix=C:/Program Files (x86)/MeowXMonster
+prefix=/usr/local
 exec_prefix=${prefix}
-libdir=${exec_prefix}/lib
+libdir=${exec_prefix}/lib/arm-linux-gnueabihf
 includedir=${prefix}/include
 
 Name: raylib

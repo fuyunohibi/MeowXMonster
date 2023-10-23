@@ -5,6 +5,8 @@
 #include "constant/game_functions.h"
 #include "character/character.h"
 #include <stdlib.h>
+#include <GLFW/glfw3.h>
+
 
 // extern int findRow(int i);
 // extern bool IsMouseOverBox(Vector2 mousePosition, Vector2 boxPosition, Texture2D Box)
@@ -281,8 +283,12 @@ void InitializeGame(void)
 
   SetConfigFlags(FLAG_WINDOW_RESIZABLE);
   InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "MeowXMonster");
-  SetTargetFPS(60);
+  glfwWindowHint(GLFW_CLIENT_API, GLFW_OPENGL_ES_API);
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
+  
 
+  SetTargetFPS(60);
   // Initialize character
   char LaikaName[50];
   char MegaChonkerName[50];

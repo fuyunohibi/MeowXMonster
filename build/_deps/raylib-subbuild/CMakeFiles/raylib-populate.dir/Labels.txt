@@ -1,14 +1,14 @@
 # Target labels
  raylib-populate
 # Source files and their labels
-D:/aYear2/Com_Org/MeowXMonster/build/_deps/raylib-subbuild/CMakeFiles/raylib-populate
-D:/aYear2/Com_Org/MeowXMonster/build/_deps/raylib-subbuild/CMakeFiles/raylib-populate.rule
-D:/aYear2/Com_Org/MeowXMonster/build/_deps/raylib-subbuild/CMakeFiles/raylib-populate-complete.rule
-D:/aYear2/Com_Org/MeowXMonster/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-build.rule
-D:/aYear2/Com_Org/MeowXMonster/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-configure.rule
-D:/aYear2/Com_Org/MeowXMonster/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-download.rule
-D:/aYear2/Com_Org/MeowXMonster/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-install.rule
-D:/aYear2/Com_Org/MeowXMonster/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-mkdir.rule
-D:/aYear2/Com_Org/MeowXMonster/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-patch.rule
-D:/aYear2/Com_Org/MeowXMonster/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-test.rule
-D:/aYear2/Com_Org/MeowXMonster/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-update.rule
+/home/pi/MeowXMonster/build/_deps/raylib-subbuild/CMakeFiles/raylib-populate
+/home/pi/MeowXMonster/build/_deps/raylib-subbuild/CMakeFiles/raylib-populate.rule
+/home/pi/MeowXMonster/build/_deps/raylib-subbuild/CMakeFiles/raylib-populate-complete.rule
+/home/pi/MeowXMonster/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-install.rule
+/home/pi/MeowXMonster/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-mkdir.rule
+/home/pi/MeowXMonster/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-download.rule
+/home/pi/MeowXMonster/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-update.rule
+/home/pi/MeowXMonster/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-patch.rule
+/home/pi/MeowXMonster/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-configure.rule
+/home/pi/MeowXMonster/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-build.rule
+/home/pi/MeowXMonster/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-test.rule

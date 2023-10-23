@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <raylib.h>
+#include <GLFW/glfw3.h>
+
 
 extern void start_game(void);
 extern Vector2 get_center(Texture2D texture);
@@ -30,8 +32,14 @@ int intropage(void) {
     // Initialization
     const int screenWidth = 1920;
     const int screenHeight = 1080;
+    
+    InitWindow(screenWidth, screenHeight, "MeowXMonster");
+    glfwWindowHint(GLFW_CLIENT_API, GLFW_OPENGL_ES_API);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
-    InitWindow(screenWidth, screenHeight, "Screen Switching Example");
+    
+
     SetTargetFPS(60);
 
     startgamebg = LoadTexture("../assets/images/background/Introbg.png");
