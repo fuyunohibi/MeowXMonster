@@ -13,7 +13,6 @@ CMakeFiles/MeowXMonster.dir/src/c/game.c.o
  /home/pi/MeowXMonster/src/c/constant/game_data.h
  /home/pi/MeowXMonster/src/c/constant/game_functions.h
  /home/pi/MeowXMonster/src/c/game.c
- _deps/raylib-src/src/external/glfw/include/GLFW/glfw3.h
  _deps/raylib-src/src/raylib.h
 CMakeFiles/MeowXMonster.dir/src/c/startgame.c.o
  /home/pi/MeowXMonster/src/c/character/character.h

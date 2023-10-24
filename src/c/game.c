@@ -1,11 +1,10 @@
 #include <stdio.h>
 #include <string.h>
-#include <raylib.h>
 #include "constant/game_data.h"
+#include "constant/game_constants.h"
 #include "constant/game_functions.h"
 #include "character/character.h"
 #include <stdlib.h>
-#include <GLFW/glfw3.h>
 
 
 // extern int findRow(int i);
@@ -280,12 +279,6 @@ void InitializeGame(void)
     // printf("Bomb %d active: %s\n", i, bombExplosions[i].active ? "true" : "false");
     // printf("Bomb currentFrame: %d\n", bombExplosions[i].currentFrame);
   }
-
-  SetConfigFlags(FLAG_WINDOW_RESIZABLE);
-  InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "MeowXMonster");
-  glfwWindowHint(GLFW_CLIENT_API, GLFW_OPENGL_ES_API);
-  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
-  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
   
 
   SetTargetFPS(60);
@@ -308,14 +301,14 @@ void InitializeGame(void)
   load_animation(MegaChonkerFrames, MegaChonker.name);
   load_animation(BombFrames, Bomb.name);
   load_animation(FartCatFrames, FartCat.name);
-  load_animation_monster(JellyFrames, "jelly");
-  load_animation_monster(UfoFrames, "ufo");
-  load_animation_monster(MuscleFrames, "muscle");
+  load_animation_monster(JellyFrames, "Jelly");
+  load_animation_monster(UfoFrames, "Ufo");
+  load_animation_monster(MuscleFrames, "Muscle");
   load_animation_monster(LonglegFrames, "LongLeg");
   load_animation_explode(ExplodeFrames);
 
   // Load background and character textures
-  bg = LoadTexture("../assets/images/background/background.png");
+  bg = LoadTexture("../assets/images/background/background.PNG");
   bg_yard = LoadTexture("../assets/images/background/yard.png");
   score_board = LoadTexture("../assets/images/background/Score.png");
   Laika1 = LoadTexture("../assets/images/avatar/Laika/Laika1.png");
