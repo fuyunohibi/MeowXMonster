@@ -12,17 +12,17 @@
             .float 0.0      @ rightBoundery
     laika_string:    .asciz "Laika"
 
-    FartCat:   .space 50        @ name[50]
-               .int 0           @ price
-               .int 0           @ HP
-               .byte 0          @ isAlive
-               .float 0.0       @ attackDamage
-               .float 0.0       @ attackPerSecond
-               .float 0.0       @ attackTimer
-               .space NUM_FRAMES*4  @ assuming Texture2D is 4 bytes each
-               .space NUM_BLOCKS    @ shouldDrawAnimation[NUM_BLOCKS]
-               .int 0           @ blockPosition
-               .float 0.0       @ rightBoundery
+    FartCat:    .space 50        @ name[50]
+                .int 0           @ price
+                .int 0           @ HP
+                .byte 0          @ isAlive
+                .float 0.0       @ attackDamage
+                .float 0.0       @ attackPerSecond
+                .float 0.0       @ attackTimer
+                .space NUM_FRAMES*4  @ assuming Texture2D is 4 bytes each
+                .space NUM_BLOCKS    @ shouldDrawAnimation[NUM_BLOCKS]
+                .int 0           @ blockPosition
+                .float 0.0       @ rightBoundery
     fartCat_string: .asciz "FartCat"
 
     MegaChonker:    .space 50        @ name[50]
