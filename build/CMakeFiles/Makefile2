@@ -167,8 +167,8 @@ _deps/raylib-build/raylib/external/glfw/src/clean: _deps/raylib-build/raylib/ext
 # Target rules for target CMakeFiles/MeowXMonster.dir
 
 # All Build rule for target.
-CMakeFiles/MeowXMonster.dir/all: _deps/raylib-build/raylib/CMakeFiles/raylib.dir/all
 CMakeFiles/MeowXMonster.dir/all: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/all
+CMakeFiles/MeowXMonster.dir/all: _deps/raylib-build/raylib/CMakeFiles/raylib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MeowXMonster.dir/build.make CMakeFiles/MeowXMonster.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MeowXMonster.dir/build.make CMakeFiles/MeowXMonster.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/MeowXMonster/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target MeowXMonster"
