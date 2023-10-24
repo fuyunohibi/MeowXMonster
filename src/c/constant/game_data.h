@@ -72,7 +72,7 @@ Vector2 charactersPOS[MAX_CHARACTERS];
 
 int score = 0;
 char scoreBuffer[50];
-int money = 1000;
+int money = 100;
 char moneyBuffer[50];
 
 Texture2D LaikaAtkTexture;
