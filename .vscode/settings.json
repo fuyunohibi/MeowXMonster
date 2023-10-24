@@ -3,8 +3,12 @@
     "*.txt": "cmake",
     "raymath.h": "c",
     "string.h": "c",
+<<<<<<< HEAD
     "raylib.h": "c",
     "game_asm.h": "c"
+=======
+    "character.h": "c"
+>>>>>>> origin/master
   },
   "C_Cpp.errorSquiggles": "disabled"
 }

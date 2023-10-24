@@ -3,6 +3,7 @@
 
 extern void intropage(void);
 
+<<<<<<< HEAD
 void printCharacter(const Character* c) {
     printf("Name: %s\n", c->name);
     printf("Price: %d\n", c->price);
@@ -16,6 +17,9 @@ void printCharacter(const Character* c) {
 }
 
 int main () {
+=======
+int main(void) {
+>>>>>>> origin/master
   printf("Starting MoewXMonster...\n");
 
   Character Laika;

@@ -6,5 +6,11 @@
 
 #IncludeRegexTransform: 
 
+<<<<<<< HEAD
 /home/pi/MeowXMonster/src/asm/character.s
+=======
+/home/pi/Desktop/MeowXMonster/App.c
+stdio.h
+-
+>>>>>>> origin/master
 

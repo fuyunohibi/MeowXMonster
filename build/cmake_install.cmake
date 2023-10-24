@@ -1,8 +1,12 @@
-# Install script for directory: /home/pi/MeowXMonster
+<<<<<<< Updated upstream
+# Install script for directory: D:/ComOrg/MeowXMonster
+=======
+# Install script for directory: /home/pi/Desktop/MeowXMonster
+>>>>>>> Stashed changes
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/usr/local")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/MeowXMonster")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -27,11 +31,6 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
-# Install shared libraries without execute permission?
-if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  set(CMAKE_INSTALL_SO_NO_EXE "1")
-endif()
-
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
@@ -39,12 +38,16 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/usr/bin/arm-linux-gnueabihf-objdump")
+  set(CMAKE_OBJDUMP "C:/TDM-GCC-64/bin/objdump.exe")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/pi/MeowXMonster/build/_deps/raylib-build/cmake_install.cmake")
+<<<<<<< Updated upstream
+  include("D:/ComOrg/MeowXMonster/build/_deps/raylib-build/cmake_install.cmake")
+=======
+  include("/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/cmake_install.cmake")
+>>>>>>> Stashed changes
 
 endif()
 
@@ -56,5 +59,9 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/pi/MeowXMonster/build/${CMAKE_INSTALL_MANIFEST}"
+<<<<<<< Updated upstream
+file(WRITE "D:/ComOrg/MeowXMonster/build/${CMAKE_INSTALL_MANIFEST}"
+=======
+file(WRITE "/home/pi/Desktop/MeowXMonster/build/${CMAKE_INSTALL_MANIFEST}"
+>>>>>>> Stashed changes
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

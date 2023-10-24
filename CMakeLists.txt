@@ -25,9 +25,11 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(raylib)
 set(PROJECT_SOURCES
     App.c
+    src/c/gameover.c
     src/c/startgame.c
     src/c/game.c
     src/c/character/character.c
+<<<<<<< HEAD
     src/asm/character.s
     src/asm/game.s
 )
@@ -42,6 +44,16 @@ set(PROJECT_INCLUDE
 
 set_source_files_properties(src/asm/character.s PROPERTIES LANGUAGE C)
 set_source_files_properties(src/asm/game.s PROPERTIES LANGUAGE C)
+=======
+    src/asm/cal.s
+    src/asm/cal.o
+    src/asm/struct_char.s
+    src/asm/struct_char.o
+)
+
+# Adding our source files
+set(PROJECT_INCLUDE "${CMAKE_CURRENT_LIST_DIR}/src/") # Define PROJECT_INCLUDE to be the path to the include directory of the project
+>>>>>>> origin/master
 
 # Declaring our executable
 add_executable(${PROJECT_NAME})

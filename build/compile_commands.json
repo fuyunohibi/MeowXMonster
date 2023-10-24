@@ -1,5 +1,6 @@
 [
 {
+<<<<<<< HEAD
   "directory": "/home/pi/MeowXMonster/build",
   "command": "/usr/bin/arm-linux-gnueabihf-gcc -DASSETS_PATH=\\\"/home/pi/MeowXMonster/assets/\\\" -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/pi/MeowXMonster/src/c -I/home/pi/MeowXMonster/src/c/character_asm -I/home/pi/MeowXMonster/build/_deps/raylib-src/src -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -g -std=gnu99 -o CMakeFiles/MeowXMonster.dir/App.c.o -c /home/pi/MeowXMonster/App.c",
   "file": "/home/pi/MeowXMonster/App.c"
@@ -33,150 +34,374 @@
   "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib",
   "command": "/usr/bin/arm-linux-gnueabihf-gcc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/pi/MeowXMonster/build/_deps/raylib-src/src -isystem /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib.dir/rcore.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/rcore.c",
   "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/rcore.c"
+=======
+<<<<<<< Updated upstream
+  "directory": "D:/ComOrg/MeowXMonster/build",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DASSETS_PATH=\\\"D:/ComOrg/MeowXMonster/assets/\\\" -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP @CMakeFiles/MeowXMonster.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles/MeowXMonster.dir/App.c.obj -c D:/ComOrg/MeowXMonster/App.c",
+  "file": "D:/ComOrg/MeowXMonster/App.c",
+  "output": "CMakeFiles/MeowXMonster.dir/App.c.obj"
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/pi/MeowXMonster/build/_deps/raylib-src/src -isystem /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib.dir/rmodels.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/rmodels.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/rmodels.c"
+  "directory": "D:/ComOrg/MeowXMonster/build",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DASSETS_PATH=\\\"D:/ComOrg/MeowXMonster/assets/\\\" -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP @CMakeFiles/MeowXMonster.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles/MeowXMonster.dir/src/c/gameover.c.obj -c D:/ComOrg/MeowXMonster/src/c/gameover.c",
+  "file": "D:/ComOrg/MeowXMonster/src/c/gameover.c",
+  "output": "CMakeFiles/MeowXMonster.dir/src/c/gameover.c.obj"
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/pi/MeowXMonster/build/_deps/raylib-src/src -isystem /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib.dir/rshapes.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/rshapes.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/rshapes.c"
+  "directory": "D:/ComOrg/MeowXMonster/build",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DASSETS_PATH=\\\"D:/ComOrg/MeowXMonster/assets/\\\" -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP @CMakeFiles/MeowXMonster.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles/MeowXMonster.dir/src/c/startgame.c.obj -c D:/ComOrg/MeowXMonster/src/c/startgame.c",
+  "file": "D:/ComOrg/MeowXMonster/src/c/startgame.c",
+  "output": "CMakeFiles/MeowXMonster.dir/src/c/startgame.c.obj"
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/pi/MeowXMonster/build/_deps/raylib-src/src -isystem /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib.dir/rtext.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/rtext.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/rtext.c"
+  "directory": "D:/ComOrg/MeowXMonster/build",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DASSETS_PATH=\\\"D:/ComOrg/MeowXMonster/assets/\\\" -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP @CMakeFiles/MeowXMonster.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles/MeowXMonster.dir/src/c/game.c.obj -c D:/ComOrg/MeowXMonster/src/c/game.c",
+  "file": "D:/ComOrg/MeowXMonster/src/c/game.c",
+  "output": "CMakeFiles/MeowXMonster.dir/src/c/game.c.obj"
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/pi/MeowXMonster/build/_deps/raylib-src/src -isystem /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib.dir/rtextures.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/rtextures.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/rtextures.c"
+  "directory": "D:/ComOrg/MeowXMonster/build",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DASSETS_PATH=\\\"D:/ComOrg/MeowXMonster/assets/\\\" -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP @CMakeFiles/MeowXMonster.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles/MeowXMonster.dir/src/c/character/character.c.obj -c D:/ComOrg/MeowXMonster/src/c/character/character.c",
+  "file": "D:/ComOrg/MeowXMonster/src/c/character/character.c",
+  "output": "CMakeFiles/MeowXMonster.dir/src/c/character/character.c.obj"
+>>>>>>> origin/master
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/pi/MeowXMonster/build/_deps/raylib-src/src -isystem /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib.dir/utils.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/utils.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/utils.c"
+  "directory": "D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -D_CRT_SECURE_NO_WARNINGS @CMakeFiles/raylib.dir/includes_C.rsp -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib.dir/rcore.c.obj -c D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/rcore.c",
+  "file": "D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/rcore.c",
+  "output": "_deps/raylib-build/raylib/CMakeFiles/raylib.dir/rcore.c.obj"
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/pi/MeowXMonster/build/_deps/raylib-src/src -isystem /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib.dir/raudio.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/raudio.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/raudio.c"
+  "directory": "D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -D_CRT_SECURE_NO_WARNINGS @CMakeFiles/raylib.dir/includes_C.rsp -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib.dir/rmodels.c.obj -c D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/rmodels.c",
+  "file": "D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/rmodels.c",
+  "output": "_deps/raylib-build/raylib/CMakeFiles/raylib.dir/rmodels.c.obj"
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/context.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/context.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/context.c"
+  "directory": "D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -D_CRT_SECURE_NO_WARNINGS @CMakeFiles/raylib.dir/includes_C.rsp -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib.dir/rshapes.c.obj -c D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/rshapes.c",
+  "file": "D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/rshapes.c",
+  "output": "_deps/raylib-build/raylib/CMakeFiles/raylib.dir/rshapes.c.obj"
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/init.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/init.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/init.c"
+  "directory": "D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -D_CRT_SECURE_NO_WARNINGS @CMakeFiles/raylib.dir/includes_C.rsp -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib.dir/rtext.c.obj -c D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/rtext.c",
+  "file": "D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/rtext.c",
+  "output": "_deps/raylib-build/raylib/CMakeFiles/raylib.dir/rtext.c.obj"
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/input.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/input.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/input.c"
+  "directory": "D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -D_CRT_SECURE_NO_WARNINGS @CMakeFiles/raylib.dir/includes_C.rsp -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib.dir/rtextures.c.obj -c D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/rtextures.c",
+  "file": "D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/rtextures.c",
+  "output": "_deps/raylib-build/raylib/CMakeFiles/raylib.dir/rtextures.c.obj"
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/monitor.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/monitor.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/monitor.c"
+  "directory": "D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -D_CRT_SECURE_NO_WARNINGS @CMakeFiles/raylib.dir/includes_C.rsp -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib.dir/utils.c.obj -c D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/utils.c",
+  "file": "D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/utils.c",
+  "output": "_deps/raylib-build/raylib/CMakeFiles/raylib.dir/utils.c.obj"
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/platform.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/platform.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/platform.c"
+  "directory": "D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -D_CRT_SECURE_NO_WARNINGS @CMakeFiles/raylib.dir/includes_C.rsp -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib.dir/raudio.c.obj -c D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/raudio.c",
+  "file": "D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/raudio.c",
+  "output": "_deps/raylib-build/raylib/CMakeFiles/raylib.dir/raudio.c.obj"
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/vulkan.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/vulkan.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/vulkan.c"
+  "directory": "D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -Wall -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/context.c.obj -c D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/context.c",
+  "file": "D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/context.c",
+  "output": "_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/context.c.obj"
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/window.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/window.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/window.c"
+  "directory": "D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -Wall -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/init.c.obj -c D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/init.c",
+  "file": "D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/init.c",
+  "output": "_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/init.c.obj"
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/egl_context.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/egl_context.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/egl_context.c"
+  "directory": "D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -Wall -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/input.c.obj -c D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/input.c",
+  "file": "D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/input.c",
+  "output": "_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/input.c.obj"
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/osmesa_context.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/osmesa_context.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/osmesa_context.c"
+  "directory": "D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -Wall -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/monitor.c.obj -c D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/monitor.c",
+  "file": "D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/monitor.c",
+  "output": "_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/monitor.c.obj"
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/null_init.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_init.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_init.c"
+  "directory": "D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -Wall -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/platform.c.obj -c D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/platform.c",
+  "file": "D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/platform.c",
+  "output": "_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/platform.c.obj"
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/null_monitor.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_monitor.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_monitor.c"
+  "directory": "D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -Wall -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/vulkan.c.obj -c D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/vulkan.c",
+  "file": "D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/vulkan.c",
+  "output": "_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/vulkan.c.obj"
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/null_window.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_window.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_window.c"
+  "directory": "D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -Wall -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/window.c.obj -c D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/window.c",
+  "file": "D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/window.c",
+  "output": "_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/window.c.obj"
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/null_joystick.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_joystick.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_joystick.c"
+  "directory": "D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -Wall -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/egl_context.c.obj -c D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/egl_context.c",
+  "file": "D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/egl_context.c",
+  "output": "_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/egl_context.c.obj"
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/posix_module.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/posix_module.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/posix_module.c"
+  "directory": "D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -Wall -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/osmesa_context.c.obj -c D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/osmesa_context.c",
+  "file": "D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/osmesa_context.c",
+  "output": "_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.obj"
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/posix_time.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/posix_time.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/posix_time.c"
+  "directory": "D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -Wall -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/null_init.c.obj -c D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_init.c",
+  "file": "D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_init.c",
+  "output": "_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_init.c.obj"
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/posix_thread.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/posix_thread.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/posix_thread.c"
+  "directory": "D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -Wall -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/null_monitor.c.obj -c D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_monitor.c",
+  "file": "D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_monitor.c",
+  "output": "_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.obj"
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/x11_init.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/x11_init.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/x11_init.c"
+  "directory": "D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -Wall -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/null_window.c.obj -c D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_window.c",
+  "file": "D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_window.c",
+  "output": "_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_window.c.obj"
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/x11_monitor.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/x11_monitor.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/x11_monitor.c"
+  "directory": "D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -Wall -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/null_joystick.c.obj -c D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_joystick.c",
+  "file": "D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_joystick.c",
+  "output": "_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.obj"
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/x11_window.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/x11_window.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/x11_window.c"
+  "directory": "D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -Wall -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/win32_module.c.obj -c D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/win32_module.c",
+  "file": "D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/win32_module.c",
+  "output": "_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_module.c.obj"
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/xkb_unicode.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/xkb_unicode.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/xkb_unicode.c"
+  "directory": "D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -Wall -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/win32_time.c.obj -c D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/win32_time.c",
+  "file": "D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/win32_time.c",
+  "output": "_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_time.c.obj"
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/glx_context.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/glx_context.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/glx_context.c"
+  "directory": "D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -Wall -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/win32_thread.c.obj -c D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/win32_thread.c",
+  "file": "D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/win32_thread.c",
+  "output": "_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_thread.c.obj"
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/linux_joystick.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/linux_joystick.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/linux_joystick.c"
+  "directory": "D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -Wall -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/win32_init.c.obj -c D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/win32_init.c",
+  "file": "D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/win32_init.c",
+  "output": "_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_init.c.obj"
 },
 {
-  "directory": "/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/posix_poll.c.o -c /home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/posix_poll.c",
-  "file": "/home/pi/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/posix_poll.c"
+  "directory": "D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -Wall -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/win32_joystick.c.obj -c D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/win32_joystick.c",
+  "file": "D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/win32_joystick.c",
+  "output": "_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_joystick.c.obj"
+},
+{
+  "directory": "D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -Wall -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/win32_monitor.c.obj -c D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/win32_monitor.c",
+  "file": "D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/win32_monitor.c",
+  "output": "_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_monitor.c.obj"
+},
+{
+  "directory": "D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -Wall -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/win32_window.c.obj -c D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/win32_window.c",
+  "file": "D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/win32_window.c",
+  "output": "_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_window.c.obj"
+},
+{
+  "directory": "D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "C:/TDM-GCC-64/bin/gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -Wall -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/wgl_context.c.obj -c D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/wgl_context.c",
+  "file": "D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/wgl_context.c",
+  "output": "_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.obj"
+=======
+  "directory": "/home/pi/Desktop/MeowXMonster/build",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -DASSETS_PATH=\\\"/home/pi/Desktop/MeowXMonster/assets/\\\" -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/pi/Desktop/MeowXMonster/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -g -std=gnu99 -o CMakeFiles/MeowXMonster.dir/App.c.o -c /home/pi/Desktop/MeowXMonster/App.c",
+  "file": "/home/pi/Desktop/MeowXMonster/App.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -DASSETS_PATH=\\\"/home/pi/Desktop/MeowXMonster/assets/\\\" -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/pi/Desktop/MeowXMonster/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -g -std=gnu99 -o CMakeFiles/MeowXMonster.dir/src/c/startgame.c.o -c /home/pi/Desktop/MeowXMonster/src/c/startgame.c",
+  "file": "/home/pi/Desktop/MeowXMonster/src/c/startgame.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -DASSETS_PATH=\\\"/home/pi/Desktop/MeowXMonster/assets/\\\" -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/pi/Desktop/MeowXMonster/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -g -std=gnu99 -o CMakeFiles/MeowXMonster.dir/src/c/game.c.o -c /home/pi/Desktop/MeowXMonster/src/c/game.c",
+  "file": "/home/pi/Desktop/MeowXMonster/src/c/game.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -DASSETS_PATH=\\\"/home/pi/Desktop/MeowXMonster/assets/\\\" -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/pi/Desktop/MeowXMonster/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -g -std=gnu99 -o CMakeFiles/MeowXMonster.dir/src/c/character/character.c.o -c /home/pi/Desktop/MeowXMonster/src/c/character/character.c",
+  "file": "/home/pi/Desktop/MeowXMonster/src/c/character/character.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src -isystem /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib.dir/rcore.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/rcore.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/rcore.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src -isystem /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib.dir/rmodels.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/rmodels.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/rmodels.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src -isystem /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib.dir/rshapes.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/rshapes.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/rshapes.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src -isystem /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib.dir/rtext.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/rtext.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/rtext.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src -isystem /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib.dir/rtextures.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/rtextures.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/rtextures.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src -isystem /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib.dir/utils.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/utils.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/utils.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src -isystem /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib.dir/raudio.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/raudio.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/raudio.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/context.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/context.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/context.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/init.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/init.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/init.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/input.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/input.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/input.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/monitor.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/monitor.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/monitor.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/platform.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/platform.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/platform.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/vulkan.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/vulkan.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/vulkan.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/window.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/window.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/window.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/egl_context.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/egl_context.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/egl_context.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/osmesa_context.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/osmesa_context.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/osmesa_context.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/null_init.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_init.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_init.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/null_monitor.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_monitor.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_monitor.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/null_window.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_window.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_window.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/null_joystick.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_joystick.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_joystick.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/posix_module.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/posix_module.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/posix_module.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/posix_time.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/posix_time.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/posix_time.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/posix_thread.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/posix_thread.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/posix_thread.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/x11_init.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/x11_init.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/x11_init.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/x11_monitor.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/x11_monitor.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/x11_monitor.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/x11_window.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/x11_window.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/x11_window.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/xkb_unicode.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/xkb_unicode.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/xkb_unicode.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/glx_context.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/glx_context.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/glx_context.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/linux_joystick.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/linux_joystick.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/linux_joystick.c"
+},
+{
+  "directory": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/posix_poll.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/posix_poll.c",
+  "file": "/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/posix_poll.c"
+>>>>>>> Stashed changes
 }
 ]

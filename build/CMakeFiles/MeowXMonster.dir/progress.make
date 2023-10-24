@@ -4,5 +4,8 @@ CMAKE_PROGRESS_3 = 3
 CMAKE_PROGRESS_4 = 4
 CMAKE_PROGRESS_5 = 5
 CMAKE_PROGRESS_6 = 6
+<<<<<<< HEAD
 CMAKE_PROGRESS_7 = 7
+=======
+>>>>>>> origin/master
 
