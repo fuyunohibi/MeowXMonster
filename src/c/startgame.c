@@ -34,10 +34,6 @@ int intropage(void) {
     const int screenHeight = 1080;
     
     InitWindow(screenWidth, screenHeight, "MeowXMonster");
-    glfwWindowHint(GLFW_CLIENT_API, GLFW_OPENGL_ES_API);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
-
     
 
     SetTargetFPS(60);
@@ -59,7 +55,7 @@ int intropage(void) {
             if (currentScreen == MAIN_MENU) {
                 if (CheckButtonPress(10, 10, button.width, button.height) == 1) {
                     currentScreen = GAMEPLAY;
-                    CloseWindow();
+                    // CloseWindow();
                     start_game();
                 } else if (CheckButtonPress(100, 200, 200, 50) == 1) {
                     currentScreen = SETTINGS;
