@@ -4,7 +4,11 @@
 # compile C with C:/TDM-GCC-64/bin/gcc.exe
 C_DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
 
+<<<<<<< Updated upstream
 C_INCLUDES = @CMakeFiles/glfw.dir/includes_C.rsp
+=======
+C_INCLUDES = -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src
+>>>>>>> Stashed changes
 
 C_FLAGS = -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -Wall
 

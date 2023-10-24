@@ -57,10 +57,17 @@ RM = "C:/Program Files/CMake/bin/cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
+<<<<<<< Updated upstream
 CMAKE_SOURCE_DIR = D:/ComOrg/MeowXMonster
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = D:/ComOrg/MeowXMonster/build
+=======
+CMAKE_SOURCE_DIR = /home/pi/Desktop/MeowXMonster
+
+# The top-level build directory on which CMake was run.
+CMAKE_BINARY_DIR = /home/pi/Desktop/MeowXMonster/build
+>>>>>>> Stashed changes
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -114,11 +121,19 @@ list_install_components:
 list_install_components/fast: list_install_components
 .PHONY : list_install_components/fast
 
+<<<<<<< Updated upstream
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	"C:/Program Files/CMake/bin/cmake.exe" -P cmake_install.cmake
 .PHONY : install
+=======
+# Special rule for the target package_source
+package_source:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
+	cd /home/pi/Desktop/MeowXMonster/build && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/pi/Desktop/MeowXMonster/build/CPackSourceConfig.cmake
+.PHONY : package_source
+>>>>>>> Stashed changes
 
 # Special rule for the target install
 install/fast: preinstall/fast
@@ -132,11 +147,19 @@ install/local: preinstall
 	"C:/Program Files/CMake/bin/cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local
 
+<<<<<<< Updated upstream
 # Special rule for the target install/local
 install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
 	"C:/Program Files/CMake/bin/cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
+=======
+# Special rule for the target package
+package: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
+	cd /home/pi/Desktop/MeowXMonster/build && /usr/bin/cpack --config ./CPackConfig.cmake
+.PHONY : package
+>>>>>>> Stashed changes
 
 # Special rule for the target install/strip
 install/strip: preinstall
@@ -152,14 +175,24 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(CMAKE_COMMAND) -E cmake_progress_start D:/ComOrg/MeowXMonster/build/CMakeFiles D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src//CMakeFiles/progress.marks
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/raylib-build/raylib/external/glfw/src/all
 	$(CMAKE_COMMAND) -E cmake_progress_start D:/ComOrg/MeowXMonster/build/CMakeFiles 0
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/MeowXMonster/build/CMakeFiles /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src//CMakeFiles/progress.marks
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/raylib-build/raylib/external/glfw/src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/MeowXMonster/build/CMakeFiles 0
+>>>>>>> Stashed changes
 .PHONY : all
 
 # The main clean target
 clean:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/raylib-build/raylib/external/glfw/src/clean
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/raylib-build/raylib/external/glfw/src/clean
+>>>>>>> Stashed changes
 .PHONY : clean
 
 # The main clean target
@@ -168,22 +201,54 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/raylib-build/raylib/external/glfw/src/preinstall
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/raylib-build/raylib/external/glfw/src/preinstall
+>>>>>>> Stashed changes
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/raylib-build/raylib/external/glfw/src/preinstall
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/raylib-build/raylib/external/glfw/src/preinstall
+>>>>>>> Stashed changes
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/rule:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/rule
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+.PHONY : depend
+
+# Convenience name for target.
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/update_mappings.dir/rule:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/update_mappings.dir/rule
+.PHONY : _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/update_mappings.dir/rule
+
+# Convenience name for target.
+update_mappings: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/update_mappings.dir/rule
+
+.PHONY : update_mappings
+
+# fast build rule for target.
+update_mappings/fast:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/update_mappings.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/update_mappings.dir/build
+.PHONY : update_mappings/fast
+
+# Convenience name for target.
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/rule:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/rule
+>>>>>>> Stashed changes
 .PHONY : _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/rule
 
 # Convenience name for target.
@@ -192,7 +257,11 @@ glfw: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/rule
 
 # fast build rule for target.
 glfw/fast:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build
+>>>>>>> Stashed changes
 .PHONY : glfw/fast
 
 # Convenience name for target.
@@ -213,16 +282,26 @@ context.obj: context.c.obj
 .PHONY : context.obj
 
 # target to build an object file
+<<<<<<< Updated upstream
 context.c.obj:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/context.c.obj
 .PHONY : context.c.obj
+=======
+context.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/context.c.o
+.PHONY : context.c.o
+>>>>>>> Stashed changes
 
 context.i: context.c.i
 .PHONY : context.i
 
 # target to preprocess a source file
 context.c.i:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/context.c.i
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/context.c.i
+>>>>>>> Stashed changes
 .PHONY : context.c.i
 
 context.s: context.c.s
@@ -230,23 +309,37 @@ context.s: context.c.s
 
 # target to generate assembly for a file
 context.c.s:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/context.c.s
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/context.c.s
+>>>>>>> Stashed changes
 .PHONY : context.c.s
 
 egl_context.obj: egl_context.c.obj
 .PHONY : egl_context.obj
 
 # target to build an object file
+<<<<<<< Updated upstream
 egl_context.c.obj:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/egl_context.c.obj
 .PHONY : egl_context.c.obj
+=======
+egl_context.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/egl_context.c.o
+.PHONY : egl_context.c.o
+>>>>>>> Stashed changes
 
 egl_context.i: egl_context.c.i
 .PHONY : egl_context.i
 
 # target to preprocess a source file
 egl_context.c.i:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/egl_context.c.i
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/egl_context.c.i
+>>>>>>> Stashed changes
 .PHONY : egl_context.c.i
 
 egl_context.s: egl_context.c.s
@@ -254,23 +347,64 @@ egl_context.s: egl_context.c.s
 
 # target to generate assembly for a file
 egl_context.c.s:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/egl_context.c.s
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/egl_context.c.s
+>>>>>>> Stashed changes
 .PHONY : egl_context.c.s
 
 init.obj: init.c.obj
 .PHONY : init.obj
 
 # target to build an object file
+<<<<<<< Updated upstream
 init.c.obj:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/init.c.obj
 .PHONY : init.c.obj
+=======
+glx_context.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/glx_context.c.o
+.PHONY : glx_context.c.o
+
+glx_context.i: glx_context.c.i
+
+.PHONY : glx_context.i
+
+# target to preprocess a source file
+glx_context.c.i:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/glx_context.c.i
+.PHONY : glx_context.c.i
+
+glx_context.s: glx_context.c.s
+
+.PHONY : glx_context.s
+
+# target to generate assembly for a file
+glx_context.c.s:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/glx_context.c.s
+.PHONY : glx_context.c.s
+
+init.o: init.c.o
+
+.PHONY : init.o
+
+# target to build an object file
+init.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/init.c.o
+.PHONY : init.c.o
+>>>>>>> Stashed changes
 
 init.i: init.c.i
 .PHONY : init.i
 
 # target to preprocess a source file
 init.c.i:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/init.c.i
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/init.c.i
+>>>>>>> Stashed changes
 .PHONY : init.c.i
 
 init.s: init.c.s
@@ -278,23 +412,37 @@ init.s: init.c.s
 
 # target to generate assembly for a file
 init.c.s:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/init.c.s
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/init.c.s
+>>>>>>> Stashed changes
 .PHONY : init.c.s
 
 input.obj: input.c.obj
 .PHONY : input.obj
 
 # target to build an object file
+<<<<<<< Updated upstream
 input.c.obj:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/input.c.obj
 .PHONY : input.c.obj
+=======
+input.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/input.c.o
+.PHONY : input.c.o
+>>>>>>> Stashed changes
 
 input.i: input.c.i
 .PHONY : input.i
 
 # target to preprocess a source file
 input.c.i:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/input.c.i
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/input.c.i
+>>>>>>> Stashed changes
 .PHONY : input.c.i
 
 input.s: input.c.s
@@ -302,6 +450,7 @@ input.s: input.c.s
 
 # target to generate assembly for a file
 input.c.s:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/input.c.s
 .PHONY : input.c.s
 
@@ -312,13 +461,57 @@ monitor.obj: monitor.c.obj
 monitor.c.obj:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/monitor.c.obj
 .PHONY : monitor.c.obj
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/input.c.s
+.PHONY : input.c.s
+
+linux_joystick.o: linux_joystick.c.o
+
+.PHONY : linux_joystick.o
+
+# target to build an object file
+linux_joystick.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/linux_joystick.c.o
+.PHONY : linux_joystick.c.o
+
+linux_joystick.i: linux_joystick.c.i
+
+.PHONY : linux_joystick.i
+
+# target to preprocess a source file
+linux_joystick.c.i:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/linux_joystick.c.i
+.PHONY : linux_joystick.c.i
+
+linux_joystick.s: linux_joystick.c.s
+
+.PHONY : linux_joystick.s
+
+# target to generate assembly for a file
+linux_joystick.c.s:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/linux_joystick.c.s
+.PHONY : linux_joystick.c.s
+
+monitor.o: monitor.c.o
+
+.PHONY : monitor.o
+
+# target to build an object file
+monitor.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/monitor.c.o
+.PHONY : monitor.c.o
+>>>>>>> Stashed changes
 
 monitor.i: monitor.c.i
 .PHONY : monitor.i
 
 # target to preprocess a source file
 monitor.c.i:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/monitor.c.i
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/monitor.c.i
+>>>>>>> Stashed changes
 .PHONY : monitor.c.i
 
 monitor.s: monitor.c.s
@@ -326,23 +519,37 @@ monitor.s: monitor.c.s
 
 # target to generate assembly for a file
 monitor.c.s:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/monitor.c.s
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/monitor.c.s
+>>>>>>> Stashed changes
 .PHONY : monitor.c.s
 
 null_init.obj: null_init.c.obj
 .PHONY : null_init.obj
 
 # target to build an object file
+<<<<<<< Updated upstream
 null_init.c.obj:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_init.c.obj
 .PHONY : null_init.c.obj
+=======
+null_init.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_init.c.o
+.PHONY : null_init.c.o
+>>>>>>> Stashed changes
 
 null_init.i: null_init.c.i
 .PHONY : null_init.i
 
 # target to preprocess a source file
 null_init.c.i:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_init.c.i
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_init.c.i
+>>>>>>> Stashed changes
 .PHONY : null_init.c.i
 
 null_init.s: null_init.c.s
@@ -350,23 +557,37 @@ null_init.s: null_init.c.s
 
 # target to generate assembly for a file
 null_init.c.s:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_init.c.s
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_init.c.s
+>>>>>>> Stashed changes
 .PHONY : null_init.c.s
 
 null_joystick.obj: null_joystick.c.obj
 .PHONY : null_joystick.obj
 
 # target to build an object file
+<<<<<<< Updated upstream
 null_joystick.c.obj:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.obj
 .PHONY : null_joystick.c.obj
+=======
+null_joystick.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.o
+.PHONY : null_joystick.c.o
+>>>>>>> Stashed changes
 
 null_joystick.i: null_joystick.c.i
 .PHONY : null_joystick.i
 
 # target to preprocess a source file
 null_joystick.c.i:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.i
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.i
+>>>>>>> Stashed changes
 .PHONY : null_joystick.c.i
 
 null_joystick.s: null_joystick.c.s
@@ -374,23 +595,37 @@ null_joystick.s: null_joystick.c.s
 
 # target to generate assembly for a file
 null_joystick.c.s:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.s
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.s
+>>>>>>> Stashed changes
 .PHONY : null_joystick.c.s
 
 null_monitor.obj: null_monitor.c.obj
 .PHONY : null_monitor.obj
 
 # target to build an object file
+<<<<<<< Updated upstream
 null_monitor.c.obj:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.obj
 .PHONY : null_monitor.c.obj
+=======
+null_monitor.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.o
+.PHONY : null_monitor.c.o
+>>>>>>> Stashed changes
 
 null_monitor.i: null_monitor.c.i
 .PHONY : null_monitor.i
 
 # target to preprocess a source file
 null_monitor.c.i:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.i
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.i
+>>>>>>> Stashed changes
 .PHONY : null_monitor.c.i
 
 null_monitor.s: null_monitor.c.s
@@ -398,23 +633,37 @@ null_monitor.s: null_monitor.c.s
 
 # target to generate assembly for a file
 null_monitor.c.s:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.s
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.s
+>>>>>>> Stashed changes
 .PHONY : null_monitor.c.s
 
 null_window.obj: null_window.c.obj
 .PHONY : null_window.obj
 
 # target to build an object file
+<<<<<<< Updated upstream
 null_window.c.obj:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_window.c.obj
 .PHONY : null_window.c.obj
+=======
+null_window.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_window.c.o
+.PHONY : null_window.c.o
+>>>>>>> Stashed changes
 
 null_window.i: null_window.c.i
 .PHONY : null_window.i
 
 # target to preprocess a source file
 null_window.c.i:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_window.c.i
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_window.c.i
+>>>>>>> Stashed changes
 .PHONY : null_window.c.i
 
 null_window.s: null_window.c.s
@@ -422,23 +671,37 @@ null_window.s: null_window.c.s
 
 # target to generate assembly for a file
 null_window.c.s:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_window.c.s
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_window.c.s
+>>>>>>> Stashed changes
 .PHONY : null_window.c.s
 
 osmesa_context.obj: osmesa_context.c.obj
 .PHONY : osmesa_context.obj
 
 # target to build an object file
+<<<<<<< Updated upstream
 osmesa_context.c.obj:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.obj
 .PHONY : osmesa_context.c.obj
+=======
+osmesa_context.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.o
+.PHONY : osmesa_context.c.o
+>>>>>>> Stashed changes
 
 osmesa_context.i: osmesa_context.c.i
 .PHONY : osmesa_context.i
 
 # target to preprocess a source file
 osmesa_context.c.i:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.i
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.i
+>>>>>>> Stashed changes
 .PHONY : osmesa_context.c.i
 
 osmesa_context.s: osmesa_context.c.s
@@ -446,23 +709,37 @@ osmesa_context.s: osmesa_context.c.s
 
 # target to generate assembly for a file
 osmesa_context.c.s:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.s
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.s
+>>>>>>> Stashed changes
 .PHONY : osmesa_context.c.s
 
 platform.obj: platform.c.obj
 .PHONY : platform.obj
 
 # target to build an object file
+<<<<<<< Updated upstream
 platform.c.obj:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/platform.c.obj
 .PHONY : platform.c.obj
+=======
+platform.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/platform.c.o
+.PHONY : platform.c.o
+>>>>>>> Stashed changes
 
 platform.i: platform.c.i
 .PHONY : platform.i
 
 # target to preprocess a source file
 platform.c.i:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/platform.c.i
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/platform.c.i
+>>>>>>> Stashed changes
 .PHONY : platform.c.i
 
 platform.s: platform.c.s
@@ -470,248 +747,466 @@ platform.s: platform.c.s
 
 # target to generate assembly for a file
 platform.c.s:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/platform.c.s
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/platform.c.s
+>>>>>>> Stashed changes
 .PHONY : platform.c.s
 
 vulkan.obj: vulkan.c.obj
 .PHONY : vulkan.obj
 
 # target to build an object file
+<<<<<<< Updated upstream
 vulkan.c.obj:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/vulkan.c.obj
 .PHONY : vulkan.c.obj
+=======
+posix_module.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_module.c.o
+.PHONY : posix_module.c.o
+>>>>>>> Stashed changes
 
 vulkan.i: vulkan.c.i
 .PHONY : vulkan.i
 
 # target to preprocess a source file
+<<<<<<< Updated upstream
 vulkan.c.i:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/vulkan.c.i
 .PHONY : vulkan.c.i
+=======
+posix_module.c.i:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_module.c.i
+.PHONY : posix_module.c.i
+
+posix_module.s: posix_module.c.s
+>>>>>>> Stashed changes
 
 vulkan.s: vulkan.c.s
 .PHONY : vulkan.s
 
 # target to generate assembly for a file
+<<<<<<< Updated upstream
 vulkan.c.s:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/vulkan.c.s
 .PHONY : vulkan.c.s
+=======
+posix_module.c.s:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_module.c.s
+.PHONY : posix_module.c.s
+
+posix_poll.o: posix_poll.c.o
+>>>>>>> Stashed changes
 
 wgl_context.obj: wgl_context.c.obj
 .PHONY : wgl_context.obj
 
 # target to build an object file
+<<<<<<< Updated upstream
 wgl_context.c.obj:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.obj
 .PHONY : wgl_context.c.obj
+=======
+posix_poll.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_poll.c.o
+.PHONY : posix_poll.c.o
+
+posix_poll.i: posix_poll.c.i
+>>>>>>> Stashed changes
 
 wgl_context.i: wgl_context.c.i
 .PHONY : wgl_context.i
 
 # target to preprocess a source file
+<<<<<<< Updated upstream
 wgl_context.c.i:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.i
 .PHONY : wgl_context.c.i
+=======
+posix_poll.c.i:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_poll.c.i
+.PHONY : posix_poll.c.i
+>>>>>>> Stashed changes
 
 wgl_context.s: wgl_context.c.s
 .PHONY : wgl_context.s
 
 # target to generate assembly for a file
+<<<<<<< Updated upstream
 wgl_context.c.s:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.s
 .PHONY : wgl_context.c.s
+=======
+posix_poll.c.s:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_poll.c.s
+.PHONY : posix_poll.c.s
+
+posix_thread.o: posix_thread.c.o
+>>>>>>> Stashed changes
 
 win32_init.obj: win32_init.c.obj
 .PHONY : win32_init.obj
 
 # target to build an object file
+<<<<<<< Updated upstream
 win32_init.c.obj:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_init.c.obj
 .PHONY : win32_init.c.obj
+=======
+posix_thread.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_thread.c.o
+.PHONY : posix_thread.c.o
+>>>>>>> Stashed changes
 
 win32_init.i: win32_init.c.i
 .PHONY : win32_init.i
 
 # target to preprocess a source file
+<<<<<<< Updated upstream
 win32_init.c.i:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_init.c.i
 .PHONY : win32_init.c.i
+=======
+posix_thread.c.i:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_thread.c.i
+.PHONY : posix_thread.c.i
+
+posix_thread.s: posix_thread.c.s
+>>>>>>> Stashed changes
 
 win32_init.s: win32_init.c.s
 .PHONY : win32_init.s
 
 # target to generate assembly for a file
+<<<<<<< Updated upstream
 win32_init.c.s:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_init.c.s
 .PHONY : win32_init.c.s
+=======
+posix_thread.c.s:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_thread.c.s
+.PHONY : posix_thread.c.s
+>>>>>>> Stashed changes
 
 win32_joystick.obj: win32_joystick.c.obj
 .PHONY : win32_joystick.obj
 
 # target to build an object file
+<<<<<<< Updated upstream
 win32_joystick.c.obj:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_joystick.c.obj
 .PHONY : win32_joystick.c.obj
+=======
+posix_time.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_time.c.o
+.PHONY : posix_time.c.o
+
+posix_time.i: posix_time.c.i
+>>>>>>> Stashed changes
 
 win32_joystick.i: win32_joystick.c.i
 .PHONY : win32_joystick.i
 
 # target to preprocess a source file
+<<<<<<< Updated upstream
 win32_joystick.c.i:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_joystick.c.i
 .PHONY : win32_joystick.c.i
+=======
+posix_time.c.i:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_time.c.i
+.PHONY : posix_time.c.i
+>>>>>>> Stashed changes
 
 win32_joystick.s: win32_joystick.c.s
 .PHONY : win32_joystick.s
 
 # target to generate assembly for a file
+<<<<<<< Updated upstream
 win32_joystick.c.s:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_joystick.c.s
 .PHONY : win32_joystick.c.s
+=======
+posix_time.c.s:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_time.c.s
+.PHONY : posix_time.c.s
+
+vulkan.o: vulkan.c.o
+>>>>>>> Stashed changes
 
 win32_module.obj: win32_module.c.obj
 .PHONY : win32_module.obj
 
 # target to build an object file
+<<<<<<< Updated upstream
 win32_module.c.obj:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_module.c.obj
 .PHONY : win32_module.c.obj
+=======
+vulkan.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/vulkan.c.o
+.PHONY : vulkan.c.o
+>>>>>>> Stashed changes
 
 win32_module.i: win32_module.c.i
 .PHONY : win32_module.i
 
 # target to preprocess a source file
+<<<<<<< Updated upstream
 win32_module.c.i:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_module.c.i
 .PHONY : win32_module.c.i
+=======
+vulkan.c.i:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/vulkan.c.i
+.PHONY : vulkan.c.i
+
+vulkan.s: vulkan.c.s
+>>>>>>> Stashed changes
 
 win32_module.s: win32_module.c.s
 .PHONY : win32_module.s
 
 # target to generate assembly for a file
+<<<<<<< Updated upstream
 win32_module.c.s:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_module.c.s
 .PHONY : win32_module.c.s
+=======
+vulkan.c.s:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/vulkan.c.s
+.PHONY : vulkan.c.s
+
+window.o: window.c.o
+>>>>>>> Stashed changes
 
 win32_monitor.obj: win32_monitor.c.obj
 .PHONY : win32_monitor.obj
 
 # target to build an object file
+<<<<<<< Updated upstream
 win32_monitor.c.obj:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_monitor.c.obj
 .PHONY : win32_monitor.c.obj
+=======
+window.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/window.c.o
+.PHONY : window.c.o
+>>>>>>> Stashed changes
 
 win32_monitor.i: win32_monitor.c.i
 .PHONY : win32_monitor.i
 
 # target to preprocess a source file
+<<<<<<< Updated upstream
 win32_monitor.c.i:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_monitor.c.i
 .PHONY : win32_monitor.c.i
+=======
+window.c.i:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/window.c.i
+.PHONY : window.c.i
+
+window.s: window.c.s
+>>>>>>> Stashed changes
 
 win32_monitor.s: win32_monitor.c.s
 .PHONY : win32_monitor.s
 
 # target to generate assembly for a file
+<<<<<<< Updated upstream
 win32_monitor.c.s:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_monitor.c.s
 .PHONY : win32_monitor.c.s
+=======
+window.c.s:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/window.c.s
+.PHONY : window.c.s
+>>>>>>> Stashed changes
 
 win32_thread.obj: win32_thread.c.obj
 .PHONY : win32_thread.obj
 
 # target to build an object file
+<<<<<<< Updated upstream
 win32_thread.c.obj:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_thread.c.obj
 .PHONY : win32_thread.c.obj
+=======
+x11_init.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_init.c.o
+.PHONY : x11_init.c.o
+
+x11_init.i: x11_init.c.i
+>>>>>>> Stashed changes
 
 win32_thread.i: win32_thread.c.i
 .PHONY : win32_thread.i
 
 # target to preprocess a source file
+<<<<<<< Updated upstream
 win32_thread.c.i:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_thread.c.i
 .PHONY : win32_thread.c.i
+=======
+x11_init.c.i:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_init.c.i
+.PHONY : x11_init.c.i
+>>>>>>> Stashed changes
 
 win32_thread.s: win32_thread.c.s
 .PHONY : win32_thread.s
 
 # target to generate assembly for a file
+<<<<<<< Updated upstream
 win32_thread.c.s:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_thread.c.s
 .PHONY : win32_thread.c.s
+=======
+x11_init.c.s:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_init.c.s
+.PHONY : x11_init.c.s
+
+x11_monitor.o: x11_monitor.c.o
+>>>>>>> Stashed changes
 
 win32_time.obj: win32_time.c.obj
 .PHONY : win32_time.obj
 
 # target to build an object file
+<<<<<<< Updated upstream
 win32_time.c.obj:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_time.c.obj
 .PHONY : win32_time.c.obj
+=======
+x11_monitor.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_monitor.c.o
+.PHONY : x11_monitor.c.o
+
+x11_monitor.i: x11_monitor.c.i
+>>>>>>> Stashed changes
 
 win32_time.i: win32_time.c.i
 .PHONY : win32_time.i
 
 # target to preprocess a source file
+<<<<<<< Updated upstream
 win32_time.c.i:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_time.c.i
 .PHONY : win32_time.c.i
+=======
+x11_monitor.c.i:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_monitor.c.i
+.PHONY : x11_monitor.c.i
+>>>>>>> Stashed changes
 
 win32_time.s: win32_time.c.s
 .PHONY : win32_time.s
 
 # target to generate assembly for a file
+<<<<<<< Updated upstream
 win32_time.c.s:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_time.c.s
 .PHONY : win32_time.c.s
+=======
+x11_monitor.c.s:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_monitor.c.s
+.PHONY : x11_monitor.c.s
+
+x11_window.o: x11_window.c.o
+>>>>>>> Stashed changes
 
 win32_window.obj: win32_window.c.obj
 .PHONY : win32_window.obj
 
 # target to build an object file
+<<<<<<< Updated upstream
 win32_window.c.obj:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_window.c.obj
 .PHONY : win32_window.c.obj
+=======
+x11_window.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_window.c.o
+.PHONY : x11_window.c.o
+>>>>>>> Stashed changes
 
 win32_window.i: win32_window.c.i
 .PHONY : win32_window.i
 
 # target to preprocess a source file
+<<<<<<< Updated upstream
 win32_window.c.i:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_window.c.i
 .PHONY : win32_window.c.i
+=======
+x11_window.c.i:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_window.c.i
+.PHONY : x11_window.c.i
+
+x11_window.s: x11_window.c.s
+>>>>>>> Stashed changes
 
 win32_window.s: win32_window.c.s
 .PHONY : win32_window.s
 
 # target to generate assembly for a file
+<<<<<<< Updated upstream
 win32_window.c.s:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_window.c.s
 .PHONY : win32_window.c.s
+=======
+x11_window.c.s:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_window.c.s
+.PHONY : x11_window.c.s
+>>>>>>> Stashed changes
 
 window.obj: window.c.obj
 .PHONY : window.obj
 
 # target to build an object file
+<<<<<<< Updated upstream
 window.c.obj:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/window.c.obj
 .PHONY : window.c.obj
+=======
+xkb_unicode.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/xkb_unicode.c.o
+.PHONY : xkb_unicode.c.o
+
+xkb_unicode.i: xkb_unicode.c.i
+>>>>>>> Stashed changes
 
 window.i: window.c.i
 .PHONY : window.i
 
 # target to preprocess a source file
+<<<<<<< Updated upstream
 window.c.i:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/window.c.i
 .PHONY : window.c.i
+=======
+xkb_unicode.c.i:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/xkb_unicode.c.i
+.PHONY : xkb_unicode.c.i
+
+xkb_unicode.s: xkb_unicode.c.s
+>>>>>>> Stashed changes
 
 window.s: window.c.s
 .PHONY : window.s
 
 # target to generate assembly for a file
+<<<<<<< Updated upstream
 window.c.s:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/window.c.s
 .PHONY : window.c.s
+=======
+xkb_unicode.c.s:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/xkb_unicode.c.s
+.PHONY : xkb_unicode.c.s
+>>>>>>> Stashed changes
 
 # Help Target
 help:
@@ -803,6 +1298,10 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+>>>>>>> Stashed changes
 .PHONY : cmake_check_build_system
 

@@ -53,10 +53,17 @@ RM = "C:/Program Files/CMake/bin/cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
+<<<<<<< Updated upstream
 CMAKE_SOURCE_DIR = D:/ComOrg/MeowXMonster
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = D:/ComOrg/MeowXMonster/build
+=======
+CMAKE_SOURCE_DIR = /home/pi/Desktop/MeowXMonster
+
+# The top-level build directory on which CMake was run.
+CMAKE_BINARY_DIR = /home/pi/Desktop/MeowXMonster/build
+>>>>>>> Stashed changes
 
 # Include any dependencies generated for this target.
 include _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/depend.make
@@ -69,6 +76,7 @@ include _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/progress
 # Include the compile flags for this target's objects.
 include _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/flags.make
 
+<<<<<<< Updated upstream
 _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/context.c.obj: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/flags.make
 _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/context.c.obj: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/includes_C.rsp
 _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/context.c.obj: _deps/raylib-src/src/external/glfw/src/context.c
@@ -383,6 +391,306 @@ _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.i:
 _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/wgl_context.c.s"
 	cd D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && C:/TDM-GCC-64/bin/gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -S D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/wgl_context.c -o CMakeFiles/glfw.dir/wgl_context.c.s
+=======
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/context.c.o: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/flags.make
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/context.c.o: _deps/raylib-src/src/external/glfw/src/context.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/context.c.o"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/context.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/context.c
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/context.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/context.c.i"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -E /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/context.c > CMakeFiles/glfw.dir/context.c.i
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/context.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/context.c.s"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -S /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/context.c -o CMakeFiles/glfw.dir/context.c.s
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/init.c.o: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/flags.make
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/init.c.o: _deps/raylib-src/src/external/glfw/src/init.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/init.c.o"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/init.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/init.c
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/init.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/init.c.i"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -E /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/init.c > CMakeFiles/glfw.dir/init.c.i
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/init.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/init.c.s"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -S /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/init.c -o CMakeFiles/glfw.dir/init.c.s
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/input.c.o: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/flags.make
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/input.c.o: _deps/raylib-src/src/external/glfw/src/input.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/input.c.o"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/input.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/input.c
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/input.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/input.c.i"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -E /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/input.c > CMakeFiles/glfw.dir/input.c.i
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/input.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/input.c.s"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -S /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/input.c -o CMakeFiles/glfw.dir/input.c.s
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/monitor.c.o: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/flags.make
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/monitor.c.o: _deps/raylib-src/src/external/glfw/src/monitor.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/monitor.c.o"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/monitor.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/monitor.c
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/monitor.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/monitor.c.i"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -E /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/monitor.c > CMakeFiles/glfw.dir/monitor.c.i
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/monitor.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/monitor.c.s"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -S /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/monitor.c -o CMakeFiles/glfw.dir/monitor.c.s
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/platform.c.o: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/flags.make
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/platform.c.o: _deps/raylib-src/src/external/glfw/src/platform.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/platform.c.o"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/platform.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/platform.c
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/platform.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/platform.c.i"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -E /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/platform.c > CMakeFiles/glfw.dir/platform.c.i
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/platform.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/platform.c.s"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -S /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/platform.c -o CMakeFiles/glfw.dir/platform.c.s
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/vulkan.c.o: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/flags.make
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/vulkan.c.o: _deps/raylib-src/src/external/glfw/src/vulkan.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/vulkan.c.o"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/vulkan.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/vulkan.c
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/vulkan.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/vulkan.c.i"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -E /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/vulkan.c > CMakeFiles/glfw.dir/vulkan.c.i
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/vulkan.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/vulkan.c.s"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -S /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/vulkan.c -o CMakeFiles/glfw.dir/vulkan.c.s
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/window.c.o: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/flags.make
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/window.c.o: _deps/raylib-src/src/external/glfw/src/window.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/window.c.o"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/window.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/window.c
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/window.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/window.c.i"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -E /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/window.c > CMakeFiles/glfw.dir/window.c.i
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/window.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/window.c.s"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -S /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/window.c -o CMakeFiles/glfw.dir/window.c.s
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/egl_context.c.o: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/flags.make
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/egl_context.c.o: _deps/raylib-src/src/external/glfw/src/egl_context.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/egl_context.c.o"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/egl_context.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/egl_context.c
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/egl_context.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/egl_context.c.i"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -E /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/egl_context.c > CMakeFiles/glfw.dir/egl_context.c.i
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/egl_context.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/egl_context.c.s"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -S /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/egl_context.c -o CMakeFiles/glfw.dir/egl_context.c.s
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.o: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/flags.make
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.o: _deps/raylib-src/src/external/glfw/src/osmesa_context.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.o"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/osmesa_context.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/osmesa_context.c
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/osmesa_context.c.i"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -E /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/osmesa_context.c > CMakeFiles/glfw.dir/osmesa_context.c.i
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/osmesa_context.c.s"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -S /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/osmesa_context.c -o CMakeFiles/glfw.dir/osmesa_context.c.s
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_init.c.o: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/flags.make
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_init.c.o: _deps/raylib-src/src/external/glfw/src/null_init.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_init.c.o"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/null_init.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_init.c
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_init.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/null_init.c.i"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -E /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_init.c > CMakeFiles/glfw.dir/null_init.c.i
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_init.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/null_init.c.s"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -S /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_init.c -o CMakeFiles/glfw.dir/null_init.c.s
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.o: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/flags.make
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.o: _deps/raylib-src/src/external/glfw/src/null_monitor.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.o"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/null_monitor.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_monitor.c
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/null_monitor.c.i"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -E /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_monitor.c > CMakeFiles/glfw.dir/null_monitor.c.i
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/null_monitor.c.s"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -S /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_monitor.c -o CMakeFiles/glfw.dir/null_monitor.c.s
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_window.c.o: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/flags.make
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_window.c.o: _deps/raylib-src/src/external/glfw/src/null_window.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_window.c.o"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/null_window.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_window.c
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_window.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/null_window.c.i"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -E /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_window.c > CMakeFiles/glfw.dir/null_window.c.i
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_window.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/null_window.c.s"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -S /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_window.c -o CMakeFiles/glfw.dir/null_window.c.s
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.o: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/flags.make
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.o: _deps/raylib-src/src/external/glfw/src/null_joystick.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.o"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/null_joystick.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_joystick.c
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/null_joystick.c.i"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -E /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_joystick.c > CMakeFiles/glfw.dir/null_joystick.c.i
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/null_joystick.c.s"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -Wdeclaration-after-statement -S /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/null_joystick.c -o CMakeFiles/glfw.dir/null_joystick.c.s
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_module.c.o: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/flags.make
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_module.c.o: _deps/raylib-src/src/external/glfw/src/posix_module.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_module.c.o"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/glfw.dir/posix_module.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/posix_module.c
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_module.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/posix_module.c.i"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/posix_module.c > CMakeFiles/glfw.dir/posix_module.c.i
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_module.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/posix_module.c.s"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/posix_module.c -o CMakeFiles/glfw.dir/posix_module.c.s
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_time.c.o: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/flags.make
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_time.c.o: _deps/raylib-src/src/external/glfw/src/posix_time.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_time.c.o"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/glfw.dir/posix_time.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/posix_time.c
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_time.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/posix_time.c.i"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/posix_time.c > CMakeFiles/glfw.dir/posix_time.c.i
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_time.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/posix_time.c.s"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/posix_time.c -o CMakeFiles/glfw.dir/posix_time.c.s
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_thread.c.o: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/flags.make
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_thread.c.o: _deps/raylib-src/src/external/glfw/src/posix_thread.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_thread.c.o"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/glfw.dir/posix_thread.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/posix_thread.c
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_thread.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/posix_thread.c.i"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/posix_thread.c > CMakeFiles/glfw.dir/posix_thread.c.i
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_thread.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/posix_thread.c.s"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/posix_thread.c -o CMakeFiles/glfw.dir/posix_thread.c.s
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_init.c.o: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/flags.make
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_init.c.o: _deps/raylib-src/src/external/glfw/src/x11_init.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_init.c.o"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/glfw.dir/x11_init.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/x11_init.c
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_init.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/x11_init.c.i"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/x11_init.c > CMakeFiles/glfw.dir/x11_init.c.i
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_init.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/x11_init.c.s"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/x11_init.c -o CMakeFiles/glfw.dir/x11_init.c.s
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_monitor.c.o: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/flags.make
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_monitor.c.o: _deps/raylib-src/src/external/glfw/src/x11_monitor.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_monitor.c.o"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/glfw.dir/x11_monitor.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/x11_monitor.c
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_monitor.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/x11_monitor.c.i"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/x11_monitor.c > CMakeFiles/glfw.dir/x11_monitor.c.i
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_monitor.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/x11_monitor.c.s"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/x11_monitor.c -o CMakeFiles/glfw.dir/x11_monitor.c.s
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_window.c.o: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/flags.make
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_window.c.o: _deps/raylib-src/src/external/glfw/src/x11_window.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_window.c.o"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/glfw.dir/x11_window.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/x11_window.c
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_window.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/x11_window.c.i"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/x11_window.c > CMakeFiles/glfw.dir/x11_window.c.i
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_window.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/x11_window.c.s"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/x11_window.c -o CMakeFiles/glfw.dir/x11_window.c.s
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/xkb_unicode.c.o: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/flags.make
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/xkb_unicode.c.o: _deps/raylib-src/src/external/glfw/src/xkb_unicode.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/xkb_unicode.c.o"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/glfw.dir/xkb_unicode.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/xkb_unicode.c
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/xkb_unicode.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/xkb_unicode.c.i"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/xkb_unicode.c > CMakeFiles/glfw.dir/xkb_unicode.c.i
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/xkb_unicode.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/xkb_unicode.c.s"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/xkb_unicode.c -o CMakeFiles/glfw.dir/xkb_unicode.c.s
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/glx_context.c.o: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/flags.make
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/glx_context.c.o: _deps/raylib-src/src/external/glfw/src/glx_context.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/glx_context.c.o"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/glfw.dir/glx_context.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/glx_context.c
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/glx_context.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/glx_context.c.i"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/glx_context.c > CMakeFiles/glfw.dir/glx_context.c.i
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/glx_context.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/glx_context.c.s"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/glx_context.c -o CMakeFiles/glfw.dir/glx_context.c.s
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/linux_joystick.c.o: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/flags.make
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/linux_joystick.c.o: _deps/raylib-src/src/external/glfw/src/linux_joystick.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/linux_joystick.c.o"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/glfw.dir/linux_joystick.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/linux_joystick.c
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/linux_joystick.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/linux_joystick.c.i"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/linux_joystick.c > CMakeFiles/glfw.dir/linux_joystick.c.i
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/linux_joystick.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/linux_joystick.c.s"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/linux_joystick.c -o CMakeFiles/glfw.dir/linux_joystick.c.s
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_poll.c.o: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/flags.make
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_poll.c.o: _deps/raylib-src/src/external/glfw/src/posix_poll.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_poll.c.o"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/glfw.dir/posix_poll.c.o -c /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/posix_poll.c
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_poll.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/posix_poll.c.i"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/posix_poll.c > CMakeFiles/glfw.dir/posix_poll.c.i
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_poll.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/posix_poll.c.s"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src/posix_poll.c -o CMakeFiles/glfw.dir/posix_poll.c.s
+>>>>>>> Stashed changes
 
 # Object files for target glfw
 glfw_OBJECTS = \
@@ -434,19 +742,33 @@ _deps/raylib-build/raylib/external/glfw/src/libglfw3.a: _deps/raylib-build/rayli
 _deps/raylib-build/raylib/external/glfw/src/libglfw3.a: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.obj
 _deps/raylib-build/raylib/external/glfw/src/libglfw3.a: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make
 _deps/raylib-build/raylib/external/glfw/src/libglfw3.a: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/link.txt
+<<<<<<< Updated upstream
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:/ComOrg/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Linking C static library libglfw3.a"
 	cd D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && $(CMAKE_COMMAND) -P CMakeFiles/glfw.dir/cmake_clean_target.cmake
 	cd D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/glfw.dir/link.txt --verbose=$(VERBOSE)
+=======
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Linking C static library libglfw3.a"
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && $(CMAKE_COMMAND) -P CMakeFiles/glfw.dir/cmake_clean_target.cmake
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/glfw.dir/link.txt --verbose=$(VERBOSE)
+>>>>>>> Stashed changes
 
 # Rule to build all files generated by this target.
 _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build: _deps/raylib-build/raylib/external/glfw/src/libglfw3.a
 .PHONY : _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build
 
 _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/clean:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && $(CMAKE_COMMAND) -P CMakeFiles/glfw.dir/cmake_clean.cmake
 .PHONY : _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/clean
 
 _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/depend:
 	$(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" D:/ComOrg/MeowXMonster D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src D:/ComOrg/MeowXMonster/build D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/DependInfo.cmake --color=$(COLOR)
+=======
+	cd /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src && $(CMAKE_COMMAND) -P CMakeFiles/glfw.dir/cmake_clean.cmake
+.PHONY : _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/clean
+
+_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/depend:
+	cd /home/pi/Desktop/MeowXMonster/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/Desktop/MeowXMonster /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src /home/pi/Desktop/MeowXMonster/build /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/DependInfo.cmake --color=$(COLOR)
+>>>>>>> Stashed changes
 .PHONY : _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/depend
 

@@ -4,7 +4,11 @@
 # compile C with C:/TDM-GCC-64/bin/gcc.exe
 C_DEFINES = -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -D_CRT_SECURE_NO_WARNINGS
 
+<<<<<<< Updated upstream
 C_INCLUDES = @CMakeFiles/raylib.dir/includes_C.rsp
+=======
+C_INCLUDES = -I/home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src -isystem /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/include
+>>>>>>> Stashed changes
 
 C_FLAGS = -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99
 

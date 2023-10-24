@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 # Install script for directory: D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw
+=======
+# Install script for directory: /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw
+>>>>>>> Stashed changes
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,6 +43,10 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+<<<<<<< Updated upstream
   include("D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src/cmake_install.cmake")
+=======
+  include("/home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib/external/glfw/src/cmake_install.cmake")
+>>>>>>> Stashed changes
 endif()
 

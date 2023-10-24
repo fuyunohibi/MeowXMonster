@@ -2,7 +2,7 @@
 
 extern void intropage(void);
 
-int main () {
+int main(void) {
   printf("Starting MoewXMonster...\n");
   intropage();
   return 0;

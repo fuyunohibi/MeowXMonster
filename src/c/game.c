@@ -6,11 +6,18 @@
 #include "character/character.h"
 #include <stdlib.h>
 
+<<<<<<< Updated upstream
 extern void GameOverPage(void);
 // extern int findRow(int i);
+=======
+
+>>>>>>> Stashed changes
 // extern bool IsMouseOverBox(Vector2 mousePosition, Vector2 boxPosition, Texture2D Box)
 // extern void CopyImage(Vector2 *imagePosition, Vector2 targetPosition, Texture2D image)
 // extern void shootProjectileFromCharacter(Character character, Vector2 position)
+
+extern int findRow(int i);
+extern int calculate_center(int screen, int length);
 
 
 Character CreateCharacter(const char *name, int price, int HP, bool isAlive, int attackDamage, float attackPerSecond, int blockPosition, float rightBoundery)
@@ -52,15 +59,6 @@ MonsterCharacter CreateMonsterCharacter(MonsterCharacter *monster, const char *n
   monster->isAlive = true;
   monster->row = randomIndex;
   monster->killReward = killReward;
-}
-
-int findRow(int i) {
-  while(i > 2)
-  {
-    i -= 3;
-  }
-
-  return i;
 }
 
 void UpdateMonsters(MonsterCharacter *monster, float deltaTime, int speed)
@@ -212,8 +210,10 @@ void shootProjectileFromCharacter(Character character, Vector2 position)
 Vector2 get_center(Texture2D texture)
 {
   Vector2 center;
-  center.x = (float)(SCREEN_WIDTH - texture.width) / 2;
-  center.y = (float)(SCREEN_HEIGHT - texture.height) / 2;
+  int width = texture.width;
+  int height = texture.height;
+  center.x = calculate_center(SCREEN_WIDTH, width);
+  center.y = calculate_center(SCREEN_HEIGHT, height);
   return center;
 }
 

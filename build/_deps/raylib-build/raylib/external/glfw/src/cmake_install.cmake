@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 # Install script for directory: D:/ComOrg/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src
+=======
+# Install script for directory: /home/pi/Desktop/MeowXMonster/build/_deps/raylib-src/src/external/glfw/src
+>>>>>>> Stashed changes
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
