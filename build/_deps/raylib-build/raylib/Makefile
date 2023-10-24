@@ -57,10 +57,17 @@ RM = "C:/Program Files/CMake/bin/cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
+<<<<<<< Updated upstream
 CMAKE_SOURCE_DIR = D:/ComOrg/MeowXMonster
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = D:/ComOrg/MeowXMonster/build
+=======
+CMAKE_SOURCE_DIR = /home/pi/Desktop/MeowXMonster
+
+# The top-level build directory on which CMake was run.
+CMAKE_BINARY_DIR = /home/pi/Desktop/MeowXMonster/build
+>>>>>>> Stashed changes
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -114,6 +121,7 @@ list_install_components:
 list_install_components/fast: list_install_components
 .PHONY : list_install_components/fast
 
+<<<<<<< Updated upstream
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -125,6 +133,24 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	"C:/Program Files/CMake/bin/cmake.exe" -P cmake_install.cmake
 .PHONY : install/fast
+=======
+# Special rule for the target package_source
+package_source:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
+	cd /home/pi/Desktop/MeowXMonster/build && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/pi/Desktop/MeowXMonster/build/CPackSourceConfig.cmake
+.PHONY : package_source
+
+# Special rule for the target package_source
+package_source/fast: package_source
+
+.PHONY : package_source/fast
+
+# Special rule for the target package
+package: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
+	cd /home/pi/Desktop/MeowXMonster/build && /usr/bin/cpack --config ./CPackConfig.cmake
+.PHONY : package
+>>>>>>> Stashed changes
 
 # Special rule for the target install/local
 install/local: preinstall
@@ -152,14 +178,24 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(CMAKE_COMMAND) -E cmake_progress_start D:/ComOrg/MeowXMonster/build/CMakeFiles D:/ComOrg/MeowXMonster/build/_deps/raylib-build/raylib//CMakeFiles/progress.marks
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/raylib-build/raylib/all
 	$(CMAKE_COMMAND) -E cmake_progress_start D:/ComOrg/MeowXMonster/build/CMakeFiles 0
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/MeowXMonster/build/CMakeFiles /home/pi/Desktop/MeowXMonster/build/_deps/raylib-build/raylib//CMakeFiles/progress.marks
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/raylib-build/raylib/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/MeowXMonster/build/CMakeFiles 0
+>>>>>>> Stashed changes
 .PHONY : all
 
 # The main clean target
 clean:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/raylib-build/raylib/clean
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/raylib-build/raylib/clean
+>>>>>>> Stashed changes
 .PHONY : clean
 
 # The main clean target
@@ -168,22 +204,38 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/raylib-build/raylib/preinstall
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/raylib-build/raylib/preinstall
+>>>>>>> Stashed changes
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/raylib-build/raylib/preinstall
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/raylib-build/raylib/preinstall
+>>>>>>> Stashed changes
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+>>>>>>> Stashed changes
 .PHONY : depend
 
 # Convenience name for target.
 _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rule:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rule
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rule
+>>>>>>> Stashed changes
 .PHONY : _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rule
 
 # Convenience name for target.
@@ -192,23 +244,37 @@ raylib: _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rule
 
 # fast build rule for target.
 raylib/fast:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build
+>>>>>>> Stashed changes
 .PHONY : raylib/fast
 
 raudio.obj: raudio.c.obj
 .PHONY : raudio.obj
 
 # target to build an object file
+<<<<<<< Updated upstream
 raudio.c.obj:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/raudio.c.obj
 .PHONY : raudio.c.obj
+=======
+raudio.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/raudio.c.o
+.PHONY : raudio.c.o
+>>>>>>> Stashed changes
 
 raudio.i: raudio.c.i
 .PHONY : raudio.i
 
 # target to preprocess a source file
 raudio.c.i:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/raudio.c.i
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/raudio.c.i
+>>>>>>> Stashed changes
 .PHONY : raudio.c.i
 
 raudio.s: raudio.c.s
@@ -216,23 +282,37 @@ raudio.s: raudio.c.s
 
 # target to generate assembly for a file
 raudio.c.s:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/raudio.c.s
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/raudio.c.s
+>>>>>>> Stashed changes
 .PHONY : raudio.c.s
 
 rcore.obj: rcore.c.obj
 .PHONY : rcore.obj
 
 # target to build an object file
+<<<<<<< Updated upstream
 rcore.c.obj:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rcore.c.obj
 .PHONY : rcore.c.obj
+=======
+rcore.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rcore.c.o
+.PHONY : rcore.c.o
+>>>>>>> Stashed changes
 
 rcore.i: rcore.c.i
 .PHONY : rcore.i
 
 # target to preprocess a source file
 rcore.c.i:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rcore.c.i
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rcore.c.i
+>>>>>>> Stashed changes
 .PHONY : rcore.c.i
 
 rcore.s: rcore.c.s
@@ -240,23 +320,37 @@ rcore.s: rcore.c.s
 
 # target to generate assembly for a file
 rcore.c.s:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rcore.c.s
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rcore.c.s
+>>>>>>> Stashed changes
 .PHONY : rcore.c.s
 
 rmodels.obj: rmodels.c.obj
 .PHONY : rmodels.obj
 
 # target to build an object file
+<<<<<<< Updated upstream
 rmodels.c.obj:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rmodels.c.obj
 .PHONY : rmodels.c.obj
+=======
+rmodels.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rmodels.c.o
+.PHONY : rmodels.c.o
+>>>>>>> Stashed changes
 
 rmodels.i: rmodels.c.i
 .PHONY : rmodels.i
 
 # target to preprocess a source file
 rmodels.c.i:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rmodels.c.i
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rmodels.c.i
+>>>>>>> Stashed changes
 .PHONY : rmodels.c.i
 
 rmodels.s: rmodels.c.s
@@ -264,23 +358,37 @@ rmodels.s: rmodels.c.s
 
 # target to generate assembly for a file
 rmodels.c.s:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rmodels.c.s
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rmodels.c.s
+>>>>>>> Stashed changes
 .PHONY : rmodels.c.s
 
 rshapes.obj: rshapes.c.obj
 .PHONY : rshapes.obj
 
 # target to build an object file
+<<<<<<< Updated upstream
 rshapes.c.obj:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rshapes.c.obj
 .PHONY : rshapes.c.obj
+=======
+rshapes.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rshapes.c.o
+.PHONY : rshapes.c.o
+>>>>>>> Stashed changes
 
 rshapes.i: rshapes.c.i
 .PHONY : rshapes.i
 
 # target to preprocess a source file
 rshapes.c.i:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rshapes.c.i
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rshapes.c.i
+>>>>>>> Stashed changes
 .PHONY : rshapes.c.i
 
 rshapes.s: rshapes.c.s
@@ -288,23 +396,37 @@ rshapes.s: rshapes.c.s
 
 # target to generate assembly for a file
 rshapes.c.s:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rshapes.c.s
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rshapes.c.s
+>>>>>>> Stashed changes
 .PHONY : rshapes.c.s
 
 rtext.obj: rtext.c.obj
 .PHONY : rtext.obj
 
 # target to build an object file
+<<<<<<< Updated upstream
 rtext.c.obj:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rtext.c.obj
 .PHONY : rtext.c.obj
+=======
+rtext.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rtext.c.o
+.PHONY : rtext.c.o
+>>>>>>> Stashed changes
 
 rtext.i: rtext.c.i
 .PHONY : rtext.i
 
 # target to preprocess a source file
 rtext.c.i:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rtext.c.i
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rtext.c.i
+>>>>>>> Stashed changes
 .PHONY : rtext.c.i
 
 rtext.s: rtext.c.s
@@ -312,23 +434,37 @@ rtext.s: rtext.c.s
 
 # target to generate assembly for a file
 rtext.c.s:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rtext.c.s
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rtext.c.s
+>>>>>>> Stashed changes
 .PHONY : rtext.c.s
 
 rtextures.obj: rtextures.c.obj
 .PHONY : rtextures.obj
 
 # target to build an object file
+<<<<<<< Updated upstream
 rtextures.c.obj:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rtextures.c.obj
 .PHONY : rtextures.c.obj
+=======
+rtextures.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rtextures.c.o
+.PHONY : rtextures.c.o
+>>>>>>> Stashed changes
 
 rtextures.i: rtextures.c.i
 .PHONY : rtextures.i
 
 # target to preprocess a source file
 rtextures.c.i:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rtextures.c.i
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rtextures.c.i
+>>>>>>> Stashed changes
 .PHONY : rtextures.c.i
 
 rtextures.s: rtextures.c.s
@@ -336,23 +472,37 @@ rtextures.s: rtextures.c.s
 
 # target to generate assembly for a file
 rtextures.c.s:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rtextures.c.s
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rtextures.c.s
+>>>>>>> Stashed changes
 .PHONY : rtextures.c.s
 
 utils.obj: utils.c.obj
 .PHONY : utils.obj
 
 # target to build an object file
+<<<<<<< Updated upstream
 utils.c.obj:
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/utils.c.obj
 .PHONY : utils.c.obj
+=======
+utils.c.o:
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/utils.c.o
+.PHONY : utils.c.o
+>>>>>>> Stashed changes
 
 utils.i: utils.c.i
 .PHONY : utils.i
 
 # target to preprocess a source file
 utils.c.i:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/utils.c.i
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/utils.c.i
+>>>>>>> Stashed changes
 .PHONY : utils.c.i
 
 utils.s: utils.c.s
@@ -360,7 +510,11 @@ utils.s: utils.c.s
 
 # target to generate assembly for a file
 utils.c.s:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/utils.c.s
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/utils.c.s
+>>>>>>> Stashed changes
 .PHONY : utils.c.s
 
 # Help Target
@@ -410,6 +564,10 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
+<<<<<<< Updated upstream
 	cd D:/ComOrg/MeowXMonster/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+>>>>>>> Stashed changes
 .PHONY : cmake_check_build_system
 

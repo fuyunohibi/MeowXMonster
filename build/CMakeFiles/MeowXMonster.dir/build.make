@@ -53,10 +53,17 @@ RM = "C:/Program Files/CMake/bin/cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
+<<<<<<< Updated upstream
 CMAKE_SOURCE_DIR = D:/ComOrg/MeowXMonster
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = D:/ComOrg/MeowXMonster/build
+=======
+CMAKE_SOURCE_DIR = /home/pi/Desktop/MeowXMonster
+
+# The top-level build directory on which CMake was run.
+CMAKE_BINARY_DIR = /home/pi/Desktop/MeowXMonster/build
+>>>>>>> Stashed changes
 
 # Include any dependencies generated for this target.
 include CMakeFiles/MeowXMonster.dir/depend.make
@@ -69,6 +76,7 @@ include CMakeFiles/MeowXMonster.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/MeowXMonster.dir/flags.make
 
+<<<<<<< Updated upstream
 CMakeFiles/MeowXMonster.dir/App.c.obj: CMakeFiles/MeowXMonster.dir/flags.make
 CMakeFiles/MeowXMonster.dir/App.c.obj: CMakeFiles/MeowXMonster.dir/includes_C.rsp
 CMakeFiles/MeowXMonster.dir/App.c.obj: D:/ComOrg/MeowXMonster/App.c
@@ -143,6 +151,59 @@ CMakeFiles/MeowXMonster.dir/src/c/character/character.c.i: cmake_force
 CMakeFiles/MeowXMonster.dir/src/c/character/character.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/MeowXMonster.dir/src/c/character/character.c.s"
 	C:/TDM-GCC-64/bin/gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:/ComOrg/MeowXMonster/src/c/character/character.c -o CMakeFiles/MeowXMonster.dir/src/c/character/character.c.s
+=======
+CMakeFiles/MeowXMonster.dir/App.c.o: CMakeFiles/MeowXMonster.dir/flags.make
+CMakeFiles/MeowXMonster.dir/App.c.o: ../App.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/MeowXMonster.dir/App.c.o"
+	/usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/MeowXMonster.dir/App.c.o -c /home/pi/Desktop/MeowXMonster/App.c
+
+CMakeFiles/MeowXMonster.dir/App.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/MeowXMonster.dir/App.c.i"
+	/usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pi/Desktop/MeowXMonster/App.c > CMakeFiles/MeowXMonster.dir/App.c.i
+
+CMakeFiles/MeowXMonster.dir/App.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/MeowXMonster.dir/App.c.s"
+	/usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/MeowXMonster/App.c -o CMakeFiles/MeowXMonster.dir/App.c.s
+
+CMakeFiles/MeowXMonster.dir/src/c/startgame.c.o: CMakeFiles/MeowXMonster.dir/flags.make
+CMakeFiles/MeowXMonster.dir/src/c/startgame.c.o: ../src/c/startgame.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/MeowXMonster.dir/src/c/startgame.c.o"
+	/usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/MeowXMonster.dir/src/c/startgame.c.o -c /home/pi/Desktop/MeowXMonster/src/c/startgame.c
+
+CMakeFiles/MeowXMonster.dir/src/c/startgame.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/MeowXMonster.dir/src/c/startgame.c.i"
+	/usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pi/Desktop/MeowXMonster/src/c/startgame.c > CMakeFiles/MeowXMonster.dir/src/c/startgame.c.i
+
+CMakeFiles/MeowXMonster.dir/src/c/startgame.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/MeowXMonster.dir/src/c/startgame.c.s"
+	/usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/MeowXMonster/src/c/startgame.c -o CMakeFiles/MeowXMonster.dir/src/c/startgame.c.s
+
+CMakeFiles/MeowXMonster.dir/src/c/game.c.o: CMakeFiles/MeowXMonster.dir/flags.make
+CMakeFiles/MeowXMonster.dir/src/c/game.c.o: ../src/c/game.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/MeowXMonster.dir/src/c/game.c.o"
+	/usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/MeowXMonster.dir/src/c/game.c.o -c /home/pi/Desktop/MeowXMonster/src/c/game.c
+
+CMakeFiles/MeowXMonster.dir/src/c/game.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/MeowXMonster.dir/src/c/game.c.i"
+	/usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pi/Desktop/MeowXMonster/src/c/game.c > CMakeFiles/MeowXMonster.dir/src/c/game.c.i
+
+CMakeFiles/MeowXMonster.dir/src/c/game.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/MeowXMonster.dir/src/c/game.c.s"
+	/usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/MeowXMonster/src/c/game.c -o CMakeFiles/MeowXMonster.dir/src/c/game.c.s
+
+CMakeFiles/MeowXMonster.dir/src/c/character/character.c.o: CMakeFiles/MeowXMonster.dir/flags.make
+CMakeFiles/MeowXMonster.dir/src/c/character/character.c.o: ../src/c/character/character.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/MeowXMonster.dir/src/c/character/character.c.o"
+	/usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/MeowXMonster.dir/src/c/character/character.c.o -c /home/pi/Desktop/MeowXMonster/src/c/character/character.c
+
+CMakeFiles/MeowXMonster.dir/src/c/character/character.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/MeowXMonster.dir/src/c/character/character.c.i"
+	/usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pi/Desktop/MeowXMonster/src/c/character/character.c > CMakeFiles/MeowXMonster.dir/src/c/character/character.c.i
+
+CMakeFiles/MeowXMonster.dir/src/c/character/character.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/MeowXMonster.dir/src/c/character/character.c.s"
+	/usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Desktop/MeowXMonster/src/c/character/character.c -o CMakeFiles/MeowXMonster.dir/src/c/character/character.c.s
+>>>>>>> Stashed changes
 
 # Object files for target MeowXMonster
 MeowXMonster_OBJECTS = \
@@ -153,8 +214,11 @@ MeowXMonster_OBJECTS = \
 "CMakeFiles/MeowXMonster.dir/src/c/character/character.c.obj"
 
 # External object files for target MeowXMonster
-MeowXMonster_EXTERNAL_OBJECTS =
+MeowXMonster_EXTERNAL_OBJECTS = \
+"/home/pi/Desktop/MeowXMonster/src/asm/cal.o" \
+"/home/pi/Desktop/MeowXMonster/src/asm/struct_char.o"
 
+<<<<<<< Updated upstream
 MeowXMonster.exe: CMakeFiles/MeowXMonster.dir/App.c.obj
 MeowXMonster.exe: CMakeFiles/MeowXMonster.dir/src/c/gameover.c.obj
 MeowXMonster.exe: CMakeFiles/MeowXMonster.dir/src/c/startgame.c.obj
@@ -169,6 +233,25 @@ MeowXMonster.exe: CMakeFiles/MeowXMonster.dir/objects1.rsp
 	"C:/Program Files/CMake/bin/cmake.exe" -E rm -f CMakeFiles/MeowXMonster.dir/objects.a
 	C:/TDM-GCC-64/bin/ar.exe qc CMakeFiles/MeowXMonster.dir/objects.a @CMakeFiles/MeowXMonster.dir/objects1.rsp
 	C:/TDM-GCC-64/bin/gcc.exe -g -Wl,--whole-archive CMakeFiles/MeowXMonster.dir/objects.a -Wl,--no-whole-archive -o MeowXMonster.exe -Wl,--out-implib,libMeowXMonster.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles/MeowXMonster.dir/linkLibs.rsp
+=======
+MeowXMonster: CMakeFiles/MeowXMonster.dir/App.c.o
+MeowXMonster: CMakeFiles/MeowXMonster.dir/src/c/startgame.c.o
+MeowXMonster: CMakeFiles/MeowXMonster.dir/src/c/game.c.o
+MeowXMonster: CMakeFiles/MeowXMonster.dir/src/c/character/character.c.o
+MeowXMonster: ../src/asm/cal.o
+MeowXMonster: ../src/asm/struct_char.o
+MeowXMonster: CMakeFiles/MeowXMonster.dir/build.make
+MeowXMonster: _deps/raylib-build/raylib/libraylib.a
+MeowXMonster: /usr/lib/arm-linux-gnueabihf/libOpenGL.so
+MeowXMonster: /usr/lib/arm-linux-gnueabihf/libGLX.so
+MeowXMonster: /usr/lib/arm-linux-gnueabihf/libGLU.so
+MeowXMonster: _deps/raylib-build/raylib/external/glfw/src/libglfw3.a
+MeowXMonster: /usr/lib/arm-linux-gnueabihf/librt.so
+MeowXMonster: /usr/lib/arm-linux-gnueabihf/libm.so
+MeowXMonster: CMakeFiles/MeowXMonster.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/Desktop/MeowXMonster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable MeowXMonster"
+	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MeowXMonster.dir/link.txt --verbose=$(VERBOSE)
+>>>>>>> Stashed changes
 
 # Rule to build all files generated by this target.
 CMakeFiles/MeowXMonster.dir/build: MeowXMonster.exe
@@ -179,6 +262,10 @@ CMakeFiles/MeowXMonster.dir/clean:
 .PHONY : CMakeFiles/MeowXMonster.dir/clean
 
 CMakeFiles/MeowXMonster.dir/depend:
+<<<<<<< Updated upstream
 	$(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" D:/ComOrg/MeowXMonster D:/ComOrg/MeowXMonster D:/ComOrg/MeowXMonster/build D:/ComOrg/MeowXMonster/build D:/ComOrg/MeowXMonster/build/CMakeFiles/MeowXMonster.dir/DependInfo.cmake --color=$(COLOR)
+=======
+	cd /home/pi/Desktop/MeowXMonster/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/Desktop/MeowXMonster /home/pi/Desktop/MeowXMonster /home/pi/Desktop/MeowXMonster/build /home/pi/Desktop/MeowXMonster/build /home/pi/Desktop/MeowXMonster/build/CMakeFiles/MeowXMonster.dir/DependInfo.cmake --color=$(COLOR)
+>>>>>>> Stashed changes
 .PHONY : CMakeFiles/MeowXMonster.dir/depend
 

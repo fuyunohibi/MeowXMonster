@@ -54,10 +54,17 @@ RM = "C:/Program Files/CMake/bin/cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
+<<<<<<< Updated upstream
 CMAKE_SOURCE_DIR = D:/ComOrg/MeowXMonster/build/_deps/raylib-subbuild
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = D:/ComOrg/MeowXMonster/build/_deps/raylib-subbuild
+=======
+CMAKE_SOURCE_DIR = /home/pi/Desktop/MeowXMonster/build/_deps/raylib-subbuild
+
+# The top-level build directory on which CMake was run.
+CMAKE_BINARY_DIR = /home/pi/Desktop/MeowXMonster/build/_deps/raylib-subbuild
+>>>>>>> Stashed changes
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -81,14 +88,24 @@ clean: CMakeFiles/raylib-populate.dir/clean
 CMakeFiles/raylib-populate.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/raylib-populate.dir/build.make CMakeFiles/raylib-populate.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/raylib-populate.dir/build.make CMakeFiles/raylib-populate.dir/build
+<<<<<<< Updated upstream
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:/ComOrg/MeowXMonster/build/_deps/raylib-subbuild/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target raylib-populate"
+=======
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Desktop/MeowXMonster/build/_deps/raylib-subbuild/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target raylib-populate"
+>>>>>>> Stashed changes
 .PHONY : CMakeFiles/raylib-populate.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/raylib-populate.dir/rule: cmake_check_build_system
+<<<<<<< Updated upstream
 	$(CMAKE_COMMAND) -E cmake_progress_start D:/ComOrg/MeowXMonster/build/_deps/raylib-subbuild/CMakeFiles 9
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/raylib-populate.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start D:/ComOrg/MeowXMonster/build/_deps/raylib-subbuild/CMakeFiles 0
+=======
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/MeowXMonster/build/_deps/raylib-subbuild/CMakeFiles 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/raylib-populate.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/MeowXMonster/build/_deps/raylib-subbuild/CMakeFiles 0
+>>>>>>> Stashed changes
 .PHONY : CMakeFiles/raylib-populate.dir/rule
 
 # Convenience name for target.

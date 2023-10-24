@@ -57,10 +57,17 @@ RM = "C:/Program Files/CMake/bin/cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
+<<<<<<< Updated upstream
 CMAKE_SOURCE_DIR = D:/ComOrg/MeowXMonster/build/_deps/raylib-subbuild
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = D:/ComOrg/MeowXMonster/build/_deps/raylib-subbuild
+=======
+CMAKE_SOURCE_DIR = /home/pi/Desktop/MeowXMonster/build/_deps/raylib-subbuild
+
+# The top-level build directory on which CMake was run.
+CMAKE_BINARY_DIR = /home/pi/Desktop/MeowXMonster/build/_deps/raylib-subbuild
+>>>>>>> Stashed changes
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +94,15 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
+<<<<<<< Updated upstream
 	$(CMAKE_COMMAND) -E cmake_progress_start D:/ComOrg/MeowXMonster/build/_deps/raylib-subbuild/CMakeFiles D:/ComOrg/MeowXMonster/build/_deps/raylib-subbuild//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
 	$(CMAKE_COMMAND) -E cmake_progress_start D:/ComOrg/MeowXMonster/build/_deps/raylib-subbuild/CMakeFiles 0
+=======
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/MeowXMonster/build/_deps/raylib-subbuild/CMakeFiles /home/pi/Desktop/MeowXMonster/build/_deps/raylib-subbuild//CMakeFiles/progress.marks
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/MeowXMonster/build/_deps/raylib-subbuild/CMakeFiles 0
+>>>>>>> Stashed changes
 .PHONY : all
 
 # The main clean target
