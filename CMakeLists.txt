@@ -25,6 +25,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(raylib)
 set(PROJECT_SOURCES
     App.c
+    src/c/gameover.c
     src/c/startgame.c
     src/c/game.c
     src/c/character/character.c
