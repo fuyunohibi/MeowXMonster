@@ -28,11 +28,20 @@ set(PROJECT_SOURCES
     src/c/startgame.c
     src/c/game.c
     src/c/character/character.c
+    src/asm/character.s
+    src/asm/game.s
 )
 
 # Adding our source files
 
-set(PROJECT_INCLUDE "${CMAKE_CURRENT_LIST_DIR}/src/c/") # Define PROJECT_INCLUDE to be the path to the include directory of the project
+set(PROJECT_INCLUDE 
+    "${CMAKE_CURRENT_LIST_DIR}/src/c/"
+    "${CMAKE_CURRENT_LIST_DIR}/src/c/character_asm/"
+)
+
+
+set_source_files_properties(src/asm/character.s PROPERTIES LANGUAGE C)
+set_source_files_properties(src/asm/game.s PROPERTIES LANGUAGE C)
 
 # Declaring our executable
 add_executable(${PROJECT_NAME})

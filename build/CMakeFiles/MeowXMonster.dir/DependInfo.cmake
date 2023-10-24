@@ -5,6 +5,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "/home/pi/MeowXMonster/App.c" "/home/pi/MeowXMonster/build/CMakeFiles/MeowXMonster.dir/App.c.o"
+  "/home/pi/MeowXMonster/src/asm/character.s" "/home/pi/MeowXMonster/build/CMakeFiles/MeowXMonster.dir/src/asm/character.s.o"
+  "/home/pi/MeowXMonster/src/asm/game.s" "/home/pi/MeowXMonster/build/CMakeFiles/MeowXMonster.dir/src/asm/game.s.o"
   "/home/pi/MeowXMonster/src/c/character/character.c" "/home/pi/MeowXMonster/build/CMakeFiles/MeowXMonster.dir/src/c/character/character.c.o"
   "/home/pi/MeowXMonster/src/c/game.c" "/home/pi/MeowXMonster/build/CMakeFiles/MeowXMonster.dir/src/c/game.c.o"
   "/home/pi/MeowXMonster/src/c/startgame.c" "/home/pi/MeowXMonster/build/CMakeFiles/MeowXMonster.dir/src/c/startgame.c.o"
@@ -21,6 +23,7 @@ set(CMAKE_TARGET_DEFINITIONS_C
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
   "../src/c"
+  "../src/c/character_asm"
   "_deps/raylib-src/src"
   "_deps/raylib-src/src/external/glfw/include"
   )

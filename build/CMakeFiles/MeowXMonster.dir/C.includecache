@@ -6,43 +6,5 @@
 
 #IncludeRegexTransform: 
 
-/home/pi/MeowXMonster/src/c/character/character.h
-../constant/game_constants.h
-/home/pi/MeowXMonster/src/c/constant/game_constants.h
-
-/home/pi/MeowXMonster/src/c/constant/game_constants.h
-raylib.h
--
-
-/home/pi/MeowXMonster/src/c/constant/game_data.h
-raylib.h
--
-../character/character.h
-/home/pi/MeowXMonster/src/c/character/character.h
-
-/home/pi/MeowXMonster/src/c/constant/game_functions.h
-game_data.h
-/home/pi/MeowXMonster/src/c/constant/game_data.h
-
-/home/pi/MeowXMonster/src/c/game.c
-stdio.h
--
-string.h
--
-constant/game_data.h
-/home/pi/MeowXMonster/src/c/constant/game_data.h
-constant/game_constants.h
-/home/pi/MeowXMonster/src/c/constant/game_constants.h
-constant/game_functions.h
-/home/pi/MeowXMonster/src/c/constant/game_functions.h
-character/character.h
-/home/pi/MeowXMonster/src/c/character/character.h
-stdlib.h
--
-
-_deps/raylib-src/src/raylib.h
-stdarg.h
--
-stdbool.h
--
+/home/pi/MeowXMonster/src/asm/character.s
 

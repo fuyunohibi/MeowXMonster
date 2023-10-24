@@ -4,6 +4,7 @@
 #include "constant/game_constants.h"
 #include "constant/game_functions.h"
 #include "character/character.h"
+#include "character_asm/game_asm.h"
 #include <stdlib.h>
 
 
@@ -354,7 +355,7 @@ void UpdateGame(void)
     moneyTimer = 0;
   }
 
-  if(monsterCount >= MAX_MONSTERS && score == MAX_MONSTERS){
+  if(monsterCount >= MAX_MONSTERS && score >= MAX_MONSTERS){
     UnloadGame();
   }
 

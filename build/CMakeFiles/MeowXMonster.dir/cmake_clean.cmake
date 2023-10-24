@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/MeowXMonster.dir/App.c.o"
+  "CMakeFiles/MeowXMonster.dir/src/asm/character.s.o"
+  "CMakeFiles/MeowXMonster.dir/src/asm/game.s.o"
   "CMakeFiles/MeowXMonster.dir/src/c/character/character.c.o"
   "CMakeFiles/MeowXMonster.dir/src/c/game.c.o"
   "CMakeFiles/MeowXMonster.dir/src/c/startgame.c.o"

@@ -4,7 +4,6 @@
 #include <raylib.h>
 #include <GLFW/glfw3.h>
 
-
 extern void start_game(void);
 extern Vector2 get_center(Texture2D texture);
 

@@ -2,7 +2,9 @@
   "files.associations": {
     "*.txt": "cmake",
     "raymath.h": "c",
-    "string.h": "c"
+    "string.h": "c",
+    "raylib.h": "c",
+    "game_asm.h": "c"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }

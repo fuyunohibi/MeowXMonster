@@ -276,6 +276,60 @@ App.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MeowXMonster.dir/build.make CMakeFiles/MeowXMonster.dir/App.c.s
 .PHONY : App.c.s
 
+src/asm/character.o: src/asm/character.s.o
+
+.PHONY : src/asm/character.o
+
+# target to build an object file
+src/asm/character.s.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MeowXMonster.dir/build.make CMakeFiles/MeowXMonster.dir/src/asm/character.s.o
+.PHONY : src/asm/character.s.o
+
+src/asm/character.i: src/asm/character.s.i
+
+.PHONY : src/asm/character.i
+
+# target to preprocess a source file
+src/asm/character.s.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MeowXMonster.dir/build.make CMakeFiles/MeowXMonster.dir/src/asm/character.s.i
+.PHONY : src/asm/character.s.i
+
+src/asm/character.s: src/asm/character.s.s
+
+.PHONY : src/asm/character.s
+
+# target to generate assembly for a file
+src/asm/character.s.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MeowXMonster.dir/build.make CMakeFiles/MeowXMonster.dir/src/asm/character.s.s
+.PHONY : src/asm/character.s.s
+
+src/asm/game.o: src/asm/game.s.o
+
+.PHONY : src/asm/game.o
+
+# target to build an object file
+src/asm/game.s.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MeowXMonster.dir/build.make CMakeFiles/MeowXMonster.dir/src/asm/game.s.o
+.PHONY : src/asm/game.s.o
+
+src/asm/game.i: src/asm/game.s.i
+
+.PHONY : src/asm/game.i
+
+# target to preprocess a source file
+src/asm/game.s.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MeowXMonster.dir/build.make CMakeFiles/MeowXMonster.dir/src/asm/game.s.i
+.PHONY : src/asm/game.s.i
+
+src/asm/game.s: src/asm/game.s.s
+
+.PHONY : src/asm/game.s
+
+# target to generate assembly for a file
+src/asm/game.s.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MeowXMonster.dir/build.make CMakeFiles/MeowXMonster.dir/src/asm/game.s.s
+.PHONY : src/asm/game.s.s
+
 src/c/character/character.o: src/c/character/character.c.o
 
 .PHONY : src/c/character/character.o
@@ -378,6 +432,12 @@ help:
 	@echo "... App.o"
 	@echo "... App.i"
 	@echo "... App.s"
+	@echo "... src/asm/character.o"
+	@echo "... src/asm/character.i"
+	@echo "... src/asm/character.s"
+	@echo "... src/asm/game.o"
+	@echo "... src/asm/game.i"
+	@echo "... src/asm/game.s"
 	@echo "... src/c/character/character.o"
 	@echo "... src/c/character/character.i"
 	@echo "... src/c/character/character.s"
