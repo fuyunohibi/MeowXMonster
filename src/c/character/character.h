@@ -6,11 +6,9 @@
 extern Character Laika;
 extern Character MegaChonker;
 extern Character Bomb;
-extern Character FartCat;
 
 extern MonsterCharacter Jelly;
 extern MonsterCharacter Ufo;
 extern MonsterCharacter Muscle;
-extern MonsterCharacter Longleg;
 
 #endif

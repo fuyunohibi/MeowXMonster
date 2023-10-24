@@ -12,16 +12,6 @@ Character Laika = {
     .rightBoundery = 180.0,
 };
 
-Character FartCat = {
-    .name = 2.0,
-    .price = 250.0,
-    .HP = 300000.0,
-    .isAlive = true,
-    .attackDamage = 150.0,
-    .attackPerSecond = 0.05,
-    .rightBoundery = 0.0,
-};
-
 Character MegaChonker = {
     .name = 3.0,
     .price = 200.0,
@@ -51,20 +41,20 @@ Character Bomb = {
 // AVG HP OF CAT IS 500
 
 MonsterCharacter Jelly = {
-    .name = "Jelly The Monster",
-    .killReward = 25,
-    .HP = 150000,
+    .name = 1.0,
+    .killReward = 25.0,
+    .HP = 150000.0,
     .rateOfSpawn = 40.0,
     .isAlive = true,
-    .attackDamage = 80,
+    .attackDamage = 80.0,
     .attackPerSecond = 0.0,
     .walkSpeed = 6.0,
 };
 
 MonsterCharacter Ufo = {
-    .name = "Ufo The Monster",
-    .killReward = 50,
-    .HP = 250000,
+    .name = 2.0,
+    .killReward = 50.0,
+    .HP = 250000.0,
     .rateOfSpawn = 25.0,
     .isAlive = true,
     .attackDamage = 120,
@@ -73,23 +63,12 @@ MonsterCharacter Ufo = {
 };
 
 MonsterCharacter Muscle = {
-    .name = "Muscle The Monster",
-    .killReward = 80,
-    .HP = 400000,
+    .name = 3.0,
+    .killReward = 80.0,
+    .HP = 400000.0,
     .rateOfSpawn = 20.0,
     .isAlive = true,
-    .attackDamage = 100,
+    .attackDamage = 100.0,
     .attackPerSecond = 0.0,
     .walkSpeed = 5.0,
-};
-
-MonsterCharacter Longleg = {
-    .name = "Longleg The Monster",
-    .killReward = 120,
-    .HP = 600000,
-    .rateOfSpawn = 15.0,
-    .isAlive = true,
-    .attackDamage = 200,
-    .attackPerSecond = 0.0,
-    .walkSpeed = 4.5,
 };

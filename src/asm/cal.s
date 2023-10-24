@@ -44,7 +44,38 @@
                     .double 180.0
                     .double 0.0
 
-    monster_array:  .skip 120
+    jelly_array:    .double 1.0
+                    .double 25.0
+                    .double 150000.0
+                    .double 1.0
+                    .double 80.0
+                    .double 0.0
+                    .double 60.0
+
+    ufo_array:      .double 2.0
+                    .double 50.0
+                    .double 250000.0
+                    .double 1.0
+                    .double 120.0
+                    .double 0.0
+                    .double 5.5
+
+    muscle_array:   .double 3.0
+                    .double 80.0
+                    .double 400000.0
+                    .double 1.0
+                    .double 100.0
+                    .double 0.0
+                    .double 5.0
+
+    longleg_array:  .double 4.0
+                    .double 120.0
+                    .double 600000.0
+                    .double 1.0
+                    .double 200.0
+                    .double 0.0
+                    .double 4.5
+
 .bss
     result: .space 4
 
@@ -60,6 +91,11 @@
     .global megachonker
     .global bomb
     .global create_character
+    .global create_monster
+    .global jelly
+    .global ufo
+    .global muscle
+    .global longleg
 
 add_function:
     add r0, r0, r1 
@@ -108,8 +144,6 @@ end_loop:
     // Function epilogue
     pop {pc}
 
-
-
 laika:
     ldr r0, =laika_array
     bx lr
@@ -126,6 +160,22 @@ bomb:
     ldr r0, =bomb_array
     bx lr
 
+jelly:
+    ldr r0, =jelly_array
+    bx lr
+
+ufo:
+    ldr r0, =ufo_array
+    bx lr
+
+muscle:
+    ldr r0, =muscle_array
+    bx lr
+
+longleg:
+    ldr r0, =longleg_array
+    bx lr
+
 create_character:
     cmp r0, #1
     beq laika
@@ -139,4 +189,15 @@ create_character:
     cmp r0, #4
     beq bomb
 
+create_monster:
+    cmp r0, #1
+    beq jelly
 
+    cmp r0, #2
+    beq ufo
+
+    cmp r0, #3
+    beq muscle
+
+    cmp r0, #4
+    beq longleg

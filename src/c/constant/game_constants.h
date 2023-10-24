@@ -24,12 +24,12 @@ typedef struct
 
 typedef struct
 {
-  char name[50];
-  int killReward;
+  float name;
+  float killReward;
   float rateOfSpawn;
-  int HP;
+  float HP;
   bool isAlive;
-  int attackDamage;
+  float attackDamage;
   float attackPerSecond;
   float attackTimer;
   Texture2D frames[NUM_FRAMES];
