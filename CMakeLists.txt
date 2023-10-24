@@ -31,8 +31,6 @@ set(PROJECT_SOURCES
     src/c/character/character.c
     src/asm/cal.s
     src/asm/cal.o
-    src/asm/struct_char.s
-    src/asm/struct_char.o
 )
 
 # Adding our source files

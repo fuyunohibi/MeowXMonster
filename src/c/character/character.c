@@ -3,44 +3,46 @@
 // ==================== PLAYABLE CHARACTERS ====================
 
 Character Laika = {
-    .name = "Laika",
-    .price = 100,
-    .HP = 150000,
+    .name = 1.0,
+    .price = 100.0,
+    .HP = 150000.0,
     .isAlive = true,
-    .attackDamage = 50000,
+    .attackDamage = 50000.0,
     .attackPerSecond = 0.5,
     .rightBoundery = 180.0,
 };
 
 Character FartCat = {
-    .name = "FartCat",
-    .price = 250,
-    .HP = 300000,
+    .name = 2.0,
+    .price = 250.0,
+    .HP = 300000.0,
     .isAlive = true,
-    .attackDamage = 150,
+    .attackDamage = 150.0,
     .attackPerSecond = 0.05,
     .rightBoundery = 0.0,
 };
 
 Character MegaChonker = {
-    .name = "MegaChonker",
-    .price = 200,
-    .HP = 400000,
+    .name = 3.0,
+    .price = 200.0,
+    .HP = 400000.0,
     .isAlive = true,
-    .attackDamage = 0,
+    .attackDamage = 0.0,
     .attackPerSecond = 0.0,
     .rightBoundery = 180.0,
 };
 
 Character Bomb = {
-    .name = "Bomb",
-    .price = 400,
-    .HP = 1,
+    .name = 4.0,
+    .price = 400.0,
+    .HP = 1.0,
     .isAlive = true,
-    .attackDamage = 500000,
+    .attackDamage = 500000.0,
     .attackPerSecond = 0.0,
     .rightBoundery = 180.0,
 };
+
+
 
 // ==================== MONSTER CHARACTERS ====================
 // ============ ASCENDING BASE ON STRENTH OF MONSTER ============

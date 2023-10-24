@@ -117,4 +117,5 @@ int charactersCount = 0;
 int charactersRow[NUM_BLOCKS];
 int monsterCount = 0;
 
+
 #endif // GAME_DATA_H

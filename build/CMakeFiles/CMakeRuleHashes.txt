@@ -1,6 +1,2 @@
 # Hashes of file build rules.
-<<<<<<< Updated upstream
-9f26efe4cc3b55b41b1c47bec7bfa55f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/update_mappings
-=======
 45c15add57dcd7514f3b026acb3017cf _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/update_mappings
->>>>>>> Stashed changes

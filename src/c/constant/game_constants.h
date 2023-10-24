@@ -9,9 +9,9 @@
 
 typedef struct
 {
-  char name[50];
-  int price;
-  int HP;
+  float name;
+  float price;
+  float HP;
   bool isAlive;
   float attackDamage;
   float attackPerSecond;

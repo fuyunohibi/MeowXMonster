@@ -1,19 +1,6 @@
 # Target labels
  raylib-populate
 # Source files and their labels
-<<<<<<< Updated upstream
-D:/ComOrg/MeowXMonster/build/_deps/raylib-subbuild/CMakeFiles/raylib-populate
-D:/ComOrg/MeowXMonster/build/_deps/raylib-subbuild/CMakeFiles/raylib-populate.rule
-D:/ComOrg/MeowXMonster/build/_deps/raylib-subbuild/CMakeFiles/raylib-populate-complete.rule
-D:/ComOrg/MeowXMonster/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-build.rule
-D:/ComOrg/MeowXMonster/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-configure.rule
-D:/ComOrg/MeowXMonster/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-download.rule
-D:/ComOrg/MeowXMonster/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-install.rule
-D:/ComOrg/MeowXMonster/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-mkdir.rule
-D:/ComOrg/MeowXMonster/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-patch.rule
-D:/ComOrg/MeowXMonster/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-test.rule
-D:/ComOrg/MeowXMonster/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-update.rule
-=======
 /home/pi/Desktop/MeowXMonster/build/_deps/raylib-subbuild/CMakeFiles/raylib-populate
 /home/pi/Desktop/MeowXMonster/build/_deps/raylib-subbuild/CMakeFiles/raylib-populate.rule
 /home/pi/Desktop/MeowXMonster/build/_deps/raylib-subbuild/CMakeFiles/raylib-populate-complete.rule
@@ -25,4 +12,3 @@ D:/ComOrg/MeowXMonster/build/_deps/raylib-subbuild/raylib-populate-prefix/src/ra
 /home/pi/Desktop/MeowXMonster/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-configure.rule
 /home/pi/Desktop/MeowXMonster/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-build.rule
 /home/pi/Desktop/MeowXMonster/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-test.rule
->>>>>>> Stashed changes
