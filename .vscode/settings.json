@@ -3,7 +3,9 @@
     "*.txt": "cmake",
     "raymath.h": "c",
     "string.h": "c",
-    "character.h": "c"
+    "character.h": "c",
+    "stdlib.h": "c",
+    "stdio.h": "c"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }

@@ -7,8 +7,8 @@ Character Laika = {
     .price = 100.0,
     .HP = 150000.0,
     .isAlive = true,
-    .attackDamage = 50000.0,
-    .attackPerSecond = 0.5,
+    .attackDamage = 37500.0,
+    .attackPerSecond = 0.45,
     .rightBoundery = 180.0,
 };
 
@@ -65,10 +65,10 @@ MonsterCharacter Ufo = {
 MonsterCharacter Muscle = {
     .name = 3.0,
     .killReward = 80.0,
-    .HP = 400000.0,
+    .HP = 500000.0,
     .rateOfSpawn = 20.0,
     .isAlive = true,
-    .attackDamage = 100.0,
+    .attackDamage = 150.0,
     .attackPerSecond = 0.0,
     .walkSpeed = 5.0,
 };

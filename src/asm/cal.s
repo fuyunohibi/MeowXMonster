@@ -1,5 +1,5 @@
 .data
-    seed:   .word 42   
+    total_score: .word 0 
     @ name
     @ price
     @ HP
@@ -12,8 +12,8 @@
                     .double 100.0
                     .double 150000.0
                     .double 1.0
-                    .double 50000.0
-                    .double 0.5
+                    .double 37500.0
+                    .double 0.45
                     .double 180.0
                     .double 0.0
 
@@ -62,9 +62,9 @@
 
     muscle_array:   .double 3.0
                     .double 80.0
-                    .double 400000.0
+                    .double 500000.0
                     .double 1.0
-                    .double 100.0
+                    .double 150.0
                     .double 0.0
                     .double 5.0
 
@@ -83,6 +83,8 @@
     .global add_function
     .global calculate_center
     .global random_number
+    .global set_total_score
+    .global get_total_score
     .global findRow
     .global loop
     .global end_loop
@@ -101,6 +103,16 @@ add_function:
     add r0, r0, r1 
     bx lr
 
+set_total_score:
+    ldr r1, =total_score
+    str r0, [r1]
+    bx lr
+
+get_total_score:
+    ldr r0, =total_score
+    ldr r0, [r0]  
+    bx lr
+
 calculate_center:
     mov r2, r0  
     sub r2, r2, r1  
@@ -109,17 +121,19 @@ calculate_center:
 
     bx lr
 
-@ random_number:
-@     ldr r0, =seed
-@     bl srand
-@     bl rand
-@     mov r1, #101   
-@     umull r2, r3, r0, r1 
-@     lsr r2, r2, #31   
+random_number:
+    @ Inputs:
+    @ r0: Dividend (n)
+    @ r1: Divisor
+    @ Outputs:
+    @ r0: Remainder (result of n % divisor)
 
-@     str r0, [result]
+    add r1, r1, #1
+    udiv r2, r0, r1      @ r0 = r0 / r1 (unsigned division)
+    mul r3, r2, r1      @ r0 = r0 * r1
+    sub r0, r0, r3  @ r0 = r0 - (r0 * r1) (remainder in r0)
 
-@     bx lr
+    bx lr                @ Return
 
 findRow:
     // Function prologue
