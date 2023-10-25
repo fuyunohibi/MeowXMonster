@@ -8,7 +8,7 @@
 #define SCREEN_HEIGHT 1080
 #define NUM_FRAMES 3
 #define NUM_BLOCKS 15
-#define MAX_CHARACTERS 30
+#define MAX_CHARACTERS 50
 #define INITIAL_REWARD 100
 #define MAX_MONSTERS 50
 
@@ -95,7 +95,7 @@ Explosion bombExplosions[MAX_CHARACTERS];
 Character charactersOnField[MAX_CHARACTERS];
 int charactersCount = 0;
 int charactersRow[NUM_BLOCKS];
-int monsterCount = 0;
+int monsterCount;
 
 
 #endif // GAME_DATA_H

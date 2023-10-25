@@ -14,8 +14,11 @@ extern double* create_character(int index);
 extern double* create_monster(int index);
 extern int GameOverPage(void);
 extern int add_function(int score, int adder);
+extern int decrement_money(int money, int price);
 extern int set_total_score(int score);
 extern int get_total_score(void);
+extern int set_money(int money);
+extern int get_money(void);
 
 int get_random(int max) {
   srand(time(NULL));
@@ -109,8 +112,8 @@ void UpdateMonsters(MonsterCharacter *monster, float deltaTime, int speed){
   if (monster->HP <= 0){
     monster->isAlive = false;
     monster->active = false;
-    score = set_total_score(add_function(score,1));
-    money += monster->killReward;
+    score = set_total_score(add_function(score, 1));
+    money = set_money(add_function(money, monster->killReward));
   }
   if(monster->isAlive){
     monster->position.x -= speed * deltaTime; // Move monster to the left
@@ -256,7 +259,7 @@ void UpdateGame(void){
   static double moneyTimer = 0;
   moneyTimer += GetFrameTime();
   if (moneyTimer >= 3.0) /* Increase money every 3 seconds */  {
-    money = add_function(money, 30); // Increase money by 100
+    money = set_money(add_function(money, 30)); // Increase money by 100
     moneyTimer = 0;
   }
   if(score >= MAX_MONSTERS){
@@ -324,7 +327,7 @@ void UpdateGame(void){
           block_empty[i] = false;
           block_contains_Laika_animation[i] = true; // Mark this block as containing animation
           shouldCopyLaika = false;
-          money -= Laika.price;
+          money = set_money(decrement_money(money, Laika.price));
           charactersOnField[charactersCount] = CreateCharacter(1, i);
           charactersPOS[charactersCount].x = targetPositions[i].x;
           charactersPOS[charactersCount].y = targetPositions[i].y;
@@ -339,7 +342,7 @@ void UpdateGame(void){
           block_empty[i] = false;
           block_contains_MC_animation[i] = true; // Mark this block as containing animation
           shouldCopyMC = false;
-          money -= MegaChonker.price;
+          money = set_money(decrement_money(money, MegaChonker.price));
           charactersOnField[charactersCount] = CreateCharacter(3, i);
           charactersPOS[charactersCount].x = targetPositions[i].x;
           charactersPOS[charactersCount].y = targetPositions[i].y;
@@ -354,7 +357,7 @@ void UpdateGame(void){
           block_empty[i] = false;
           block_contains_Bomb_animation[i] = true; // Mark this block as containing animation
           shouldCopyBomb = false;
-          money -= Bomb.price;
+          money = set_money(decrement_money(money, Bomb.price));
           charactersOnField[charactersCount] = CreateCharacter(4, i);
           charactersPOS[charactersCount].x = targetPositions[i].x;
           charactersPOS[charactersCount].y = targetPositions[i].y;
@@ -401,7 +404,7 @@ void DrawGame(void) {
   sprintf(scoreBuffer, "%d", score);
   DrawText(scoreBuffer, 530, 80, 30, BLACK);
   DrawText("Money:", 750, 30, 30, BLACK);
-  sprintf(moneyBuffer, "%d", money);
+  sprintf(moneyBuffer, "%d", get_money());
   DrawText(moneyBuffer, 790, 80, 30, BLACK);
   DrawRectangle(0, 0, 250, 250, brownColor_Laika);
   DrawRectangle(0, 250, 250, 250, brownColor_MC);
@@ -439,10 +442,10 @@ void DrawGame(void) {
       monsterSpawnInterval = 70.0f;
     } else if(monsterCount < 20) {
       randomIndex = get_random(2);
-      monsterSpawnInterval = 45.0f;
+      monsterSpawnInterval = 60.0f;
     } else if(monsterCount < 30) {
       randomIndex = get_random(2);
-      monsterSpawnInterval = 30.0f;
+      monsterSpawnInterval = 50.0f;
     } else {
       randomIndex = get_random(2);
       monsterSpawnInterval = 15.0f;
@@ -454,18 +457,17 @@ void DrawGame(void) {
           CreateMonsterCharacter(&jellys[i], 1);
           monsterSpawnTimer = 0.0f; // Reset the spawn timer
           monsterCount++;
-          // printf("monster: %d, row: %d\n", jellys[i].name, jellys[i].row);
           break;
         } else if (!ufos[i].active && randomIndex == 1) {
           CreateMonsterCharacter(&ufos[i], 2);
-          // printf("monster: %d, row: %d\n", ufos[i].name, ufos[i].row);
           monsterSpawnTimer = 0.0f; // Reset the spawn timer
+          printf("%d\n", monsterCount);
           monsterCount++;
           break;
         } else if (!muscles[i].active && randomIndex == 2) {
           CreateMonsterCharacter(&muscles[i], 3);
-          // printf("monster: %d, row: %d\n", muscles[i].name, muscles[i].row);
           monsterSpawnTimer = 0.0f; // Reset the spawn timer
+          printf("%d\n", monsterCount);
           monsterCount++;
           break;
         }

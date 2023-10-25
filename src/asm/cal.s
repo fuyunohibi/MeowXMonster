@@ -1,5 +1,6 @@
 .data
-    total_score: .word 0 
+    total_score: .word 0
+    money:  .word 200
     @ name
     @ price
     @ HP
@@ -81,10 +82,13 @@
 
 .text
     .global add_function
+    .global decrement_money
     .global calculate_center
     .global random_number
     .global set_total_score
     .global get_total_score
+    .global set_money
+    .global get_money
     .global findRow
     .global loop
     .global end_loop
@@ -103,6 +107,10 @@ add_function:
     add r0, r0, r1 
     bx lr
 
+decrement_money:
+    sub r0, r0, r1
+    bx lr
+
 set_total_score:
     ldr r1, =total_score
     str r0, [r1]
@@ -111,6 +119,16 @@ set_total_score:
 get_total_score:
     ldr r0, =total_score
     ldr r0, [r0]  
+    bx lr
+
+set_money:
+    ldr r1, =money
+    str r0, [r1]
+    bx lr
+
+get_money:
+    ldr r0, =money
+    ldr r0, [r0]
     bx lr
 
 calculate_center:
@@ -133,7 +151,7 @@ random_number:
     mul r3, r2, r1      @ r0 = r0 * r1
     sub r0, r0, r3  @ r0 = r0 - (r0 * r1) (remainder in r0)
 
-    bx lr                @ Return
+    bx lr               
 
 findRow:
     // Function prologue
